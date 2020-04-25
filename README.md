@@ -8,19 +8,19 @@ This is the source for my first website in over a decade!
 The goals are shakey at best. I'm not sure if this is a professional site.  
 Probably not. 
 
-- [] Philosophy papers
+- [ ] Philosophy papers
 * This is for archival purposes, mainly. I don't plan on pushing anything new.  
 
-- [] Maths stuff
+- [ ] Maths stuff
 * Notes, thoughts, references. Perhaps study guides. IDK.  
 
-- [] Linux
+- [ ] Linux
 * December marked my real foray into linux. We should document things.  
 
-- [] Coding
+- [ ] Coding
 * I plan on learning more R, truly learning some Python, and getting into C.  
 
-- [] ???
+- [ ] ???
 
 ## Why? 
 
