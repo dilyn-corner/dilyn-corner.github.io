@@ -10,12 +10,16 @@ Probably not.
 
 -[] Philosophy papers
 * This is for archival purposes, mainly. I don't plan on pushing anything new.  
+
 -[] Maths stuff
 * Notes, thoughts, references. Perhaps study guides. IDK.  
+
 -[] Linux
 * December marked my real foray into linux. We should document things.  
+
 -[] Coding
 * I plan on learning more R, truly learning some Python, and getting into C.  
+
 -[] ???
 
 ## Why? 
