@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-<title>KISS Linux Blog</title>
-<description>An independent Linux® distribution with a focus on simplicity and the concept of "less is more". The distribution currently targets the x86-64 architecture and the English language.</description>
-<link>https://k1ss.org</link>
+<title>My Papers</title>
+<description>A collection of the many, many papers I have written</description>
+<link>https://dilyn-corner.github.io</link>
 <ttl>1800</ttl>
-<atom:link href="https://k1ss.org/blog/blog.xml" rel="self" type="application/rss+xml" />
+<atom:link href="https://dilyn-corner.github.io/papers/papers.xml" rel="self" type="application/rss+xml" />
+<item>
+<title>01/11/2020: </title>
+<description></description>
+<link>https://dilyn-corner.github.io/papers/20201101a</link>
+<guid isPermaLink="true">https://dilyn-corner.github.io/papers/20201101a/</guid>
+<pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>01/11/2020: </title>
+<description></description>
+<link>https://dilyn-corner.github.io/papers/20201101a</link>
+<guid isPermaLink="true">https://dilyn-corner.github.io/papers/20201101a/</guid>
+<pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>01/11/2020: </title>
+<description></description>
+<link>https://dilyn-corner.github.io/papers/20201101a</link>
+<guid isPermaLink="true">https://dilyn-corner.github.io/papers/20201101a/</guid>
+<pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+</item>
 <item>
 <title>03/09/2020: </title>
 <description></description>
