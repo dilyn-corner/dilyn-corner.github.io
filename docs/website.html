@@ -1,0 +1,79 @@
+<!doctype html><html lang=en><link href='data:image/gif;base64,R0lGODlhEAAQAPH/AAAAAP8AAP8AN////yH5BAUAAAQALAAAAAAQABAAAAM2SLrc/jA+QBUFM2iqA2bAMHSktwCCWJIYEIyvKLOuJt+wV69ry5cfwu7WCVp2RSPoUpE4n4sEADs=' rel=icon><title>KISS - website</title><meta charset=utf-8><meta name=Description content="An independent Linux distribution with a focus on simplicity and the concept of less is more."><meta name=viewport content="width=device-width,initial-scale=1"><style>body{overflow-y:scroll;font:16px monospace,monospace}img,.c{display:table-cell;max-width:999px;max-width:80ch}pre{margin:0;overflow-x:hidden}@media(max-width:999px){.c{display:block;font-size:1.94vw}}@media(prefers-color-scheme:dark){body{background:#000;color:#fff}a{color:#6CF}}</style><div style="display:table;margin:16px auto"><div class=c><pre style="top:0;position:sticky;user-select:none;padding-right:64px">
+<a href=/ style="text-decoration:none;color:#a00">
+|/
+|\ISS
+</a>
+<a href=/news>News</a>
+<a href=/blog>Blog</a>
+
+<a href=/wiki>Wiki</a>
+
+<a href=/install>Install KISS</a>
+<a href=/faq>FAQ</a>
+
+<a href=/package-system>Package System</a>
+<a href=/package-manager>Package Manager</a>
+<a href=/software>Software</a>
+
+<a href=/guidestones>Guidestones</a>
+
+<a href=/testimonials>Testimonials</a>
+<a href=/screenshots>Screenshots</a>
+<a href=/team>Team</a>
+
+<a href=/contact>Contact</a>
+<a href=/donate>Donate</a>
+
+<a href=https://github.com/kisslinux/>GitHub</a>
+<a href=https://git.k1ss.org>Git (mirror)</a>
+
+</pre></div><div class=c><pre>
+
+ABOUT THIS WEBSITE
+________________________________________________________________________________
+
+I have been looking towards making a website to host a bunch of the content I've 
+generated over the years. I've used WordPress, Square Space, Myspace... All of
+them left me overwhelmed. They had so many features I did not care about or use.
+I just want a simple front page with an easy to navigate index that displays
+text and maybe a few images. $/<a href=https://github.com/dylan-araps>dylan-araps</a> built a website that was basically
+that, and was kind enough to license his work under the MIT license. As a
+result, this website can now exist. Many, many thanks to him and all the work he
+has done that I have had the privilege to use. 
+
+What follows is his own description of how this site works:
+This is not your run-of-the-mill website. It is not generated from something
+like Markdown, nor is it written in HTML. Each page is simply a .txt file which
+is inserted into &lt;pre&gt; tags that reside in a tiny template.
+
+The template contains the CSS, favicon, sidebar and the few HTML elements needed
+to house the content. Each resulting HTML file is fully self-contained.
+Everything listed above is embedded into each file.
+
+Thanks to this "static" model, each page on this website takes up a single HTTP
+request. One can simply use curl to grab a page and it'll render in the browser
+offline and as intended.
+
+This remains quick despite the loss in caching as each page is no larger than
+3-10 kilobytes. See: <a href=https://tools.pingdom.com/#5ca38087eb000000>https://tools.pingdom.com/#5ca38087eb000000</a>
+
+/* 
+    Providing some kind of inline favicon is the only way to quiet the browser
+    and prevent it from trying to load something non-existent. Prior to creating
+    the above favicon, this website used the following snippet.
+    
+    &lt;link href=data:, rel=icon&gt;
+    
+    Through a lot of tinkering I found that this is the smallest possible
+    (inline) favicon. This successfully shushes the web request in all tested
+    browsers.
+*/
+
+
+________________________________________________________________________________
+
+Dylan Araps (C) 2019-2020
+
+Linux(R) is the registered trademark of Linus Torvalds in the U.S. and
+other countries.
+</pre></div></div>
