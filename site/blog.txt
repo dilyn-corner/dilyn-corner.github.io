@@ -1,0 +1,6 @@
+BLOG - A PLACEHOLDER
+________________________________________________________________________________
+
+RSS Feed available here: @/blog/blog.xml
+
+- @/blog/Example

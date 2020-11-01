@@ -1,0 +1,6 @@
+NEWS - A PLACEHOLDER
+________________________________________________________________________________
+
+RSS Feed available here: @/news/news.xml
+
+- @/news/Example
