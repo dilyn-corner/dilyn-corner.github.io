@@ -4,148 +4,1086 @@
 
 = SECTION 1 – AN INTRODUCTION =
 
-When classical logic is first taught, propositional logic is a relatively simple place to begin from. Statements like ‘a is a cube’ and ‘b is to the left of c’ are common statements, from which further complex propositions can be expressed through the introduction of classical sentential connectives. Once we begin to have a mastery of these more complicated logical statements, it becomes further generalized to such statements as P(a), where a is the object which P is true of. It is from this point that first-order logic arises. We can further generalize the statement P(a) using the rule of existential instantiation: <math>\exists \mathit{xP}\left(x\right)</math>, which says ‘there exists an x such that P is true of x’. Similarly, we can express universal statements: <math>\forall \mathit{xP}\left(x\right)</math>, ‘for every x P is true of x’. Such statements involving quantifiers are taken to be about particular sorts of domains, the domains which the quantifiers range over. The question we might be left to wrangle with is what exactly this domain of discourse is. As ordinary language users, we take no real issue with the statement that “everybody is in the car”. If someone were to respond and say, “but the President is not”, we might give them an incredulous look; we were, after all, only concerning ourselves with the relevant people. These ‘relevant people’ are determined by the context of my claim. Perhaps my family is getting ready to go on vacation, and now that everyone in my immediate family is in the car we may leave. In any case, it certainly doesn’t seem to be reasonable to suggest that I meant all seven billion people on Earth were in my vehicle. But there are other cases in which we certainly would take ourselves to be broadly discussing everything there is. The statement “there are no abstract objects” certainly seems to be about every kind of object; of all the things which exist, none of them are abstract. If this domain were somehow restricted – say, to be about concrete objects – the proposition certainly wouldn’t express what the speaker might have hoped it would. The aforementioned speaker is charged with speaking absolutely generally. They purport to be quantifying over literally everything, and as such their quantifiers can be thought of as being absolutely unrestricted. However, there are an assortment of problems which arise from attempting to speak in such absolutely general terms. Considering this, the ensuing discussion will consider objections presented to such a view – that absolute generality and unrestricted quantification are allowable in logic. Those who accept some form of absolute generality or unrestricted quantification are known as absolutists; their opponents, limitavists. With this perspective in mind, the premier questions of this thesis are (1) what support does the absolutist position have considering these objections, (2) do the limitavists have proper reservations and responses towards these arguments, and (3) what then are we left to make of absolutely unrestricted quantification? In what follows I will attempt to answer these three questions in three parts. First, I will explain what some of the problems absolute generality presents to us are. The three problems I will be focusing on are the existence of indefinitely extensible concepts, the issue of semantic indeterminacy for the size of a given domain of quantification, and the problem of using sortal concepts which fail to provide an adequate criterion of identity. Second, I will examine the resolutions to some of these problems which have been proposed. Finally, I will discuss which of these positions, if any, can put our worries at ease and be used as proper justification for our unrestricted discourse.
+When classical logic is first taught, propositional logic is a relatively simple
+place to begin from. Statements like ‘a is a cube’ and ‘b is to the
+left of c’ are common statements, from which further complex propositions
+can be expressed through the introduction of classical sentential connectives.
+Once we begin to have a mastery of these more complicated logical statements, it
+becomes further generalized to such statements as P(a), where a is the object
+which P is true of. It is from this point that first-order logic arises. We can
+further generalize the statement P(a) using the rule of existential
+instantiation: <math>\exists \mathit{xP}\left(x\right)</math>, which says
+‘there exists an x such that P is true of x’. Similarly, we can express
+universal statements: <math>\forall \mathit{xP}\left(x\right)</math>, ‘for
+every x P is true of x’. Such statements involving quantifiers are taken to
+be about particular sorts of domains, the domains which the quantifiers range
+over. The question we might be left to wrangle with is what exactly this domain
+of discourse is. As ordinary language users, we take no real issue with the
+statement that “everybody is in the car”. If someone were to respond and
+say, “but the President is not”, we might give them an incredulous look;
+we were, after all, only concerning ourselves with the relevant people. These
+‘relevant people’ are determined by the context of my claim. Perhaps my
+family is getting ready to go on vacation, and now that everyone in my immediate
+family is in the car we may leave. In any case, it certainly doesn’t seem to
+be reasonable to suggest that I meant all seven billion people on Earth were in
+my vehicle. But there are other cases in which we certainly would take ourselves
+to be broadly discussing everything there is. The statement “there are no
+abstract objects” certainly seems to be about every kind of object; of all
+the things which exist, none of them are abstract. If this domain were somehow
+restricted – say, to be about concrete objects – the proposition
+certainly wouldn’t express what the speaker might have hoped it would. The
+aforementioned speaker is charged with speaking absolutely generally. They
+purport to be quantifying over literally everything, and as such their
+quantifiers can be thought of as being absolutely unrestricted. However, there
+are an assortment of problems which arise from attempting to speak in such
+absolutely general terms. Considering this, the ensuing discussion will consider
+objections presented to such a view – that absolute generality and
+unrestricted quantification are allowable in logic. Those who accept some form
+of absolute generality or unrestricted quantification are known as absolutists;
+their opponents, limitavists. With this perspective in mind, the premier
+questions of this thesis are (1) what support does the absolutist position have
+considering these objections, (2) do the limitavists have proper reservations
+and responses towards these arguments, and (3) what then are we left to make of
+absolutely unrestricted quantification? In what follows I will attempt to answer
+these three questions in three parts. First, I will explain what some of the
+problems absolute generality presents to us are. The three problems I will be
+focusing on are the existence of indefinitely extensible concepts, the issue of
+semantic indeterminacy for the size of a given domain of quantification, and the
+problem of using sortal concepts which fail to provide an adequate criterion of
+identity. Second, I will examine the resolutions to some of these problems which
+have been proposed. Finally, I will discuss which of these positions, if any,
+can put our worries at ease and be used as proper justification for our
+unrestricted discourse.
 
-<div style="margin-left:0in;margin-right:0in;">We begin our examination of the three problems for absolutely general inquiry with indefinite extensibility. The development of this criticism arises primarily from arguments due to Michael Dummett.<ref name="ftn1">See Dummett (1991). For a closer examination of Dummett’s argument, see Clark (1998). </ref> In short, a concept is indefinitely extensible just in case its extension is not definite. That is to say, there are certain concepts under which the totality of its extension is not fully specified. The problem which this criticism points out is that, given any particular domain our quantifiers range over which purports to be absolute, we can always find an object which sits outside of the scope of our quantifiers. The development of set theory in the 20<sup>th</sup> century led to one of the most paradigmatic instances of indefinite extensibility. While the object in question need not be sets<ref name="ftn2">Our domain need not be particularly specific on this matter, but there are cases to watch for. As a matter of fact, (proper) classes can be a totality which allows you to quantify over the object language of set theory just fine. Models are also another proper way of discussing certain kinds of totalities. For more on these points, refer to the introduction in Peters & Westerståhl (2006).</ref>, they are a paradigmatic instance of this sort of problem. Generally speaking, a set is a collection of objects satisfying some given property. So<math>\left\lbrace x\right\vert \phi \left(x\right)</math>} is the collection of objects <math>x</math>which satisfy <math>\phi \left(x\right)</math>. Given the schema <math>\exists y\forall x\left(x\in y\leftrightarrow \phi \left(x\right)\right)</math>, we can then formulate the set for which <math>\forall x\left(x\in r\leftrightarrow \phi \left(x\right)\right)</math>, and in defining the formula <math>\phi \left(x\right)</math>as <math>x\notin x</math>, we have that <math>\forall x\left(x\in r\leftrightarrow x\notin x\right)</math>From this we can infer that <math>r\in r\leftrightarrow r\notin r</math>.<ref name="ftn3">This is the famous Russell’s Paradox. See Frege (2013). </ref> What this means is that a set is a member of itself if and only if it is not a member of itself. Usually referred to as the universal set, it is seen as a major contradiction in set theory. It can also be shown that other concepts are indefinitely extensible as well. Take for instance the notion of a proper ordering of collections. Suppose I give you some sort of set, say <math>\left\lbrace \right\rbrace </math>, and I tell you that there is a number we can associate to it, say zero. We can say then that the size of this set is zero. From this, I give you a few more sets, like <math>\left\lbrace 0\right\rbrace </math>, <math>\left\lbrace 0,1\right\rbrace </math>, <math>\left\lbrace 0,1,2\right\rbrace </math>, and tell you that we can associate one, two, and three to each of these. We can continue this as far as we like, counting the size of each as we go. From this point, we can list out the natural numbers <math>\left\lbrace 0,1,2,3,\dots \right\rbrace </math>. Can we not also assign an order to this as well? Indeed, we can; call the size of this set the ordinal . Suppose that I simply offer up a reordering of this list; perhaps we can call  + 1 the associated ordinal to <math>\left\lbrace 1,2,3,\dots ,0\right\rbrace </math>. Likewise, with the natural numbers, it seems that we should be able to continue this process; so, suppose we add more numbers to our list like , such as  + 1,  + 2, and so on. Eventually, we could arrive at  + ,  +  + 1, and even further if we wanted to. These seem to be like numbers in a similar fashion to the real numbers<ref name="ftn4">Some hesitation is required on this point; I have merely brushed aside that we can add numbers to ordinals without properly defining addition or anything like this. Perhaps just take my word for it; some such definition can be made. </ref>, and we have no qualms with collecting all the naturals or, indeed, the real numbers, into a single collection. So, suppose we do, and call this collection of ordinals . But certainly, we can associate to this collection of ordinals another ordinal, not originally in our collection! It seems that our totality can be extended, and we were wrong to suppose that we had in fact collected all of the ordinals in the first place.<ref name="ftn5">For further explanation on ordinals and the Burali-Forti Paradox, see Moore (2015).</ref> We are left with two possible avenues in light of these contradictions: we can either reject the formula we chose to arrive at the paradox, and thus rejecting the formulation of certain kinds of sets (ordinals), or else we can admit that the given set (ordinal) lies outside of the extension of the variable <math>x</math>(the collection ).<ref name="ftn6">Russell anticipated such a move in Russell (1906) for sets. Note that, in rejecting the existence of the Russell set, the proponent of indefinite extensibility need only point out that this is exactly what they are suggesting, namely that the <math>x</math>in question ranges over a domain of sets for which the Russell set is not a member – it does not exist in the collection. </ref> The problem of indefinite extensibility in sum demonstrates that the idea of an all-inclusive domain is false. After all, if we cannot have an all-inclusive domain of sets, we certainly cannot have an all-inclusive domain of objects which includes sets – and if it didn’t include sets, it would seem to not be a domain we could call a totality! Alternatively, indefinite extensibility suggests that we might simply always have to deal with restricted quantifiers, and that they are restricted to some sort of domain which is not all-inclusive.<ref name="ftn7">For a furthermore feature rich discussion of the problems posed by ordinals and sets, along with a more generalized version of the Dummettian and Russellian points, see Wright & Shapiro (2006). </ref></div>
+<div style="margin-left:0in;margin-right:0in;">We begin our examination of the
+three problems for absolutely general inquiry with indefinite extensibility. The
+development of this criticism arises primarily from arguments due to Michael
+Dummett.<ref name="ftn1">See Dummett (1991). For a closer examination of
+Dummett’s argument, see Clark (1998). </ref> In short, a concept is
+indefinitely extensible just in case its extension is not definite. That is to
+say, there are certain concepts under which the totality of its extension is not
+fully specified. The problem which this criticism points out is that, given any
+particular domain our quantifiers range over which purports to be absolute, we
+can always find an object which sits outside of the scope of our quantifiers.
+The development of set theory in the 20<sup>th</sup> century led to one of the
+most paradigmatic instances of indefinite extensibility. While the object in
+question need not be sets<ref name="ftn2">Our domain need not be particularly
+specific on this matter, but there are cases to watch for. As a matter of fact,
+(proper) classes can be a totality which allows you to quantify over the object
+language of set theory just fine. Models are also another proper way of
+discussing certain kinds of totalities. For more on these points, refer to the
+introduction in Peters & Westerståhl (2006).</ref>, they are a paradigmatic
+instance of this sort of problem. Generally speaking, a set is a collection of
+objects satisfying some given property. So<math>\left\lbrace x\right\vert \phi
+\left(x\right)</math>} is the collection of objects <math>x</math>which satisfy
+<math>\phi \left(x\right)</math>. Given the schema <math>\exists y\forall
+x\left(x\in y\leftrightarrow \phi \left(x\right)\right)</math>, we can then
+formulate the set for which <math>\forall x\left(x\in r\leftrightarrow \phi
+\left(x\right)\right)</math>, and in defining the formula <math>\phi
+\left(x\right)</math>as <math>x\notin x</math>, we have that <math>\forall
+x\left(x\in r\leftrightarrow x\notin x\right)</math>From this we can infer that
+<math>r\in r\leftrightarrow r\notin r</math>.<ref name="ftn3">This is the famous
+Russell’s Paradox. See Frege (2013). </ref> What this means is that a set is
+a member of itself if and only if it is not a member of itself. Usually referred
+to as the universal set, it is seen as a major contradiction in set theory. It
+can also be shown that other concepts are indefinitely extensible as well. Take
+for instance the notion of a proper ordering of collections. Suppose I give you
+some sort of set, say <math>\left\lbrace \right\rbrace </math>, and I tell you
+that there is a number we can associate to it, say zero. We can say then that
+the size of this set is zero. From this, I give you a few more sets, like
+<math>\left\lbrace 0\right\rbrace </math>, <math>\left\lbrace 0,1\right\rbrace
+</math>, <math>\left\lbrace 0,1,2\right\rbrace </math>, and tell you that we can
+associate one, two, and three to each of these. We can continue this as far as
+we like, counting the size of each as we go. From this point, we can list out
+the natural numbers <math>\left\lbrace 0,1,2,3,\dots \right\rbrace </math>. Can
+we not also assign an order to this as well? Indeed, we can; call the size of
+this set the ordinal . Suppose that I simply offer up a reordering of this
+list; perhaps we can call  + 1 the associated ordinal to <math>\left\lbrace
+1,2,3,\dots ,0\right\rbrace </math>. Likewise, with the natural numbers, it
+seems that we should be able to continue this process; so, suppose we add more
+numbers to our list like , such as  + 1,  + 2, and so on.
+Eventually, we could arrive at  + ,  +  + 1, and even further if
+we wanted to. These seem to be like numbers in a similar fashion to the real
+numbers<ref name="ftn4">Some hesitation is required on this point; I have merely
+brushed aside that we can add numbers to ordinals without properly defining
+addition or anything like this. Perhaps just take my word for it; some such
+definition can be made. </ref>, and we have no qualms with collecting all the
+naturals or, indeed, the real numbers, into a single collection. So, suppose we
+do, and call this collection of ordinals . But certainly, we can associate
+to this collection of ordinals another ordinal, not originally in our
+collection! It seems that our totality can be extended, and we were wrong to
+suppose that we had in fact collected all of the ordinals in the first
+place.<ref name="ftn5">For further explanation on ordinals and the Burali-Forti
+Paradox, see Moore (2015).</ref> We are left with two possible avenues in light
+of these contradictions: we can either reject the formula we chose to arrive at
+the paradox, and thus rejecting the formulation of certain kinds of sets
+(ordinals), or else we can admit that the given set (ordinal) lies outside of
+the extension of the variable <math>x</math>(the collection ).<ref
+name="ftn6">Russell anticipated such a move in Russell (1906) for sets. Note
+that, in rejecting the existence of the Russell set, the proponent of indefinite
+extensibility need only point out that this is exactly what they are suggesting,
+namely that the <math>x</math>in question ranges over a domain of sets for which
+the Russell set is not a member – it does not exist in the collection.
+</ref> The problem of indefinite extensibility in sum demonstrates that the idea
+of an all-inclusive domain is false. After all, if we cannot have an
+all-inclusive domain of sets, we certainly cannot have an all-inclusive domain
+of objects which includes sets – and if it didn’t include sets, it would
+seem to not be a domain we could call a totality! Alternatively, indefinite
+extensibility suggests that we might simply always have to deal with restricted
+quantifiers, and that they are restricted to some sort of domain which is not
+all-inclusive.<ref name="ftn7">For a furthermore feature rich discussion of the
+problems posed by ordinals and sets, along with a more generalized version of
+the Dummettian and Russellian points, see Wright & Shapiro (2006). </ref></div>
 
-<div style="margin-left:0in;margin-right:0in;">The second problem for the absolutist is semantic indeterminacy. The argument for semantic indeterminacy is that there is nothing in the thoughts or practices of language users which determine the domain of our quantifiers to be absolutely general. The argument is a consequence of the L<span style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem, which Hilary Putnam used to demonstrate issues relating to moderate metaphysical realism.<ref name="ftn8">See Putnam (1980). Quine (1968) also speaks to this.</ref> The theorem states that a satisfiable first-order theory has a countable model. This theorem gives rise to the Skolem paradox.<ref name="ftn9">For an amusing reformulation of the argument, See Lavine (2006), 105. </ref> Take Zermelo-Frankel set theory as an example. We have a first-order theory which includes two axioms: the axiom of infinity, and the power set axiom. So, we have an infinite set. By the power set axiom, we have an uncountable infinite set.<ref name="ftn10">As the power set of an infinite set is uncountable; see Barker-Plummer (2011) for a plethora of details. </ref> But our model was supposed to be countable; thus, a paradox emerges. The lesson we learn from this problem is that we cannot put our theory in a one-to-one correspondence with the natural numbers ''within'' the model. What this means for us is that the “intended interpretation… of a set… is not captured by the formal systems”<ref name="ftn11">Putnam (1980), pp. 465.</ref>. Given a stronger version of the theorem<ref name="ftn12">Called the “downward L<span style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem”.</ref>, we can demonstrate that a satisfiable first-order theory given in some countable language has a countable model, which is a submodel of any given model. From this, it becomes clear that the totality which our quantifiers range over in some given model always is a proper subset of a larger totality. This means that our formerly uncountable and all-inclusive domain has a countable subdomain, and our usage of quantifiers for the former is also compatible with the latter. The indeterminacy arises from the fact that we cannot rule out the existence of such a model simply because we cannot determine it. What this means is that we cannot ever be absolutely certain that the domain which absolutists purport to be quantifying over is actually all-inclusive because it is the case that they could simply quantify over some smaller domain and still be using the same quantifiers.<ref name="ftn13">As Putnam (1980) and Rayo & Uzquiano (2006) point out, this consequence requires some relatively robust philosophical baggage. For starters, proving the downward L<span style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem requires the Axiom of Choice. As a result, many objections are available. See Lewis (1983). </ref> </div>
+<div style="margin-left:0in;margin-right:0in;">The second problem for the
+absolutist is semantic indeterminacy. The argument for semantic indeterminacy is
+that there is nothing in the thoughts or practices of language users which
+determine the domain of our quantifiers to be absolutely general. The argument
+is a consequence of the L<span
+style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem,
+which Hilary Putnam used to demonstrate issues relating to moderate metaphysical
+realism.<ref name="ftn8">See Putnam (1980). Quine (1968) also speaks to
+this.</ref> The theorem states that a satisfiable first-order theory has a
+countable model. This theorem gives rise to the Skolem paradox.<ref
+name="ftn9">For an amusing reformulation of the argument, See Lavine (2006),
+105. </ref> Take Zermelo-Frankel set theory as an example. We have a first-order
+theory which includes two axioms: the axiom of infinity, and the power set
+axiom. So, we have an infinite set. By the power set axiom, we have an
+uncountable infinite set.<ref name="ftn10">As the power set of an infinite set
+is uncountable; see Barker-Plummer (2011) for a plethora of details. </ref> But
+our model was supposed to be countable; thus, a paradox emerges. The lesson we
+learn from this problem is that we cannot put our theory in a one-to-one
+correspondence with the natural numbers ''within'' the model. What this means
+for us is that the “intended interpretation… of a set… is not captured
+by the formal systems”<ref name="ftn11">Putnam (1980), pp. 465.</ref>. Given
+a stronger version of the theorem<ref name="ftn12">Called the “downward
+L<span style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem
+theorem”.</ref>, we can demonstrate that a satisfiable first-order theory
+given in some countable language has a countable model, which is a submodel of
+any given model. From this, it becomes clear that the totality which our
+quantifiers range over in some given model always is a proper subset of a larger
+totality. This means that our formerly uncountable and all-inclusive domain has
+a countable subdomain, and our usage of quantifiers for the former is also
+compatible with the latter. The indeterminacy arises from the fact that we
+cannot rule out the existence of such a model simply because we cannot determine
+it. What this means is that we cannot ever be absolutely certain that the domain
+which absolutists purport to be quantifying over is actually all-inclusive
+because it is the case that they could simply quantify over some smaller domain
+and still be using the same quantifiers.<ref name="ftn13">As Putnam (1980) and
+Rayo & Uzquiano (2006) point out, this consequence requires some relatively
+robust philosophical baggage. For starters, proving the downward L<span
+style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem
+requires the Axiom of Choice. As a result, many objections are available. See
+Lewis (1983). </ref> </div>
 
-<div style="margin-left:0in;margin-right:0in;">The final problem I wish to discuss is one which relates to sortal concepts. Suppose someone were to ask you how many things were in your kitchen. Perhaps you’d begin by counting your spoons and forks, bowls and plates, pots and pans, and other useful utensils. But then you find a bag of flour; how do you suppose you should count this? Is it a single item, should it be measured in cups, is it each individual grain? Do we likewise splinter the microwave into its requisite parts, the bulb and interior plate, the wires and circuit boards each counting individually? Perhaps we can split these even further, dividing all the objects into their respective atomic structures, and continuing, splitting atoms and protons until we’re left with a rather large bundle of quarks, maybe energy states, and perhaps even strings. We might return to our inquirer and inform them that they weren’t clear enough in their question. The problem which we have uncovered is that of an improper delineation of what counts as a ‘thing’. This issue has been characterized as the lack of a substantival term by people like Dummett, and due to this lack, we are faced with a failure to have a proper criterion of identity.<ref name="ftn14">See Dummett (1981). Dummett takes the Fregean view on identity; for what it means to be a criterion of identity, see Frege (1884). </ref> Put in a more precise way, the question of how many ''objects'' there are only makes sense if the term ''object'' has a way of properly carving up the items in question. Contrast this with a term such as ‘car’. The question of “how many cars are parked on my street” has a proper answer; I need only step outside and count the parked cars I see. There is a proper criterion by which I can tell if I have counted all of the cars. I will know that I have done so by checking each car off, and I can tell all of the cars apart from each other and verify that they are cars. This is far more difficult to do with something like mud or snow. If someone were to ask me “how much mud is there” I would be hard pressed to find a proper answer, unless we had of course established some way of measuring mud, perhaps by volume or height. But I cannot count mud like I can count cars, and that is the point.<ref name="ftn15">There’s an interesting point to be made over whether this is merely a problem with our concepts or with the actual structure of the world. For any absolutist who is also a realist, the metaphysical indeterminacy presented in the latter case is quite worrisome; see Taylor (2015) for an argument about how not all indeterminacies are semantic. </ref> As object, thing, and individual are not criteria for identity, they aren’t sortal concepts and, as a result, don’t meaningfully articulate the scope or content of the domain we’re meant to be quantifying over. </div>
+<div style="margin-left:0in;margin-right:0in;">The final problem I wish to
+discuss is one which relates to sortal concepts. Suppose someone were to ask you
+how many things were in your kitchen. Perhaps you’d begin by counting your
+spoons and forks, bowls and plates, pots and pans, and other useful utensils.
+But then you find a bag of flour; how do you suppose you should count this? Is
+it a single item, should it be measured in cups, is it each individual grain? Do
+we likewise splinter the microwave into its requisite parts, the bulb and
+interior plate, the wires and circuit boards each counting individually? Perhaps
+we can split these even further, dividing all the objects into their respective
+atomic structures, and continuing, splitting atoms and protons until we’re
+left with a rather large bundle of quarks, maybe energy states, and perhaps even
+strings. We might return to our inquirer and inform them that they weren’t
+clear enough in their question. The problem which we have uncovered is that of
+an improper delineation of what counts as a ‘thing’. This issue has been
+characterized as the lack of a substantival term by people like Dummett, and due
+to this lack, we are faced with a failure to have a proper criterion of
+identity.<ref name="ftn14">See Dummett (1981). Dummett takes the Fregean view on
+identity; for what it means to be a criterion of identity, see Frege (1884).
+</ref> Put in a more precise way, the question of how many ''objects'' there are
+only makes sense if the term ''object'' has a way of properly carving up the
+items in question. Contrast this with a term such as ‘car’. The question
+of “how many cars are parked on my street” has a proper answer; I need
+only step outside and count the parked cars I see. There is a proper criterion
+by which I can tell if I have counted all of the cars. I will know that I have
+done so by checking each car off, and I can tell all of the cars apart from each
+other and verify that they are cars. This is far more difficult to do with
+something like mud or snow. If someone were to ask me “how much mud is
+there” I would be hard pressed to find a proper answer, unless we had of
+course established some way of measuring mud, perhaps by volume or height. But I
+cannot count mud like I can count cars, and that is the point.<ref
+name="ftn15">There’s an interesting point to be made over whether this is
+merely a problem with our concepts or with the actual structure of the world.
+For any absolutist who is also a realist, the metaphysical indeterminacy
+presented in the latter case is quite worrisome; see Taylor (2015) for an
+argument about how not all indeterminacies are semantic. </ref> As object,
+thing, and individual are not criteria for identity, they aren’t sortal
+concepts and, as a result, don’t meaningfully articulate the scope or
+content of the domain we’re meant to be quantifying over. </div>
 
 
 = SECTION 2 – THE ABSOLUTIST POSITION EXAMINED =
 
-Given the above three troubles for the absolutist position, the question then becomes whether there are ways in which the absolutist can properly capture unrestricted quantification and either resolve the problems and emergent paradoxes, or avoid them altogether. In what follows, we will examine some arguments offered by some of those who accept unrestricted quantification to see how they tackle these three problems. Vann McGee is one such defender of the absolutist position, and offers an illuminating take and break down two of the three problems on offer. One tactic McGee<ref name="ftn16">And others; see for instance Williamson (2003); an explanation can be seen in Fine (2006). </ref> utilizes is to turn the argument of indefinite extensibility against the limitavists and argue that they themselves are unable to formulate their own position against the absolutist, as it would require them to use unrestricted quantification themselves. Indeed, if the limitavist thesis is that ‘no quantification can be unrestricted’, this prospect is troubling. For certainly they would mean to be speaking of all uses of quantification. In fact, they are attempting to quantify over all instances of quantification. But this is precisely what the limitavist says is illegitimate! Indeed, this issue points out the lack of a definite boundary for the domain of discourse those opposed to unrestricted quantification would have us use. Take our quantifiers to range over a small domain of objects – restricted to particular kinds of objects we have access to. Suppose we were then to find an object which is new to us. It seems difficult, McGee says, to “specify the new objects when the logical devices at our disposal are limited to quantifiers that range over the old objects”<ref name="ftn17">McGee (2006), 184. </ref>. McGee uses this point to argue that, in fact, the only real way to escape the problems associated to vagueness or understanding hinges on the idea that unrestricted quantification is more natural or foundational than that of restricted quantification.<ref name="ftn18">McGee (2006), 183.</ref> McGee argues this point in conjunction with a point against indefinite extensibility. For the limitavist who thinks extensibility is an issue for the absolutist position, this issue becomes even more salient. The argument is essentially in the form of a dilemma. In order to avoid issues regarding the universal set in a set-theoretic construction of mathematics, we must abide by the vicious circle principle.<ref name="ftn19">The vicious circle principle states that no function on objects can be defined until the domain of the function is established. The vicious circle principle is employed in Whitehead & Russell (1910). </ref> However, in order to further our construction of mathematics, we require the least upper bound property for sets.<ref name="ftn20">The least upper bound property is that, given a well-ordered set <math>S</math>, <math>x</math>is an upper bound of <math>S</math>just in case <math>x\ge s</math>for all <math>s\in S</math>and <math>x</math>is the least upper bound of <math>S</math>if <math>x\le y</math>for every upper bound <math>y</math>of <math>S</math>. </ref> But our only way of defining the least upper bound of a set is with reference to the totality of upper bounds. Thus, in order to formulate this necessary property for analysis in mathematics, we must violate the vicious circle principle. To avoid this problem, we can follow what Russell and Whitehead did in response: we can adopt the Axiom of Reducibility, which says that for any impredicative class C, we can always find a predicative class C’ under it.<ref name="ftn21">What it actually means is that in the hierarchy of types, for a predicate at any type level there is a predicate at the first level that is equivalent to it. It was formally introduced on primarily pragmatic grounds so as to make the type theory construction of numbers easier to handle (to put it lightly). </ref> What this Axiom effectively does is it collapses the stratification of types, functions, predicates, etc. In this way, one of the primary purposes of the vicious circle principle is violated; no longer do we have to worry about our function sitting over and above the domain on which it is specified, as the Axiom of Reducibility guarantees we get what we want. So we can either reject the vicious circle principle, in which case indefinite extensibility is no longer a cogent strike against the absolutist, or we can reject the Axiom of Reducibility, thus making the construction and use of mathematical objects almost unbearably complex.<ref name="ftn22">What’s interesting about this argument is that McGee does not take it from Dummett, the major espouser of indefinite extensibility as a problem for quantification. For another detailed discussion about Russell and Dummett’s own philosophies of mathematics from an ontological perspective (in which both of the issues I have highlighted here are thoroughly explored), see Shapiro (2011).</ref> While this second choice certainly doesn’t act to deny the problem itself, accepting this option is less than ideal under pragmatic concerns, concerns which drove Russell and Whitehead to adopt the axiom in the first place. 
+Given the above three troubles for the absolutist position, the question then
+becomes whether there are ways in which the absolutist can properly capture
+unrestricted quantification and either resolve the problems and emergent
+paradoxes, or avoid them altogether. In what follows, we will examine some
+arguments offered by some of those who accept unrestricted quantification to see
+how they tackle these three problems. Vann McGee is one such defender of the
+absolutist position, and offers an illuminating take and break down two of the
+three problems on offer. One tactic McGee<ref name="ftn16">And others; see for
+instance Williamson (2003); an explanation can be seen in Fine (2006). </ref>
+utilizes is to turn the argument of indefinite extensibility against the
+limitavists and argue that they themselves are unable to formulate their own
+position against the absolutist, as it would require them to use unrestricted
+quantification themselves. Indeed, if the limitavist thesis is that ‘no
+quantification can be unrestricted’, this prospect is troubling. For
+certainly they would mean to be speaking of all uses of quantification. In fact,
+they are attempting to quantify over all instances of quantification. But this
+is precisely what the limitavist says is illegitimate! Indeed, this issue points
+out the lack of a definite boundary for the domain of discourse those opposed to
+unrestricted quantification would have us use. Take our quantifiers to range
+over a small domain of objects – restricted to particular kinds of objects
+we have access to. Suppose we were then to find an object which is new to us. It
+seems difficult, McGee says, to “specify the new objects when the logical
+devices at our disposal are limited to quantifiers that range over the old
+objects”<ref name="ftn17">McGee (2006), 184. </ref>. McGee uses this point
+to argue that, in fact, the only real way to escape the problems associated to
+vagueness or understanding hinges on the idea that unrestricted quantification
+is more natural or foundational than that of restricted quantification.<ref
+name="ftn18">McGee (2006), 183.</ref> McGee argues this point in conjunction
+with a point against indefinite extensibility. For the limitavist who thinks
+extensibility is an issue for the absolutist position, this issue becomes even
+more salient. The argument is essentially in the form of a dilemma. In order to
+avoid issues regarding the universal set in a set-theoretic construction of
+mathematics, we must abide by the vicious circle principle.<ref name="ftn19">The
+vicious circle principle states that no function on objects can be defined until
+the domain of the function is established. The vicious circle principle is
+employed in Whitehead & Russell (1910). </ref> However, in order to further our
+construction of mathematics, we require the least upper bound property for
+sets.<ref name="ftn20">The least upper bound property is that, given a
+well-ordered set <math>S</math>, <math>x</math>is an upper bound of
+<math>S</math>just in case <math>x\ge s</math>for all <math>s\in S</math>and
+<math>x</math>is the least upper bound of <math>S</math>if <math>x\le
+y</math>for every upper bound <math>y</math>of <math>S</math>. </ref> But our
+only way of defining the least upper bound of a set is with reference to the
+totality of upper bounds. Thus, in order to formulate this necessary property
+for analysis in mathematics, we must violate the vicious circle principle. To
+avoid this problem, we can follow what Russell and Whitehead did in response: we
+can adopt the Axiom of Reducibility, which says that for any impredicative class
+C, we can always find a predicative class C’ under it.<ref name="ftn21">What
+it actually means is that in the hierarchy of types, for a predicate at any type
+level there is a predicate at the first level that is equivalent to it. It was
+formally introduced on primarily pragmatic grounds so as to make the type theory
+construction of numbers easier to handle (to put it lightly). </ref> What this
+Axiom effectively does is it collapses the stratification of types, functions,
+predicates, etc. In this way, one of the primary purposes of the vicious circle
+principle is violated; no longer do we have to worry about our function sitting
+over and above the domain on which it is specified, as the Axiom of Reducibility
+guarantees we get what we want. So we can either reject the vicious circle
+principle, in which case indefinite extensibility is no longer a cogent strike
+against the absolutist, or we can reject the Axiom of Reducibility, thus making
+the construction and use of mathematical objects almost unbearably complex.<ref
+name="ftn22">What’s interesting about this argument is that McGee does not
+take it from Dummett, the major espouser of indefinite extensibility as a
+problem for quantification. For another detailed discussion about Russell and
+Dummett’s own philosophies of mathematics from an ontological perspective
+(in which both of the issues I have highlighted here are thoroughly explored),
+see Shapiro (2011).</ref> While this second choice certainly doesn’t act to
+deny the problem itself, accepting this option is less than ideal under
+pragmatic concerns, concerns which drove Russell and Whitehead to adopt the
+axiom in the first place. 
 
-<div style="margin-left:0in;margin-right:0in;">McGee puts forward another argument, this time responding to the second problem of semantic indeterminacy. In responding to the L<span style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem, McGee rightly notes that the theorem applies to first-order languages.<ref name="ftn23">McGee (2006), 185</ref> As English is a natural language and is not a first-order language as such, it seems like an insufficient charge for the limitavist to have for the absolutist. However, models can be extended to second-order languages<ref name="ftn24">Known as Henkin models, which are countable models in which the nonstandard interpretation of the second-order quantifiers make all the right sentences true with the second-order variables range over a countable collection of collections. For a basic introduction to Henkin models, see Barker-Plummer (2011).</ref> and the theorem can be extended in a similar fashion. It seems, McGee points out, that it’s difficult to imagine that the theorem would not be able to apply to more logically complex languages such as English in some form or another. McGee offers a possible avenue of objection through the fact that the rules of logical inference must be open-ended. In first-order languages we have a fixed vocabulary. New names are introduced in formal languages because they exist in the domains of our quantifiers, for instance. But in the case of more logically complex languages like English, we do not have a fixed vocabulary. Indeed, our words change all of the time. Our best scientific theories introduce terms that did not exist prior; space-time points were not spoken of before Einstein. With each new name we introduce, our language expands. It’s important to note that this expansion does not change the prior names in the language. Mathematics is stable in that we need not reevaluate all of our mathematical facts because a person names their child or a new theory of the mind arises. This is a problem for the objection because, for the theorem, the subdomain requires that the names exist in the domain. If we introduce a new name into our language, this means that it must not have been in the domain previously. What this means is that our quantifiers did not range over it previously, and this new expansion of our language will not preserve truth in the relevant way for the L<span style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem to apply. To put it more concretely: suppose that <math>\forall x</math>quantifies over all the objects in our language <math>L</math>. From this, we could infer a certain property that might apply to every object in our language, say <math>\forall x\phi \left(x\right)</math>. Supposing that we introduce a new name, c, into our domain for the language, it isn’t the case that we can infer <math>\phi \left(c\right).</math>Because the expansion doesn’t preserve truth, the L<span style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem does not apply to our language <math>L</math>. But this problem only exists for restricted quantification. Note that, without any sort of domain expansion, the restricted and unrestricted quantifiers appear to behave the same in the original language. But after the introduction of a new name not previously in the language, we can recognize the problem. This does not happen to our unrestricted quantifiers; they always quantified over the new name. To get around issues relating to semantic indeterminacy, the position that McGee puts forward is that “the semantic values of the quantifiers are fixed by the rules of inference”<ref name="ftn25">McGee (2006), 191. This claim is not necessarily extendable to natural languages like English. However, McGee does suggest that this point is meant to assuage our skeptical worries.</ref>. Our first point to flesh out is what exactly it is about indeterminacy that could worry us. If something is indeterminate, there are multiple possible candidates available to us. McGee points out that this is not the case for our quantifiers.<ref name="ftn26">McGee in particular cites the work of J. H. Harris demonstrating that two quantifiers, <math>\forall </math><sub>1 </sub>and <math>\forall </math><sub>2</sub>, are interderivable and thus they are logically equivalent. </ref> Supposing that the quantifiers preserve truth in the expansion of a domain, and that the quantifiers do not lapse into any sort of incoherence<ref name="ftn27">McGee suggests that this might look like the quantifiers not actually contributing to the truth conditions of a sentence. </ref>, then the quantifiers themselves must pick out a unique and optimal candidate for their semantic value. This semantic value is not determined by the quantifiers themselves, but is instead acting to limit a range of choices. This is not the same as restricting the domain, however. Domain restriction results in imprecise object choices, and our quantifiers are not at all imprecise.<ref name="ftn28">McGee stresses that this all relies on the strength of Harris’ work. </ref> In order to avoid any such ambiguities, we should allow our domain to be unrestricted. The biggest reason for suggesting that this is the case is due to simplicity. If our quantifiers were contextually limited themselves, then we would be using some sort of precise variant of the quantifiers. Such a thesis would be wildly complicated and speculative, and we are supposed to be pragmatic about these things. A precisified domain is, as it were, untenable simply because it is overly extravagant and speculative, and we have simpler solutions to the problem. Namely, unrestricted quantification.<ref name="ftn29">Here McGee is heavily relying on certain tenets of hypothesis acceptance and rejection that he doesn’t not provide a positive argument for; as such, I do not intend on arguing for or against this part of the analysis, if only because I find myself unconvinced by “Occam’s Razor”. </ref> </div>
+<div style="margin-left:0in;margin-right:0in;">McGee puts forward another
+argument, this time responding to the second problem of semantic indeterminacy.
+In responding to the L<span
+style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem,
+McGee rightly notes that the theorem applies to first-order languages.<ref
+name="ftn23">McGee (2006), 185</ref> As English is a natural language and is not
+a first-order language as such, it seems like an insufficient charge for the
+limitavist to have for the absolutist. However, models can be extended to
+second-order languages<ref name="ftn24">Known as Henkin models, which are
+countable models in which the nonstandard interpretation of the second-order
+quantifiers make all the right sentences true with the second-order variables
+range over a countable collection of collections. For a basic introduction to
+Henkin models, see Barker-Plummer (2011).</ref> and the theorem can be extended
+in a similar fashion. It seems, McGee points out, that it’s difficult to
+imagine that the theorem would not be able to apply to more logically complex
+languages such as English in some form or another. McGee offers a possible
+avenue of objection through the fact that the rules of logical inference must be
+open-ended. In first-order languages we have a fixed vocabulary. New names are
+introduced in formal languages because they exist in the domains of our
+quantifiers, for instance. But in the case of more logically complex languages
+like English, we do not have a fixed vocabulary. Indeed, our words change all of
+the time. Our best scientific theories introduce terms that did not exist prior;
+space-time points were not spoken of before Einstein. With each new name we
+introduce, our language expands. It’s important to note that this expansion
+does not change the prior names in the language. Mathematics is stable in that
+we need not reevaluate all of our mathematical facts because a person names
+their child or a new theory of the mind arises. This is a problem for the
+objection because, for the theorem, the subdomain requires that the names exist
+in the domain. If we introduce a new name into our language, this means that it
+must not have been in the domain previously. What this means is that our
+quantifiers did not range over it previously, and this new expansion of our
+language will not preserve truth in the relevant way for the L<span
+style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem
+to apply. To put it more concretely: suppose that <math>\forall
+x</math>quantifies over all the objects in our language <math>L</math>. From
+this, we could infer a certain property that might apply to every object in our
+language, say <math>\forall x\phi \left(x\right)</math>. Supposing that we
+introduce a new name, c, into our domain for the language, it isn’t the case
+that we can infer <math>\phi \left(c\right).</math>Because the expansion
+doesn’t preserve truth, the L<span
+style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem
+does not apply to our language <math>L</math>. But this problem only exists for
+restricted quantification. Note that, without any sort of domain expansion, the
+restricted and unrestricted quantifiers appear to behave the same in the
+original language. But after the introduction of a new name not previously in
+the language, we can recognize the problem. This does not happen to our
+unrestricted quantifiers; they always quantified over the new name. To get
+around issues relating to semantic indeterminacy, the position that McGee puts
+forward is that “the semantic values of the quantifiers are fixed by the
+rules of inference”<ref name="ftn25">McGee (2006), 191. This claim is not
+necessarily extendable to natural languages like English. However, McGee does
+suggest that this point is meant to assuage our skeptical worries.</ref>. Our
+first point to flesh out is what exactly it is about indeterminacy that could
+worry us. If something is indeterminate, there are multiple possible candidates
+available to us. McGee points out that this is not the case for our
+quantifiers.<ref name="ftn26">McGee in particular cites the work of J. H. Harris
+demonstrating that two quantifiers, <math>\forall </math><sub>1 </sub>and
+<math>\forall </math><sub>2</sub>, are interderivable and thus they are
+logically equivalent. </ref> Supposing that the quantifiers preserve truth in
+the expansion of a domain, and that the quantifiers do not lapse into any sort
+of incoherence<ref name="ftn27">McGee suggests that this might look like the
+quantifiers not actually contributing to the truth conditions of a sentence.
+</ref>, then the quantifiers themselves must pick out a unique and optimal
+candidate for their semantic value. This semantic value is not determined by the
+quantifiers themselves, but is instead acting to limit a range of choices. This
+is not the same as restricting the domain, however. Domain restriction results
+in imprecise object choices, and our quantifiers are not at all imprecise.<ref
+name="ftn28">McGee stresses that this all relies on the strength of Harris’
+work. </ref> In order to avoid any such ambiguities, we should allow our domain
+to be unrestricted. The biggest reason for suggesting that this is the case is
+due to simplicity. If our quantifiers were contextually limited themselves, then
+we would be using some sort of precise variant of the quantifiers. Such a thesis
+would be wildly complicated and speculative, and we are supposed to be pragmatic
+about these things. A precisified domain is, as it were, untenable simply
+because it is overly extravagant and speculative, and we have simpler solutions
+to the problem. Namely, unrestricted quantification.<ref name="ftn29">Here McGee
+is heavily relying on certain tenets of hypothesis acceptance and rejection that
+he doesn’t not provide a positive argument for; as such, I do not intend on
+arguing for or against this part of the analysis, if only because I find myself
+unconvinced by “Occam’s Razor”. </ref> </div>
 
-<div style="margin-left:0in;margin-right:0in;">The final concern which was raised in the previous section is that of questions of identity in the context of an absolutely unrestricted quantifier. The problem raised seems to be one of an epistemic character; how is it that I would know if someone else were to use identical in the same sense as I am, but it is likewise a constitutive problem: in virtue of what do I mean ''identical'' by ‘identical’?<ref name="ftn30">Williamson (2006) offers such a characterization of the question of identity. </ref> In certain contexts, such an answer is easy to supply. For instance, when I ask whether two books are identical we may go about verifying that they have the same titles, authors, publication dates, pages, etc.<ref name="ftn31">We can also speak to numerical identity, which Williamson focuses on.</ref> However, such a question has a less obvious answer in other cases. When I ask whether everything is self-identical<ref name="ftn32"><math>\forall x\left(x=x\right)</math>.</ref>, or how many things there are in the universe<ref name="ftn33">There is some question as to whether or not quantification actually requires identity; I do not entertain such arguments here, but some places to find the discussion would be in Geach (1967) and, responding, Dummett (1981). </ref>, the question is in principle difficult to answer. However, this does not mean that it itself is problematic. The notion of sortal concepts helps to pacify the problem in the easier cases – two things are identical just in case if one object Fs the other object Fs for some property F – but with no such sortal available to us, identity is a difficult topic to wrangle. Williamson suggests that any problems we may have with absolute generality apply analogously to absolute identity. Given some identity predicate <math>I</math>used by some speaker <math>S</math>of some language <math>L</math>, the claims that ‘everything is self-identical’ and ‘if two things are identical then whatever applies to one also applies to the other’ become the following expressions: </div>
+<div style="margin-left:0in;margin-right:0in;">The final concern which was
+raised in the previous section is that of questions of identity in the context
+of an absolutely unrestricted quantifier. The problem raised seems to be one of
+an epistemic character; how is it that I would know if someone else were to use
+identical in the same sense as I am, but it is likewise a constitutive problem:
+in virtue of what do I mean ''identical'' by ‘identical’?<ref
+name="ftn30">Williamson (2006) offers such a characterization of the question of
+identity. </ref> In certain contexts, such an answer is easy to supply. For
+instance, when I ask whether two books are identical we may go about verifying
+that they have the same titles, authors, publication dates, pages, etc.<ref
+name="ftn31">We can also speak to numerical identity, which Williamson focuses
+on.</ref> However, such a question has a less obvious answer in other cases.
+When I ask whether everything is self-identical<ref name="ftn32"><math>\forall
+x\left(x=x\right)</math>.</ref>, or how many things there are in the
+universe<ref name="ftn33">There is some question as to whether or not
+quantification actually requires identity; I do not entertain such arguments
+here, but some places to find the discussion would be in Geach (1967) and,
+responding, Dummett (1981). </ref>, the question is in principle difficult to
+answer. However, this does not mean that it itself is problematic. The notion of
+sortal concepts helps to pacify the problem in the easier cases – two things
+are identical just in case if one object Fs the other object Fs for some
+property F – but with no such sortal available to us, identity is a
+difficult topic to wrangle. Williamson suggests that any problems we may have
+with absolute generality apply analogously to absolute identity. Given some
+identity predicate <math>I</math>used by some speaker <math>S</math>of some
+language <math>L</math>, the claims that ‘everything is self-identical’
+and ‘if two things are identical then whatever applies to one also applies
+to the other’ become the following expressions: </div>
 
-<div style="margin-left:0in;margin-right:0in;">(1) <math>\forall x\left(\mathit{xIx}\right)</math>and </div>
+<div style="margin-left:0in;margin-right:0in;">(1) <math>\forall
+x\left(\mathit{xIx}\right)</math>and </div>
 
-<div style="margin-left:0in;margin-right:0in;">(2) <math>\forall x\forall y</math></div>
+<div style="margin-left:0in;margin-right:0in;">(2) <math>\forall x\forall
+y</math></div>
 
-For a speaker <math>S</math><sup><nowiki>*</nowiki></sup> of another language <math>L</math><sup><nowiki>*</nowiki></sup> with an identity predicate <math>I</math><sup><nowiki>*</nowiki></sup>, the claims are: 
+For a speaker <math>S</math><sup><nowiki>*</nowiki></sup> of another language
+<math>L</math><sup><nowiki>*</nowiki></sup> with an identity predicate
+<math>I</math><sup><nowiki>*</nowiki></sup>, the claims are: 
 
-<div style="margin-left:0in;margin-right:0in;">(1<sup><nowiki>*</nowiki></sup>) <math>\forall x\left(\mathit{xI}\ast x\right)</math>and </div>
+<div style="margin-left:0in;margin-right:0in;">(1<sup><nowiki>*</nowiki></sup>)
+<math>\forall x\left(\mathit{xI}\ast x\right)</math>and </div>
 
-<div style="margin-left:0in;margin-right:0in;">(2<sup><nowiki>*</nowiki></sup>) <math>\forall x\forall y</math></div>
+<div style="margin-left:0in;margin-right:0in;">(2<sup><nowiki>*</nowiki></sup>)
+<math>\forall x\forall y</math></div>
 
-If we merge the two languages spoken by each speaker into <math>L+L</math><sup><nowiki>*</nowiki></sup>, it can be demonstrated that these identity statements can be interderived.<ref name="ftn34">See Williamson (2006), 378 for such a demonstration. See the entire discussion in section 13.1 for a more thorough treatment of what exactly is happening in his construction – I will provide only a discussion of his final points on the matter, but there are many technical details that Williamson explores. </ref> These identity predicates are thus coextensive over their shared domains of objects. As a result, identity can be uniquely characterized. Timothy Williamson points out that in this context of absolute identity, we need not worry about whether we “have a conception of all predicates in all possible extensions of the language”<ref name="ftn35">Williamson (2006), pointing out possible semantic paradoxes.</ref>. Indeed, we need only concern ourselves with subsets over the domain if identity is taken to be ranging over a certain domain. Supposing that these domains are sets then, under Zermelo-Frankel set theory, we should have no real issue considering such subsets of our domain.<ref name="ftn36">Under the usual axioms of Zermelo-Frankel set theory, our formalization is closed under the power set function and Cartesian products. For the axioms of ZF, see Barker-Plummer (2011). </ref> Like identity, universal quantifiers are interderivable and have an open-ended reading available to them.<ref name="ftn37">An open-ended commitment with respect to universal quantifiers reflects a “general disposition to accept instances of universal instantiation for the second-order quantifier in extensions of our current language”. For this discussion and how it also relates to identity, see Williamson (2006), 377-80.</ref> As a result, the problems posed to one are analogously problems posed to the other. For instance, one can generalize the standard inferential rules in first-order logic of <math>\forall </math>-Introduction and <math>\forall </math>-Elimination used in a language <math>L</math>for the quantifier <math>\forall </math>to another language <math>L</math><sup><nowiki>*</nowiki></sup> with quantifier <math>\forall </math><sup><nowiki>*</nowiki></sup> with parallel rules. It can be shown that the two quantifiers are logically equivalent in some language <math>L+L</math><sup><nowiki>*</nowiki></sup>. Following Williamson in supposing that the open-ended nature of the quantifiers saves such a position from accusations of sophistry, it can be defended that the two quantifiers are logically valid on an unrestricted reading. However, since our real question was originally about identity, we should be worried that our initial arguments against identity, open-ended or not, threaten such an unrestricted sense of the quantifier. As it turns out, Williamson suggests that it is unrestricted quantification which threatens identity, not the other way around. Indeed, one of the largest charges against the absolutist is that it is inarticulate; to all things which the absolutist assents or dissents, the limitavist interpretation will likewise assent to truths and dissent from falsehoods. Supposing then that the absolutist position can be rearticulated in such a way that the limativist will agree with all the claims of the absolutist and maintain that the quantifiers are restricted, the same paradoxes which the limativist might claim the absolutist falls to also apply likewise to the limitavist. For suppose that such contradictions are the case and the absolutist position can be reinterpreted in terms of the limitavist one. Then any derivation of the contradiction put forward by the limitavist on the absolutist’s view can be restated in terms of statements which the relativist will accept. Thus, the limativist view is itself inconsistent. If, however, the limitavist stops arguing that the absolutist position leads to paradoxes, and maintains that identity is absolute, then the limitavist will necessarily have to maintain that absolute generality is fine and give up their own restrictions on quantification, as absolute identity supports absolute generality by Williamson’s argument. 
+If we merge the two languages spoken by each speaker into
+<math>L+L</math><sup><nowiki>*</nowiki></sup>, it can be demonstrated that these
+identity statements can be interderived.<ref name="ftn34">See Williamson (2006),
+378 for such a demonstration. See the entire discussion in section 13.1 for a
+more thorough treatment of what exactly is happening in his construction – I
+will provide only a discussion of his final points on the matter, but there are
+many technical details that Williamson explores. </ref> These identity
+predicates are thus coextensive over their shared domains of objects. As a
+result, identity can be uniquely characterized. Timothy Williamson points out
+that in this context of absolute identity, we need not worry about whether we
+“have a conception of all predicates in all possible extensions of the
+language”<ref name="ftn35">Williamson (2006), pointing out possible semantic
+paradoxes.</ref>. Indeed, we need only concern ourselves with subsets over the
+domain if identity is taken to be ranging over a certain domain. Supposing that
+these domains are sets then, under Zermelo-Frankel set theory, we should have no
+real issue considering such subsets of our domain.<ref name="ftn36">Under the
+usual axioms of Zermelo-Frankel set theory, our formalization is closed under
+the power set function and Cartesian products. For the axioms of ZF, see
+Barker-Plummer (2011). </ref> Like identity, universal quantifiers are
+interderivable and have an open-ended reading available to them.<ref
+name="ftn37">An open-ended commitment with respect to universal quantifiers
+reflects a “general disposition to accept instances of universal
+instantiation for the second-order quantifier in extensions of our current
+language”. For this discussion and how it also relates to identity, see
+Williamson (2006), 377-80.</ref> As a result, the problems posed to one are
+analogously problems posed to the other. For instance, one can generalize the
+standard inferential rules in first-order logic of <math>\forall
+</math>-Introduction and <math>\forall </math>-Elimination used in a language
+<math>L</math>for the quantifier <math>\forall </math>to another language
+<math>L</math><sup><nowiki>*</nowiki></sup> with quantifier <math>\forall
+</math><sup><nowiki>*</nowiki></sup> with parallel rules. It can be shown that
+the two quantifiers are logically equivalent in some language
+<math>L+L</math><sup><nowiki>*</nowiki></sup>. Following Williamson in supposing
+that the open-ended nature of the quantifiers saves such a position from
+accusations of sophistry, it can be defended that the two quantifiers are
+logically valid on an unrestricted reading. However, since our real question was
+originally about identity, we should be worried that our initial arguments
+against identity, open-ended or not, threaten such an unrestricted sense of the
+quantifier. As it turns out, Williamson suggests that it is unrestricted
+quantification which threatens identity, not the other way around. Indeed, one
+of the largest charges against the absolutist is that it is inarticulate; to all
+things which the absolutist assents or dissents, the limitavist interpretation
+will likewise assent to truths and dissent from falsehoods. Supposing then that
+the absolutist position can be rearticulated in such a way that the limativist
+will agree with all the claims of the absolutist and maintain that the
+quantifiers are restricted, the same paradoxes which the limativist might claim
+the absolutist falls to also apply likewise to the limitavist. For suppose that
+such contradictions are the case and the absolutist position can be
+reinterpreted in terms of the limitavist one. Then any derivation of the
+contradiction put forward by the limitavist on the absolutist’s view can be
+restated in terms of statements which the relativist will accept. Thus, the
+limativist view is itself inconsistent. If, however, the limitavist stops
+arguing that the absolutist position leads to paradoxes, and maintains that
+identity is absolute, then the limitavist will necessarily have to maintain that
+absolute generality is fine and give up their own restrictions on
+quantification, as absolute identity supports absolute generality by
+Williamson’s argument. 
 
 
 = SECTION 3 – THE LIMITAVIST’S RESPONSES =
 
-What we have seen thus far is a defense of the absolutist view from the three problems along with an additional criticism of the limitavist view, namely that it is self-defeating or inarticulate. Considering these defenses and criticisms, what then can the proponent of restricted quantification offer in response? In what follows, I will explore the responses and arguments several limitavists propose. I turn first to the semantic indeterminacy argument discussed earlier and deflected by McGee.<ref name="ftn38">I am jumping ahead a bit here and skipping indefinite extensibility for now; we shall return to it near the end of this section. </ref> Shaughan Lavine is one such proponent of the limitavist view who attempts to argue against McGee’s open-ended quantifier solution to the semantic indeterminacy argument. If the issue under debate is whether unrestricted quantification is genuine, then finding a more primitive feature of logic than quantification will defuse the tension posed. As it turns out, Lavine argues that such is the case for full schemes. The point of a full scheme is that we can take particular logical rules like <math>\phi ,\neg \phi \vdash \psi </math>to be schemes which we can declare valid in any instance.<ref name="ftn39">It is very important to note that ‘any’ is “sharply distinguished” from ‘every’. This distinction means that we are not relying on quantification; simply a presentation of a scheme is sufficient, and we can accept that any such scheme presented to us is valid without being led to say that all such schemes are valid. </ref> <math>\phi </math>and <math>\psi </math>are schematic letters, and this scheme is open-ended just in case these schematic letters are full schematic variables. They are full in the sense that their acceptable instances of substitution “automatically expands as the language in use expands”<ref name="ftn40">Lavine (2006), 118.</ref>. As such, Lavine’s use of full schemes runs parallel to McGee’s insistence that the logical quantifiers we employ in our language be open-ended in much the same way: they act to quantify over names even when they are not in our original domain. Of course, McGee says that our quantifiers are open-ended and as such are able to fulfill this role because they quantify over an unrestricted domain. Lavine, on the other hand, supposes that we need only be committed to sentences that are closed instances of the scheme; we need not have totalities as a domain that we quantify over. This distinction relies on the different commitments we have for schemes versus quantifiers. Lavine uses the example of the successor operation on the natural numbers.<ref name="ftn41">Let <math>0</math>be a natural number. Then <math>S0</math>is a natural number and we call <math>S0</math>the “successor of zero”, and we call <math>S</math>the “successor function”. This is the general construction of the natural numbers using the axioms of Peano Arithmetic.</ref> Most straightforwardly, given that <math>n</math>is some schematic letter, from <math>S0\ne 0</math>one can infer that <math>\mathit{Sn}\ne 0</math>. If <math>n</math>is, on the other hand, a quantifiable variable, such a move is not allowed; unless, of course, <math>n</math>did not appear free in any of the premises. What must be stressed is that the full scheme user being committed to <math>\phi \left(n\right)\rightarrow \phi \left(\mathit{Sn}\right)</math>does not commit them by itself to the claim that <math>\forall x\left(\phi \left(x\right)\rightarrow \phi \left(\mathit{Sx}\right)\right)</math>.<ref name="ftn42">For explicit instances of how this works in other cases (like for a mathematical finitist), see Lavine (2006), 121. </ref> What Lavine has essentially argued for in saying that full schemes operate in this way is that they are different from using quantifiers. Indeed, full schemes offer a complete characterization of the logical operators we use in our formal languages.<ref name="ftn43">Based on the work done by Harris which McGee (2006) builds his own argument from. Lavine also provides an argument for this fact in Lavine (2006), 132-4.</ref> Lavine utilizes the statement McGee references in his argument: <math>\forall x\exists y\left(y=x\right)</math>. Given that <math>a</math>is in the domain of our quantifiers, we can give it a name <math>c</math>and conclude <math>\exists y\left(y=c\right)</math>. We could perform all of this from a schematic perspective, arriving at the same statement with the full schematic sentence <math>s</math>: <math>\exists y\left(y=s\right)</math>.<ref name="ftn44">Lavine refers to this as the “everything axiom”. I shall follow suite. </ref> From this, we can show that any two languages for which the everything axiom is a sentence which has a respective domain have the same extension.<ref name="ftn45">Lavine demonstrates the actual proof of this throughout his paper; See Lavine (2006), 125. </ref> Lavine goes on to argue that, in fact, the usage by McGee<ref name="ftn46">Williamson also speaks to this point in Williamson (2003). </ref> of the everything axiom fails to show what he wants. The scheme given by the everything axiom can be taken to have an extension that coincides will all of its instances. McGee argues that, by the open-endedness of our quantifiers, the everything axiom can capture any objects that could be named in our language – that is to say, under expansions of our language the axiom captures those objects – and, as a result, in some instances of the everything axiom it takes on as a value any of the names in our structures. Lavine presses the point, saying that this argument put forward by McGee and others is simply begging the question: so long as we allow such an extension of the everything principle as being open-ended and unrestricted, we may as well allow unrestricted quantification. The method of quantifying and assimilating all the instances of the scheme is already supposing that unrestricted quantification is fine to begin with, and as a result this argument holds no weight in establishing the desired conclusion. Suppose that the everything axiom were to pick out the universe of discourse of unrestricted quantification. Because schemes only commit us to particular instances of general claims, we only get a set of instances of the axiom.<ref name="ftn47">Not a proper class, as McGee would demand. </ref> We can then apply the L<span style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem to this set and, because it is not a proper class, it does not form a totality<ref name="ftn48">An entire domain; everything.</ref>, and thus it fails to pick out a unique domain of everything.<ref name="ftn49">Lavine calls the set we form from the theorem the “Hollywood set”, coming from the excellent Hollywood Analogy he employs to discuss McGee’s objection in greater detail in Lavine (2006), 105.</ref> Additionally, Williamson’s prior analogy between unrestricted quantification and absolute identity seems to fail. Indeed, without the hefty assumption that the everything axiom characterizes a universal domain of discourse by considering ''every'' instance of the scheme, open-endedness does not supply the absolutist with the proper extension of the argument about absolute identity to unrestricted quantification.<ref name="ftn50">In fact, it can be (and has been) argued that the question of identity is an ambiguous one; <math>\forall x\left(x=x\right)</math>is ambiguous in a way over and above the usual ways for sets or properties. If our domain is taken to be a kind of collection like a set, then the fact that we do not have a proper conception of set (as argued earlier) only serves to undermine the notion that we have a proper conception of identity when we expand our domain. For more on this, see the discussion (and references) in Parsons (2006). </ref>
+What we have seen thus far is a defense of the absolutist view from the three
+problems along with an additional criticism of the limitavist view, namely that
+it is self-defeating or inarticulate. Considering these defenses and criticisms,
+what then can the proponent of restricted quantification offer in response? In
+what follows, I will explore the responses and arguments several limitavists
+propose. I turn first to the semantic indeterminacy argument discussed earlier
+and deflected by McGee.<ref name="ftn38">I am jumping ahead a bit here and
+skipping indefinite extensibility for now; we shall return to it near the end of
+this section. </ref> Shaughan Lavine is one such proponent of the limitavist
+view who attempts to argue against McGee’s open-ended quantifier solution to
+the semantic indeterminacy argument. If the issue under debate is whether
+unrestricted quantification is genuine, then finding a more primitive feature of
+logic than quantification will defuse the tension posed. As it turns out, Lavine
+argues that such is the case for full schemes. The point of a full scheme is
+that we can take particular logical rules like <math>\phi ,\neg \phi \vdash \psi
+</math>to be schemes which we can declare valid in any instance.<ref
+name="ftn39">It is very important to note that ‘any’ is “sharply
+distinguished” from ‘every’. This distinction means that we are not
+relying on quantification; simply a presentation of a scheme is sufficient, and
+we can accept that any such scheme presented to us is valid without being led to
+say that all such schemes are valid. </ref> <math>\phi </math>and <math>\psi
+</math>are schematic letters, and this scheme is open-ended just in case these
+schematic letters are full schematic variables. They are full in the sense that
+their acceptable instances of substitution “automatically expands as the
+language in use expands”<ref name="ftn40">Lavine (2006), 118.</ref>. As
+such, Lavine’s use of full schemes runs parallel to McGee’s insistence
+that the logical quantifiers we employ in our language be open-ended in much the
+same way: they act to quantify over names even when they are not in our original
+domain. Of course, McGee says that our quantifiers are open-ended and as such
+are able to fulfill this role because they quantify over an unrestricted domain.
+Lavine, on the other hand, supposes that we need only be committed to sentences
+that are closed instances of the scheme; we need not have totalities as a domain
+that we quantify over. This distinction relies on the different commitments we
+have for schemes versus quantifiers. Lavine uses the example of the successor
+operation on the natural numbers.<ref name="ftn41">Let <math>0</math>be a
+natural number. Then <math>S0</math>is a natural number and we call
+<math>S0</math>the “successor of zero”, and we call <math>S</math>the
+“successor function”. This is the general construction of the natural
+numbers using the axioms of Peano Arithmetic.</ref> Most straightforwardly,
+given that <math>n</math>is some schematic letter, from <math>S0\ne 0</math>one
+can infer that <math>\mathit{Sn}\ne 0</math>. If <math>n</math>is, on the other
+hand, a quantifiable variable, such a move is not allowed; unless, of course,
+<math>n</math>did not appear free in any of the premises. What must be stressed
+is that the full scheme user being committed to <math>\phi
+\left(n\right)\rightarrow \phi \left(\mathit{Sn}\right)</math>does not commit
+them by itself to the claim that <math>\forall x\left(\phi
+\left(x\right)\rightarrow \phi \left(\mathit{Sx}\right)\right)</math>.<ref
+name="ftn42">For explicit instances of how this works in other cases (like for a
+mathematical finitist), see Lavine (2006), 121. </ref> What Lavine has
+essentially argued for in saying that full schemes operate in this way is that
+they are different from using quantifiers. Indeed, full schemes offer a complete
+characterization of the logical operators we use in our formal languages.<ref
+name="ftn43">Based on the work done by Harris which McGee (2006) builds his own
+argument from. Lavine also provides an argument for this fact in Lavine (2006),
+132-4.</ref> Lavine utilizes the statement McGee references in his argument:
+<math>\forall x\exists y\left(y=x\right)</math>. Given that <math>a</math>is in
+the domain of our quantifiers, we can give it a name <math>c</math>and conclude
+<math>\exists y\left(y=c\right)</math>. We could perform all of this from a
+schematic perspective, arriving at the same statement with the full schematic
+sentence <math>s</math>: <math>\exists y\left(y=s\right)</math>.<ref
+name="ftn44">Lavine refers to this as the “everything axiom”. I shall
+follow suite. </ref> From this, we can show that any two languages for which the
+everything axiom is a sentence which has a respective domain have the same
+extension.<ref name="ftn45">Lavine demonstrates the actual proof of this
+throughout his paper; See Lavine (2006), 125. </ref> Lavine goes on to argue
+that, in fact, the usage by McGee<ref name="ftn46">Williamson also speaks to
+this point in Williamson (2003). </ref> of the everything axiom fails to show
+what he wants. The scheme given by the everything axiom can be taken to have an
+extension that coincides will all of its instances. McGee argues that, by the
+open-endedness of our quantifiers, the everything axiom can capture any objects
+that could be named in our language – that is to say, under expansions of
+our language the axiom captures those objects – and, as a result, in some
+instances of the everything axiom it takes on as a value any of the names in our
+structures. Lavine presses the point, saying that this argument put forward by
+McGee and others is simply begging the question: so long as we allow such an
+extension of the everything principle as being open-ended and unrestricted, we
+may as well allow unrestricted quantification. The method of quantifying and
+assimilating all the instances of the scheme is already supposing that
+unrestricted quantification is fine to begin with, and as a result this argument
+holds no weight in establishing the desired conclusion. Suppose that the
+everything axiom were to pick out the universe of discourse of unrestricted
+quantification. Because schemes only commit us to particular instances of
+general claims, we only get a set of instances of the axiom.<ref
+name="ftn47">Not a proper class, as McGee would demand. </ref> We can then apply
+the L<span
+style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem
+to this set and, because it is not a proper class, it does not form a
+totality<ref name="ftn48">An entire domain; everything.</ref>, and thus it fails
+to pick out a unique domain of everything.<ref name="ftn49">Lavine calls the set
+we form from the theorem the “Hollywood set”, coming from the excellent
+Hollywood Analogy he employs to discuss McGee’s objection in greater detail
+in Lavine (2006), 105.</ref> Additionally, Williamson’s prior analogy
+between unrestricted quantification and absolute identity seems to fail. Indeed,
+without the hefty assumption that the everything axiom characterizes a universal
+domain of discourse by considering ''every'' instance of the scheme,
+open-endedness does not supply the absolutist with the proper extension of the
+argument about absolute identity to unrestricted quantification.<ref
+name="ftn50">In fact, it can be (and has been) argued that the question of
+identity is an ambiguous one; <math>\forall x\left(x=x\right)</math>is ambiguous
+in a way over and above the usual ways for sets or properties. If our domain is
+taken to be a kind of collection like a set, then the fact that we do not have a
+proper conception of set (as argued earlier) only serves to undermine the notion
+that we have a proper conception of identity when we expand our domain. For more
+on this, see the discussion (and references) in Parsons (2006). </ref>
 
-<div style="margin-left:0in;margin-right:0in;">The question we might be pressed to answer is how exactly we may determine what our domain ''is'', if not everything. Lavine says that he takes the universe of discourse to be given by a context of use.<ref name="ftn51">Lavine (2006), 139. </ref> We can see that this context of use might fall out of the predicate at hand in a particular instance of the scheme we are considering. Given the power of full schemes in handling arguments relating to the everything axiom and recognizing that full schemes are not reducible to quantification, we would like to examine how they might be used to better understand other charges levied by the absolutist against the limitavist. Indeed, much in the same way semantic indeterminacy is turned against the limitavist, so too is the argument relating to sortals. Suppose the limitavist argues that unrestricted quantification is not genuine quantification because we lack a proper principle of individuation; ‘object’ and ‘thing’ are not sortal concepts and, as such, do not allow us to carve up the domain of quantification properly. However, if the limitavist is asked to support even more mundane questions than ‘how many things are there’ like ‘there are no talking donkeys’, they seem to run into a problem without allowing for unrestricted quantification. Indeed, to say that ‘there are no talking donkeys’ is to say that <math>\forall x\left(D\left(x\right)\rightarrow \neg T\left(x\right)\right)</math>. Without unrestricted quantification, there seem to be serious issues with this formulation.<ref name="ftn52">See Williamson (2003) for an analysis of all the ways in which this goes wrong. </ref> The limitavist might put forward a different statement of this, saying instead that for any object which the sortal ‘donkey’ applies to, none of them talk. A further generalization of this statement can be made: ‘Every F, x, is <math>\phi </math>’ is true under assignment A if and only if any ''compliant ''of ''F'' under A, d, is such that <math>\phi </math>is true under A[x/d].<ref name="ftn53">This generalization is provided by Hellman (2006), 89. </ref> The problem with this generalization, Geoffrey Hellman points out, is that ‘compliant’ is itself a sortal, but does not have a proper principle of individuation! If it were, then it seems that the charge against the absolutist likewise disappears; we have a proper principle of individuation that individuates all objects in a domain. Hellman offers a solution in the form of distinguishing between kinds of predicates. We can consider some predicate F to be ‘unlimited’ just in case it is (1) indefinitely extensible and (2) if E is also unlimited and ‘All E are F’ is taken as true, then F is unlimited.<ref name="ftn54">A predicate is ‘limited’ if it is concrete; he considers such predicates to be those which appear in an earlier section of the paper relating to ontologies. ‘Limited’ predicates are, quite conveniently, ‘not unlimited’. Note that this definition of unlimited is inductive. </ref> Thus, if we have a limited predicate, the notion of ‘compliant’ is not terribly troublesome. As Hellman puts it, the compliant of ‘donkey’ is merely ‘the donkeys’. In this case, our reformulation is just to say that ‘no donkey talks’ is true under A if and only if among the donkeys, d, ‘x doesn’t talk’ is true under A[x/d]. This generalization falls under a scheme for limited predicates. Under this consideration, ‘compliant’ is itself not a limited predicate, and so our formulation does not apply to it; thus, we have no real problems with answering the absolutist about whether donkeys talk. Indeed, the context which the question provides to us is sufficient for determining exactly what it is our scheme should be talking about: limited predicates.</div>
+<div style="margin-left:0in;margin-right:0in;">The question we might be pressed
+to answer is how exactly we may determine what our domain ''is'', if not
+everything. Lavine says that he takes the universe of discourse to be given by a
+context of use.<ref name="ftn51">Lavine (2006), 139. </ref> We can see that this
+context of use might fall out of the predicate at hand in a particular instance
+of the scheme we are considering. Given the power of full schemes in handling
+arguments relating to the everything axiom and recognizing that full schemes are
+not reducible to quantification, we would like to examine how they might be used
+to better understand other charges levied by the absolutist against the
+limitavist. Indeed, much in the same way semantic indeterminacy is turned
+against the limitavist, so too is the argument relating to sortals. Suppose the
+limitavist argues that unrestricted quantification is not genuine quantification
+because we lack a proper principle of individuation; ‘object’ and
+‘thing’ are not sortal concepts and, as such, do not allow us to carve
+up the domain of quantification properly. However, if the limitavist is asked to
+support even more mundane questions than ‘how many things are there’
+like ‘there are no talking donkeys’, they seem to run into a problem
+without allowing for unrestricted quantification. Indeed, to say that ‘there
+are no talking donkeys’ is to say that <math>\forall
+x\left(D\left(x\right)\rightarrow \neg T\left(x\right)\right)</math>. Without
+unrestricted quantification, there seem to be serious issues with this
+formulation.<ref name="ftn52">See Williamson (2003) for an analysis of all the
+ways in which this goes wrong. </ref> The limitavist might put forward a
+different statement of this, saying instead that for any object which the sortal
+‘donkey’ applies to, none of them talk. A further generalization of this
+statement can be made: ‘Every F, x, is <math>\phi </math>’ is true under
+assignment A if and only if any ''compliant ''of ''F'' under A, d, is such that
+<math>\phi </math>is true under A[x/d].<ref name="ftn53">This generalization is
+provided by Hellman (2006), 89. </ref> The problem with this generalization,
+Geoffrey Hellman points out, is that ‘compliant’ is itself a sortal, but
+does not have a proper principle of individuation! If it were, then it seems
+that the charge against the absolutist likewise disappears; we have a proper
+principle of individuation that individuates all objects in a domain. Hellman
+offers a solution in the form of distinguishing between kinds of predicates. We
+can consider some predicate F to be ‘unlimited’ just in case it is (1)
+indefinitely extensible and (2) if E is also unlimited and ‘All E are F’
+is taken as true, then F is unlimited.<ref name="ftn54">A predicate is
+‘limited’ if it is concrete; he considers such predicates to be those
+which appear in an earlier section of the paper relating to ontologies.
+‘Limited’ predicates are, quite conveniently, ‘not unlimited’.
+Note that this definition of unlimited is inductive. </ref> Thus, if we have a
+limited predicate, the notion of ‘compliant’ is not terribly
+troublesome. As Hellman puts it, the compliant of ‘donkey’ is merely
+‘the donkeys’. In this case, our reformulation is just to say that
+‘no donkey talks’ is true under A if and only if among the donkeys, d,
+‘x doesn’t talk’ is true under A[x/d]. This generalization falls
+under a scheme for limited predicates. Under this consideration,
+‘compliant’ is itself not a limited predicate, and so our formulation
+does not apply to it; thus, we have no real problems with answering the
+absolutist about whether donkeys talk. Indeed, the context which the question
+provides to us is sufficient for determining exactly what it is our scheme
+should be talking about: limited predicates.</div>
 
-<div style="margin-left:0in;margin-right:0in;">Given this definition of unlimited predicates, what then of indefinite extensibility? If indefinite extensibility is incoherent on a limitavist view, so much the worse for our schematic approach to sortals, identity, and semantic indeterminacy. As McGee has rightfully pointed out earlier, the limitavist construction of the indefinite extensibility argument is quite unsatisfactory. For instance, the Burali-Forti paradox requires reference to ‘a totality of the ordinals’. While this assumption of such a totality is generally for the purpose of a reductio argument, the premise is concerning in that to make sense of it, one must have an idea of what exactly it articulates. If the limitavist is correct, then it doesn’t actually articulate anything. What then, is the limitavist actually saying in their argument? It seems that, without an absolutist to argue against, the argument falls flat and does not shed light on the problem for the generalist. Kite Fine<ref name="ftn55">Along with many others; see Shapiro & Wright (2006) for another such take on it, appealing to Russell’s notion of an injective mapping onto a subset of the ordinals. </ref> recognizes the issue and attempts to offer a more precise formulation of the argument in such a way that it may be articulated without an absolutist position to argue against.<ref name="ftn56">Fine points this out quite explicitly after reformulating the argument in terms of quantification over interpretations. I do not wish to reiterate the entire argument, as it is quite similar to the one I provided earlier in section 1 (albeit more technical). Suffice it to say that his demonstration arrives at the following point: “The universalist seems obliged to say something false in defense of his position… The limitavist, on the other hand, can say nothing to distinguish his position from his opponent’s – at least if his opponent does not speak… Both the universalist and the limitavist would like to say something true but, where the one ends up saying something indefensible, the other ends up saying nothing” Fine (2006), 28. </ref> Fine himself recognizes the strengths of the scheme approach to resolving the difficulties in absolutely unrestricted quantification. In the case of indefinite extensibility, the scheme proponent like Lavine would commit themselves to the scheme <math>\exists </math><sub>r(I)<math>y\forall </math>I</sub><math>x\neg \left(x=y\right)</math>: given the Russell interpretation r(I), there is something which is not under a given interpretation I. The problem, Fine suggests, is that it is hard to make sense of what it might mean to be committed to the truth of each instance of this scheme if one might know what it is for such a scheme to be true, and also unwilling to commit themselves to the claim that any instance of it is true.<ref name="ftn57">Fine gives this argument in Fine (2006) 29. Lavine himself recognizes this point in Lavine (2006), and agrees with the argument. However, he doesn’t see it as applying to his own position. </ref> In light of this trouble, Fine suggests that we consider introducing modality into our position. The view that the limitavist would maintain is that, given that any interpretation can be extended in principle, we can say that some interpretation <math>J</math>extends (or properly extends) an interpretation <math>I</math>and that the interpretation <math>I</math>is extendible if it is possible that some interpretation extends it.<ref name="ftn58">In symbols, <math>\left(I\subset J\right)</math><span style="background-color:#ffffff;color:#1a1a1a;">and </span><math>E\left(I\right)</math><span style="background-color:#ffffff;color:#1a1a1a;">, respectively. </span></ref> In modal terms, this would look like <span style="background-color:#ffffff;color:#1a1a1a;">◊</span><math>\exists J\left(I\subset J\right)</math><span style="background-color:#ffffff;color:#1a1a1a;">. Thus, in these terms, the limitavist position becomes </span><math>\forall \mathit{IE}\left(I\right)</math><span style="background-color:#ffffff;color:#1a1a1a;">- for any interpretation, it is extendible. A stronger version of this thesis is that </span><span style="background-color:#ffffff;color:#1a1a1a;">□</span><math>\forall \mathit{IE}\left(I\right)</math><span style="background-color:#ffffff;color:#1a1a1a;">. Given our prior definitions, this is identical to □</span><math>\forall I◊\exists J\left(I\subset J\right).</math><span style="background-color:#ffffff;color:#1a1a1a;"> It is important to note that these modal symbols are not the usual sorts of modal symbols. Fine calls them ‘postulational modalities’, and they are meant to be distinct from both logical and metaphysical necessity and possibility.</span><span style="background-color:#ffffff;color:#1a1a1a;"><ref name="ftn59">There are good reasons for demanding this; namely that if we took these modalities to be logical or metaphysical, we would be saying something too strong or too weak. As such, we should take them to be something else. Fine provides an argument in Fine (2006), 30. Indeed, the divide becomes clear when we recognize that the modalities Fine is describing are possibilities for the actual world and not references to other possible worlds; in this way, they are not circumstantial modalities. Indeed, Fine (2006), 33 suggests that they are not genuine modalities at all! It is comparable to something like epistemic modality. </ref></span><span style="background-color:#ffffff;color:#1a1a1a;"> There are other issues posed to our understandings of the quantifiers in play here. For instance, it is hard given this view to understand what it might mean to reinterpret the quantifiers in the sense required. Again, much like for our modal operators, the usual sense in which we might think about these things is either too strong or too weak to actually capture the limitavist position. </span>Fine properly explains many of the worries, one of which being that if our interpretation has the usual quantifiers <math>\forall x</math>, <math>\exists x</math>and we expand that interpretation using our condition to arrive at the quantifiers <math>\forall </math><sup>+</sup><math>x</math>, <math>\exists </math><sup>+</sup><math>x</math>, how are we to understand these new quantifiers? Presumably in terms of the original quantifiers; appealing to the Russell set as a motivation, it seems that these reinterpretations give us too much in the case of <math>\exists </math><sup>+</sup><math>x\forall y\left(y\in x\right)</math>, which should only add to our discourse the object which is all of the objects in the range of <math>\forall y</math>- the universal set. Instead it returns all the sets that have objects in the range <math>\forall y</math>. <span style="background-color:#ffffff;color:#1a1a1a;">Given the problems posed, Fine urges us to loosen our notion of an interpretation of the quantifier. In order to fix such a problem, we can approach the issue from another direction. Supposing our only goal in doing this was to say that there is a (proper) expansion of our interpretation of the quantifiers, we can think about how an operator should extend the range of the quantifiers. We can postulate an object such that </span><math>!x\forall y\left(y\in x\right)</math><span style="background-color:#ffffff;color:#1a1a1a;">. This postulated object </span><math>x</math><span style="background-color:#ffffff;color:#1a1a1a;">has members who are the objects </span><math>y</math><span style="background-color:#ffffff;color:#1a1a1a;">of the given domain. This is a newly distinct account of interpreting our quantifiers. Both the absolutist and the limitavist imposed restrictions on our quantifiers, the only difference being whether these restrictions were on an absolute domain or not. On this view, we are not restricting the quantifiers but instead offering a mechanism by which their domain is to be expanded.</span><span style="background-color:#ffffff;color:#1a1a1a;"><ref name="ftn60">Fine (2006) surprisingly names this “the expansionist account”. </ref></span><span style="background-color:#ffffff;color:#1a1a1a;"> But now the cogency of our newly postulated argument must be brought into question. We are not obviously guaranteed that such an object exists, after all; it is only after a successful reinterpretation of our quantifiers – seeing that the object postulated is now in the range – that we see such an object exists. But what makes our move valid in the first place? As it turns out, the </span><span style="background-color:#ffffff;color:#1a1a1a;">indefinite extensibility of a set is what can act to guarantee the existence of such an object!</span><span style="background-color:#ffffff;color:#1a1a1a;"><ref name="ftn61">Fine refers to this as the “Russell jump” we make on a given collection, referring to the Russell set and the method by which we arrived at it. </ref></span><span style="background-color:#ffffff;color:#1a1a1a;"> Given this final sort of understanding of what exactly it is the expansionist purports to be claiming, we can further examine cases used by Williamson. For instance, we have seen how the scheme view would deal with “no donkeys talk”. The expansionist can utilize their newfound modal operators to properly strengthen their claim in saying this: □</span><math>\forall x\left(D\left(x\right)\rightarrow \neg T\left(x\right)\right)</math><span style="background-color:#ffffff;color:#1a1a1a;">. Necessarily, no donkey talks – under any expansion of the domain of our quantifiers, there will be no new object in it such that it is a talking donkey. Likewise, for other universal claims like everything is self-identical: instead of saying </span><math>\forall x\left(x=x\right)</math><span style="background-color:#ffffff;color:#1a1a1a;">, one can instead say that necessarily, any postulated object will be self-identical, or □</span><math>\forall x\left(x=x\right)</math><span style="background-color:#ffffff;color:#1a1a1a;">.</span></div>
+<div style="margin-left:0in;margin-right:0in;">Given this definition of
+unlimited predicates, what then of indefinite extensibility? If indefinite
+extensibility is incoherent on a limitavist view, so much the worse for our
+schematic approach to sortals, identity, and semantic indeterminacy. As McGee
+has rightfully pointed out earlier, the limitavist construction of the
+indefinite extensibility argument is quite unsatisfactory. For instance, the
+Burali-Forti paradox requires reference to ‘a totality of the ordinals’.
+While this assumption of such a totality is generally for the purpose of a
+reductio argument, the premise is concerning in that to make sense of it, one
+must have an idea of what exactly it articulates. If the limitavist is correct,
+then it doesn’t actually articulate anything. What then, is the limitavist
+actually saying in their argument? It seems that, without an absolutist to argue
+against, the argument falls flat and does not shed light on the problem for the
+generalist. Kite Fine<ref name="ftn55">Along with many others; see Shapiro &
+Wright (2006) for another such take on it, appealing to Russell’s notion of
+an injective mapping onto a subset of the ordinals. </ref> recognizes the issue
+and attempts to offer a more precise formulation of the argument in such a way
+that it may be articulated without an absolutist position to argue against.<ref
+name="ftn56">Fine points this out quite explicitly after reformulating the
+argument in terms of quantification over interpretations. I do not wish to
+reiterate the entire argument, as it is quite similar to the one I provided
+earlier in section 1 (albeit more technical). Suffice it to say that his
+demonstration arrives at the following point: “The universalist seems
+obliged to say something false in defense of his position… The limitavist, on
+the other hand, can say nothing to distinguish his position from his
+opponent’s – at least if his opponent does not speak… Both the
+universalist and the limitavist would like to say something true but, where the
+one ends up saying something indefensible, the other ends up saying nothing”
+Fine (2006), 28. </ref> Fine himself recognizes the strengths of the scheme
+approach to resolving the difficulties in absolutely unrestricted
+quantification. In the case of indefinite extensibility, the scheme proponent
+like Lavine would commit themselves to the scheme <math>\exists
+</math><sub>r(I)<math>y\forall </math>I</sub><math>x\neg
+\left(x=y\right)</math>: given the Russell interpretation r(I), there is
+something which is not under a given interpretation I. The problem, Fine
+suggests, is that it is hard to make sense of what it might mean to be committed
+to the truth of each instance of this scheme if one might know what it is for
+such a scheme to be true, and also unwilling to commit themselves to the claim
+that any instance of it is true.<ref name="ftn57">Fine gives this argument in
+Fine (2006) 29. Lavine himself recognizes this point in Lavine (2006), and
+agrees with the argument. However, he doesn’t see it as applying to his own
+position. </ref> In light of this trouble, Fine suggests that we consider
+introducing modality into our position. The view that the limitavist would
+maintain is that, given that any interpretation can be extended in principle, we
+can say that some interpretation <math>J</math>extends (or properly extends) an
+interpretation <math>I</math>and that the interpretation <math>I</math>is
+extendible if it is possible that some interpretation extends it.<ref
+name="ftn58">In symbols, <math>\left(I\subset J\right)</math><span
+style="background-color:#ffffff;color:#1a1a1a;">and
+</span><math>E\left(I\right)</math><span
+style="background-color:#ffffff;color:#1a1a1a;">, respectively. </span></ref> In
+modal terms, this would look like <span
+style="background-color:#ffffff;color:#1a1a1a;">◊</span><math>\exists
+J\left(I\subset J\right)</math><span
+style="background-color:#ffffff;color:#1a1a1a;">. Thus, in these terms, the
+limitavist position becomes </span><math>\forall
+\mathit{IE}\left(I\right)</math><span
+style="background-color:#ffffff;color:#1a1a1a;">- for any interpretation, it is
+extendible. A stronger version of this thesis is that </span><span
+style="background-color:#ffffff;color:#1a1a1a;">□</span><math>\forall
+\mathit{IE}\left(I\right)</math><span
+style="background-color:#ffffff;color:#1a1a1a;">. Given our prior definitions,
+this is identical to □</span><math>\forall I◊\exists J\left(I\subset
+J\right).</math><span style="background-color:#ffffff;color:#1a1a1a;"> It is
+important to note that these modal symbols are not the usual sorts of modal
+symbols. Fine calls them ‘postulational modalities’, and they are meant
+to be distinct from both logical and metaphysical necessity and
+possibility.</span><span style="background-color:#ffffff;color:#1a1a1a;"><ref
+name="ftn59">There are good reasons for demanding this; namely that if we took
+these modalities to be logical or metaphysical, we would be saying something too
+strong or too weak. As such, we should take them to be something else. Fine
+provides an argument in Fine (2006), 30. Indeed, the divide becomes clear when
+we recognize that the modalities Fine is describing are possibilities for the
+actual world and not references to other possible worlds; in this way, they are
+not circumstantial modalities. Indeed, Fine (2006), 33 suggests that they are
+not genuine modalities at all! It is comparable to something like epistemic
+modality. </ref></span><span style="background-color:#ffffff;color:#1a1a1a;">
+There are other issues posed to our understandings of the quantifiers in play
+here. For instance, it is hard given this view to understand what it might mean
+to reinterpret the quantifiers in the sense required. Again, much like for our
+modal operators, the usual sense in which we might think about these things is
+either too strong or too weak to actually capture the limitavist position.
+</span>Fine properly explains many of the worries, one of which being that if
+our interpretation has the usual quantifiers <math>\forall x</math>,
+<math>\exists x</math>and we expand that interpretation using our condition to
+arrive at the quantifiers <math>\forall </math><sup>+</sup><math>x</math>,
+<math>\exists </math><sup>+</sup><math>x</math>, how are we to understand these
+new quantifiers? Presumably in terms of the original quantifiers; appealing to
+the Russell set as a motivation, it seems that these reinterpretations give us
+too much in the case of <math>\exists </math><sup>+</sup><math>x\forall
+y\left(y\in x\right)</math>, which should only add to our discourse the object
+which is all of the objects in the range of <math>\forall y</math>- the
+universal set. Instead it returns all the sets that have objects in the range
+<math>\forall y</math>. <span
+style="background-color:#ffffff;color:#1a1a1a;">Given the problems posed, Fine
+urges us to loosen our notion of an interpretation of the quantifier. In order
+to fix such a problem, we can approach the issue from another direction.
+Supposing our only goal in doing this was to say that there is a (proper)
+expansion of our interpretation of the quantifiers, we can think about how an
+operator should extend the range of the quantifiers. We can postulate an object
+such that </span><math>!x\forall y\left(y\in x\right)</math><span
+style="background-color:#ffffff;color:#1a1a1a;">. This postulated object
+</span><math>x</math><span style="background-color:#ffffff;color:#1a1a1a;">has
+members who are the objects </span><math>y</math><span
+style="background-color:#ffffff;color:#1a1a1a;">of the given domain. This is a
+newly distinct account of interpreting our quantifiers. Both the absolutist and
+the limitavist imposed restrictions on our quantifiers, the only difference
+being whether these restrictions were on an absolute domain or not. On this
+view, we are not restricting the quantifiers but instead offering a mechanism by
+which their domain is to be expanded.</span><span
+style="background-color:#ffffff;color:#1a1a1a;"><ref name="ftn60">Fine (2006)
+surprisingly names this “the expansionist account”. </ref></span><span
+style="background-color:#ffffff;color:#1a1a1a;"> But now the cogency of our
+newly postulated argument must be brought into question. We are not obviously
+guaranteed that such an object exists, after all; it is only after a successful
+reinterpretation of our quantifiers – seeing that the object postulated is
+now in the range – that we see such an object exists. But what makes our
+move valid in the first place? As it turns out, the </span><span
+style="background-color:#ffffff;color:#1a1a1a;">indefinite extensibility of a
+set is what can act to guarantee the existence of such an object!</span><span
+style="background-color:#ffffff;color:#1a1a1a;"><ref name="ftn61">Fine refers to
+this as the “Russell jump” we make on a given collection, referring to
+the Russell set and the method by which we arrived at it. </ref></span><span
+style="background-color:#ffffff;color:#1a1a1a;"> Given this final sort of
+understanding of what exactly it is the expansionist purports to be claiming, we
+can further examine cases used by Williamson. For instance, we have seen how the
+scheme view would deal with “no donkeys talk”. The expansionist can
+utilize their newfound modal operators to properly strengthen their claim in
+saying this: □</span><math>\forall x\left(D\left(x\right)\rightarrow \neg
+T\left(x\right)\right)</math><span
+style="background-color:#ffffff;color:#1a1a1a;">. Necessarily, no donkey talks
+– under any expansion of the domain of our quantifiers, there will be no new
+object in it such that it is a talking donkey. Likewise, for other universal
+claims like everything is self-identical: instead of saying </span><math>\forall
+x\left(x=x\right)</math><span style="background-color:#ffffff;color:#1a1a1a;">,
+one can instead say that necessarily, any postulated object will be
+self-identical, or □</span><math>\forall x\left(x=x\right)</math><span
+style="background-color:#ffffff;color:#1a1a1a;">.</span></div>
 
 
 <div style="text-align:center;">''SECTION 4 – WHAT TO MAKE OF IT ALL''</div>
 
-<span style="background-color:#ffffff;color:#333333;">What I would like to conclude with is a consideration of the responses the limitavist has for the various charges levied against them by the absolutist, as well as whether we can suspect that the limitavist has reasonably supported their position against the proponent of unrestricted quantification or if the absolutist has managed to convince us. McGee’s principle argument for an unrestricted domain of quantification is that the universal quantifiers governed by universal instantiation and universal generalization are interderivable and that, as this is the case, they can pick out an optimal candidate in the domain for the semantic value of the quantifier. Given this, we can conclude that unrestricted quantification is the preferred form of quantifying over a domain because it preserves truth in every instance where our language expands to include new names that the restricted position on the quantifiers cannot support. What is worth considering in McGee’s argument is that he explicitly presumes a two-valued, classical logic. Given a logic which isn’t classical, is the defense which McGee proposes satisfactory? As far as intuitionist logic is concerned</span><span style="background-color:#ffffff;color:#333333;"><ref name="ftn62">I consider intuitionist logic only here simply because I am more sympathetic to the view myself and Dummett himself was an intuitionist logician; I think it’s at least semi appropriate to look at McGee’s argument how Dummett might have. </ref></span><span style="background-color:#ffffff;color:#333333;">, there do not seem to be too many problems with the argument. When introducing quantifiers to intuitionist logic, it behaves somewhat like a modal logic.</span><span style="background-color:#ffffff;color:#333333;"><ref name="ftn63">In that given our interpretation in the intuitionist logic with quantifiers, we consider the truth of universals and existentials with respect to truth at possible worlds. For a breakdown of this logic, see Priest (2008), 421-37.</ref></span><span style="background-color:#ffffff;color:#333333;"> Indeed, in a one-world interpretation for quantified intuitionist logic, it </span><span style="background-color:#ffffff;color:#333333;">reduces to a classical logic with quantifiers. In the case of a many-world interpretation, that the quantifiers are interderivable is less obvious, but the claim is nonetheless true.</span><span style="background-color:#ffffff;color:#333333;"><ref name="ftn64">I wanted to provide my own proof of this, but I was beaten to the punch; see Lavine (2006), 112. </ref></span><span style="background-color:#ffffff;color:#333333;"> As a result, the assumption of classical truth is admissible, and the argument could be in principle extended to nonclassical logics. However, where McGee’s position does falter is how it attempts to defuse the semantic indeterminacy argument. Recall that McGee’s primary point was that the </span>L<span style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem requires that names already exist in the domain; under any expansion of our language through the introduction of new names – through a new scientific theory, perhaps – the skeptic cannot support themselves and the argument is subdued. However, we should recognize that there are a small number of names we can add to any language in our scientific theories.<ref name="ftn65">The other example McGee gives, that of naming a child or a new pet, make this point even more obvious.</ref> So suppose that we have a language <math>L</math>. Expand <math>L</math>by introducing all of the names that I could add in McGee’s manner, and call this language <math>L</math><sup>+</sup>. Is there anything about this new language that stops us from utilizing the Skolem argument against it? This does not seem to be the case – it is a perfectly acceptable language in just the same way our unexpanded language was. Thus, given any expansion of your language through the introduction of new names, I should always be able to present the exact same problem back to you. However, I think it is worth noting what McGee rightfully points out to us: the L<span style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem is a theorem of first-order logic. While it can be extended to higher order logics and McGee grants that such an extension could be performed in principle to higher and higher order logics, we might be concerned with whether a sufficiently complex logic would begin to capture the ways in which we use natural language in our everyday discourse. That is to say, if it is determined that natural language is somehow above and beyond what can be captured in a formal language, it is not clear if we could extend the L<span style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem to any kind of natural language.<ref name="ftn66">While I myself am skeptical of the claim that natural languages are extensions of formal languages, I do not think I am in any sort of position to offer an argument to this end. It certainly wouldn’t fit here.</ref> Finally, McGee’s final point that the open-endedness of our quantifiers give strong support to the conclusion that absolutely unrestricted quantification is the preferred interpretation of our quantifiers seems to not quite establish itself. Indeed, if Lavine is correct, full schemes seem more than capable of satisfying the exact same requirements McGee stresses in his thesis. However, that isn’t to say that the full scheme position is saying anything which the absolutist would not likewise accept. Lavine is careful to say that we are only committed to ''any'' instance of our given scheme, not ''every'' instance. This distinction, while small, does a large amount of work; for instance, we avoid quantifying over our schemes, which would only serve to push the problem back a step.<ref name="ftn67">Fine (2006) makes a similar sort of argument; Lavine rejects that it defeats his position because it isn’t a proper characterization of his position. </ref> However, as Fine points out earlier, it is unclear what it might mean to be committed to the truth of each instantiation of a scheme but not be committed to the commitment that they are true. As it were, it is unclear what I am to make of any scheme’s truth if I cannot endorse that any instance is true. However, if we grant that this does not make the scheme endorser’s argument any less cogent, it does provide us with a certain strength to push back against Williamson’s analogy between absolute identity and unrestricted quantification. Indeed, given the sorts of commitments we have to a scheme like the everything axiom, the question of identity might be taken to itself be ambiguous. As a result, insofar as identity and unrestricted quantification are closely connected, if identity is ambiguous so much the worse for quantification. But if we do not endorse the scheme view because of its possible problems, Fine’s position still seems attractive – so long as we are willing to accept some modal baggage. The primary concern one might have with Fine’s expansionism is how we are to properly understand these modal operators as being different from the usual metaphysical and logical ones. Indeed, we have excellent reasons for supposing that they aren’t; for starters, they are inadequate or ill-equipped to provide an argument against the absolutist with respect to indefinite extensibility without being charged with committing themselves to unrestricted quantification, as Williamson and McGee have previously argued such arguments open the limitavist up to. The operators are not circumstantial, but interpretational. But if there is no way of properly fleshing out how this works like David Lewis did with modality and possible worlds<ref name="ftn68">Kit Fine recognizes his lack of producing an adequate kind of semantics. </ref>, it seems we are faced with having to take these operators as a kind of primitive. However, this does not seem so bad. Indeed, it seems that the scheme view also demands of us to take schemes as a primitive. <span style="background-color:#ffffff;color:#333333;">But if we take either of these as primitives, for what purpose? Why choose one over the other? Both seem relatively unloaded in terms of ontological or logical commitments;</span><span style="background-color:#ffffff;color:#333333;"><ref name="ftn69">I have spent very little time discussing ontological commitments. However, several people referenced here such as Putnam (1980), Glanzberg (2004), (2006), and Lavine (2006) have attempted to argue that the absolutist is committed to some form of metaphysical realism, primarily relating to the semantic indeterminacy argument. As it stands, I have attempted to focus more on the logical character of the arguments and objections as opposed to getting bogged down in questions of ontology. However, the two are intimately related, especially when we are concerned with everything. The views presented by Lavine and Fine are both free of the ontological commitments the absolutist might be committed to. </ref></span><span style="background-color:#ffffff;color:#333333;"> perhaps the only reason to support one beyond another is on pragmatic grounds. Lavine sees the full scheme view as being simpler and more readily understood than postulational modalities; I myself see postulational modality as being a far simpler version of the usual modal semantics we acquire in a Lewisian modal logic. I agree with Fine in that it seems unclear what the commitments on the part of the full scheme view amount to. Alternatively, the expansionist account of the limitavist view seems to make it so that I am always ready, able, and willing to inform the absolutist that they are not quite capturing everything. </span>
+<span style="background-color:#ffffff;color:#333333;">What I would like to
+conclude with is a consideration of the responses the limitavist has for the
+various charges levied against them by the absolutist, as well as whether we can
+suspect that the limitavist has reasonably supported their position against the
+proponent of unrestricted quantification or if the absolutist has managed to
+convince us. McGee’s principle argument for an unrestricted domain of
+quantification is that the universal quantifiers governed by universal
+instantiation and universal generalization are interderivable and that, as this
+is the case, they can pick out an optimal candidate in the domain for the
+semantic value of the quantifier. Given this, we can conclude that unrestricted
+quantification is the preferred form of quantifying over a domain because it
+preserves truth in every instance where our language expands to include new
+names that the restricted position on the quantifiers cannot support. What is
+worth considering in McGee’s argument is that he explicitly presumes a
+two-valued, classical logic. Given a logic which isn’t classical, is the
+defense which McGee proposes satisfactory? As far as intuitionist logic is
+concerned</span><span style="background-color:#ffffff;color:#333333;"><ref
+name="ftn62">I consider intuitionist logic only here simply because I am more
+sympathetic to the view myself and Dummett himself was an intuitionist logician;
+I think it’s at least semi appropriate to look at McGee’s argument how
+Dummett might have. </ref></span><span
+style="background-color:#ffffff;color:#333333;">, there do not seem to be too
+many problems with the argument. When introducing quantifiers to intuitionist
+logic, it behaves somewhat like a modal logic.</span><span
+style="background-color:#ffffff;color:#333333;"><ref name="ftn63">In that given
+our interpretation in the intuitionist logic with quantifiers, we consider the
+truth of universals and existentials with respect to truth at possible worlds.
+For a breakdown of this logic, see Priest (2008), 421-37.</ref></span><span
+style="background-color:#ffffff;color:#333333;"> Indeed, in a one-world
+interpretation for quantified intuitionist logic, it </span><span
+style="background-color:#ffffff;color:#333333;">reduces to a classical logic
+with quantifiers. In the case of a many-world interpretation, that the
+quantifiers are interderivable is less obvious, but the claim is nonetheless
+true.</span><span style="background-color:#ffffff;color:#333333;"><ref
+name="ftn64">I wanted to provide my own proof of this, but I was beaten to the
+punch; see Lavine (2006), 112. </ref></span><span
+style="background-color:#ffffff;color:#333333;"> As a result, the assumption of
+classical truth is admissible, and the argument could be in principle extended
+to nonclassical logics. However, where McGee’s position does falter is how
+it attempts to defuse the semantic indeterminacy argument. Recall that
+McGee’s primary point was that the </span>L<span
+style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem
+requires that names already exist in the domain; under any expansion of our
+language through the introduction of new names – through a new scientific
+theory, perhaps – the skeptic cannot support themselves and the argument is
+subdued. However, we should recognize that there are a small number of names we
+can add to any language in our scientific theories.<ref name="ftn65">The other
+example McGee gives, that of naming a child or a new pet, make this point even
+more obvious.</ref> So suppose that we have a language <math>L</math>. Expand
+<math>L</math>by introducing all of the names that I could add in McGee’s
+manner, and call this language <math>L</math><sup>+</sup>. Is there anything
+about this new language that stops us from utilizing the Skolem argument against
+it? This does not seem to be the case – it is a perfectly acceptable
+language in just the same way our unexpanded language was. Thus, given any
+expansion of your language through the introduction of new names, I should
+always be able to present the exact same problem back to you. However, I think
+it is worth noting what McGee rightfully points out to us: the L<span
+style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem
+is a theorem of first-order logic. While it can be extended to higher order
+logics and McGee grants that such an extension could be performed in principle
+to higher and higher order logics, we might be concerned with whether a
+sufficiently complex logic would begin to capture the ways in which we use
+natural language in our everyday discourse. That is to say, if it is determined
+that natural language is somehow above and beyond what can be captured in a
+formal language, it is not clear if we could extend the L<span
+style="background-color:#ffffff;color:#222222;">ö</span>wenheim-Skolem theorem
+to any kind of natural language.<ref name="ftn66">While I myself am skeptical of
+the claim that natural languages are extensions of formal languages, I do not
+think I am in any sort of position to offer an argument to this end. It
+certainly wouldn’t fit here.</ref> Finally, McGee’s final point that the
+open-endedness of our quantifiers give strong support to the conclusion that
+absolutely unrestricted quantification is the preferred interpretation of our
+quantifiers seems to not quite establish itself. Indeed, if Lavine is correct,
+full schemes seem more than capable of satisfying the exact same requirements
+McGee stresses in his thesis. However, that isn’t to say that the full
+scheme position is saying anything which the absolutist would not likewise
+accept. Lavine is careful to say that we are only committed to ''any'' instance
+of our given scheme, not ''every'' instance. This distinction, while small, does
+a large amount of work; for instance, we avoid quantifying over our schemes,
+which would only serve to push the problem back a step.<ref name="ftn67">Fine
+(2006) makes a similar sort of argument; Lavine rejects that it defeats his
+position because it isn’t a proper characterization of his position. </ref>
+However, as Fine points out earlier, it is unclear what it might mean to be
+committed to the truth of each instantiation of a scheme but not be committed to
+the commitment that they are true. As it were, it is unclear what I am to make
+of any scheme’s truth if I cannot endorse that any instance is true.
+However, if we grant that this does not make the scheme endorser’s argument
+any less cogent, it does provide us with a certain strength to push back against
+Williamson’s analogy between absolute identity and unrestricted
+quantification. Indeed, given the sorts of commitments we have to a scheme like
+the everything axiom, the question of identity might be taken to itself be
+ambiguous. As a result, insofar as identity and unrestricted quantification are
+closely connected, if identity is ambiguous so much the worse for
+quantification. But if we do not endorse the scheme view because of its possible
+problems, Fine’s position still seems attractive – so long as we are
+willing to accept some modal baggage. The primary concern one might have with
+Fine’s expansionism is how we are to properly understand these modal
+operators as being different from the usual metaphysical and logical ones.
+Indeed, we have excellent reasons for supposing that they aren’t; for
+starters, they are inadequate or ill-equipped to provide an argument against the
+absolutist with respect to indefinite extensibility without being charged with
+committing themselves to unrestricted quantification, as Williamson and McGee
+have previously argued such arguments open the limitavist up to. The operators
+are not circumstantial, but interpretational. But if there is no way of properly
+fleshing out how this works like David Lewis did with modality and possible
+worlds<ref name="ftn68">Kit Fine recognizes his lack of producing an adequate
+kind of semantics. </ref>, it seems we are faced with having to take these
+operators as a kind of primitive. However, this does not seem so bad. Indeed, it
+seems that the scheme view also demands of us to take schemes as a primitive.
+<span style="background-color:#ffffff;color:#333333;">But if we take either of
+these as primitives, for what purpose? Why choose one over the other? Both seem
+relatively unloaded in terms of ontological or logical commitments;</span><span
+style="background-color:#ffffff;color:#333333;"><ref name="ftn69">I have spent
+very little time discussing ontological commitments. However, several people
+referenced here such as Putnam (1980), Glanzberg (2004), (2006), and Lavine
+(2006) have attempted to argue that the absolutist is committed to some form of
+metaphysical realism, primarily relating to the semantic indeterminacy argument.
+As it stands, I have attempted to focus more on the logical character of the
+arguments and objections as opposed to getting bogged down in questions of
+ontology. However, the two are intimately related, especially when we are
+concerned with everything. The views presented by Lavine and Fine are both free
+of the ontological commitments the absolutist might be committed to.
+</ref></span><span style="background-color:#ffffff;color:#333333;"> perhaps the
+only reason to support one beyond another is on pragmatic grounds. Lavine sees
+the full scheme view as being simpler and more readily understood than
+postulational modalities; I myself see postulational modality as being a far
+simpler version of the usual modal semantics we acquire in a Lewisian modal
+logic. I agree with Fine in that it seems unclear what the commitments on the
+part of the full scheme view amount to. Alternatively, the expansionist account
+of the limitavist view seems to make it so that I am always ready, able, and
+willing to inform the absolutist that they are not quite capturing everything.
+</span>
 
-<div style="margin-left:0in;margin-right:0in;"><span style="background-color:#ffffff;color:#333333;">All things considered, I find that the point on natural languages is less than appealing; generally speaking, natural language users can disambiguate their own claims with ease and don’t tend to worry about such issues as “does the domain of my quantification include itself or not?” Instead, we usually tend to know what it is we’re talking about – the claim that “there are no talking donkeys” makes perfectly good sense to us not because we grant the use of unrestricted quantification or don’t, but rather because we know that its truth stands or falls with the claim that no animals </span><span style="background-color:#ffffff;color:#333333;">talk, and that such animals exist on Earth in certain regions and are members of a particular family of species which evolved in a certain way. We know what we mean by donkeys, and it certainly isn’t ‘everything’. Indeed, it seems that we only need to quantify over a small region of space and consider all animals which exist there. No animal that isn’t a donkey doesn’t share a perfect evolutionary history with donkeys, and there seems to be something about donkeys that commit us to their Earth-bound existence. If we found donkeys on Mars, it isn’t obvious that we would consider them to be donkeys. The point on Skolemization is likewise less satisfying. While McGee is probably correct in arguing that higher and higher degrees of complexity in our logics could similarly run into issues like a first-order logic does, we have the tools we require in first-order logics to reduce the “Skolem paradox” to a fluke in our understanding of the concept itself. Likewise, it does not seem to be an issue that such a Skolemization of our natural languages wouldn’t likewise allow us to utilize similar resolutions, albeit they would perhaps be more complicated – but that is simply a consequence of the nature of our language. Finally, on indefinite extensibility. As far as I don’t consider absolute generality or unrestricted quantification to be a necessary or obvious problem for a natural language, I think that indefinite extensibility is the only real problem for an absolutist and only as it applies to more formal languages. Indeed, it seems to be the only criticism which both satisfies and convinces me of the limitavist position. Kit Fine’s argument on the topic likewise convinces me in terms of how the limitavist can go </span><span style="background-color:#ffffff;color:#333333;">about treating logic in the usual way we would like, without accepting untenable positions like unrestricted quantification </span><span style="background-color:#ffffff;color:#333333;">''considering indefinite extensibility concerns''</span><span style="background-color:#ffffff;color:#333333;">. </span>What is most interesting to point out here is that many of the defenses of a limitavist perspective hinge on in some way utilizing what might be mistaken as a universalist view. But these reformulations rely on a very particular claim: their statements do not rely on quantification, but instead on some other aspect of logic. For Fine, it is modal operators, which aren’t ‘traditional’ modal operators. For Lavine, it is schemes, which aren’t reducible to quantifiers. What we are left to grapple with is whether or not we are comfortable accepting these new tools or different ways of understanding our commonplace discourse. Either way we go with the debate, we are left with unsettling things to consider. </div>
+<div style="margin-left:0in;margin-right:0in;"><span
+style="background-color:#ffffff;color:#333333;">All things considered, I find
+that the point on natural languages is less than appealing; generally speaking,
+natural language users can disambiguate their own claims with ease and don’t
+tend to worry about such issues as “does the domain of my quantification
+include itself or not?” Instead, we usually tend to know what it is
+we’re talking about – the claim that “there are no talking
+donkeys” makes perfectly good sense to us not because we grant the use of
+unrestricted quantification or don’t, but rather because we know that its
+truth stands or falls with the claim that no animals </span><span
+style="background-color:#ffffff;color:#333333;">talk, and that such animals
+exist on Earth in certain regions and are members of a particular family of
+species which evolved in a certain way. We know what we mean by donkeys, and it
+certainly isn’t ‘everything’. Indeed, it seems that we only need to
+quantify over a small region of space and consider all animals which exist
+there. No animal that isn’t a donkey doesn’t share a perfect
+evolutionary history with donkeys, and there seems to be something about donkeys
+that commit us to their Earth-bound existence. If we found donkeys on Mars, it
+isn’t obvious that we would consider them to be donkeys. The point on
+Skolemization is likewise less satisfying. While McGee is probably correct in
+arguing that higher and higher degrees of complexity in our logics could
+similarly run into issues like a first-order logic does, we have the tools we
+require in first-order logics to reduce the “Skolem paradox” to a fluke
+in our understanding of the concept itself. Likewise, it does not seem to be an
+issue that such a Skolemization of our natural languages wouldn’t likewise
+allow us to utilize similar resolutions, albeit they would perhaps be more
+complicated – but that is simply a consequence of the nature of our
+language. Finally, on indefinite extensibility. As far as I don’t consider
+absolute generality or unrestricted quantification to be a necessary or obvious
+problem for a natural language, I think that indefinite extensibility is the
+only real problem for an absolutist and only as it applies to more formal
+languages. Indeed, it seems to be the only criticism which both satisfies and
+convinces me of the limitavist position. Kit Fine’s argument on the topic
+likewise convinces me in terms of how the limitavist can go </span><span
+style="background-color:#ffffff;color:#333333;">about treating logic in the
+usual way we would like, without accepting untenable positions like unrestricted
+quantification </span><span
+style="background-color:#ffffff;color:#333333;">''considering indefinite
+extensibility concerns''</span><span
+style="background-color:#ffffff;color:#333333;">. </span>What is most
+interesting to point out here is that many of the defenses of a limitavist
+perspective hinge on in some way utilizing what might be mistaken as a
+universalist view. But these reformulations rely on a very particular claim:
+their statements do not rely on quantification, but instead on some other aspect
+of logic. For Fine, it is modal operators, which aren’t
+‘traditional’ modal operators. For Lavine, it is schemes, which
+aren’t reducible to quantifiers. What we are left to grapple with is whether
+or not we are comfortable accepting these new tools or different ways of
+understanding our commonplace discourse. Either way we go with the debate, we
+are left with unsettling things to consider. </div>
 
 = REFERENCES =
 
-Barker-Plummer, D., Barwise, J., Etchemendy, J. (2011) ''Language, Proof, and Logic''. Stanford, 
+Barker-Plummer, D., Barwise, J., Etchemendy, J. (2011) ''Language, Proof, and
+Logic''. Stanford, 
 
 CA: CSLI Publications. 
 
-Clark, P. (1998) ‘Dummett’s Argument for the Indefinite Extensibility of Set and Real Number’, 
+Clark, P. (1998) ‘Dummett’s Argument for the Indefinite Extensibility of
+Set and Real Number’, 
 
 ''Grazer Philosophische Studien ''55, 51-63. 
 
-Dummett, M. (1981) ''Frege: Philosophy of Language'', Harvard, Cambridge, MA, second edition.
+Dummett, M. (1981) ''Frege: Philosophy of Language'', Harvard, Cambridge, MA,
+second edition.
 
 Dummett, M. (1991) ''Frege: Philosophy of Mathematics'', Duckworth, London.
 
-Dummett, M. (1993) ‘Does Quantification Involve Identity?’, in Dummett, ''The Seas of ''
+Dummett, M. (1993) ‘Does Quantification Involve Identity?’, in Dummett,
+''The Seas of ''
 
 ''Language''. Oxford: Clarendon Press. 
 
-Fine, K. (2006) ‘Relatively Unrestricted Quantification’. In A. Rayo & G. Uzquiano (Authors), 
+Fine, K. (2006) ‘Relatively Unrestricted Quantification’. In A. Rayo &
+G. Uzquiano (Authors), 
 
 ''Absolute Generality'' (pp. 20-44). Oxford: Clarendon Press. 
 
-Frege, G. (1884) ''Die Grundlagen der Arithmetik''. English Translation by J. L. Austin, ''The ''
+Frege, G. (1884) ''Die Grundlagen der Arithmetik''. English Translation by J. L.
+Austin, ''The ''
 
-''Foundations of Arithmetic'', Northwestern University Press, Evanston, IL, 1980. 
+''Foundations of Arithmetic'', Northwestern University Press, Evanston, IL,
+1980. 
 
-Frege, G. (2013) ''Basic Laws of Arithmetic ''(P. A. Ebert & M. Rossberg, Trans.). Oxford: Oxford 
+Frege, G. (2013) ''Basic Laws of Arithmetic ''(P. A. Ebert & M. Rossberg,
+Trans.). Oxford: Oxford 
 
 University Press. 
 
 Geach, P. T. (1967) ‘Identity’, ''Review of Metaphysics'' 21:3-12.
 
-Glanzberg, M. (2004) ‘Quantification and Realism’, ''Philosophy and Phenomenological Research''
+Glanzberg, M. (2004) ‘Quantification and Realism’, ''Philosophy and
+Phenomenological Research''
 
 <div style="margin-left:0in;margin-right:0in;">69, 541-72.</div>
 
-Hellman, G. (2006) ‘Against ‘Absolutely Everything’!’. In A. Rayo & G. Uzquiano (Authors), 
+Hellman, G. (2006) ‘Against ‘Absolutely Everything’!’. In A.
+Rayo & G. Uzquiano (Authors), 
 
 ''Absolute Generality'' (pp. 75-97). Oxford: Clarendon Press.
 
-Lavine, S. (2006) ‘Something About Everything: Universal Quantification in the Universal Sense 
+Lavine, S. (2006) ‘Something About Everything: Universal Quantification in
+the Universal Sense 
 
-of Universal Quantification’. In A. Rayo & G. Uzquiano (Authors), ''Absolute Generality'' 
+of Universal Quantification’. In A. Rayo & G. Uzquiano (Authors), ''Absolute
+Generality'' 
 
 (pp. 98-148). Oxford: Clarendon Press. 
 
-Lewis, D. (1983) ‘New Work for a Theory of Universals’, ''Australasian Journal of Philosophy ''61, 
+Lewis, D. (1983) ‘New Work for a Theory of Universals’, ''Australasian
+Journal of Philosophy ''61, 
 
 343-77. 
 
-McGee, V. (2006) ‘There’s a Rule for Everything’. In A. Rayo & G. Uzquiano (Authors), ''Absolute ''
+McGee, V. (2006) ‘There’s a Rule for Everything’. In A. Rayo & G.
+Uzquiano (Authors), ''Absolute ''
 
 ''Generality'' (pp. 179-202). Oxford: Clarendon Press. 
 
 Moore, A. W. (2015) ''The Infinite''. London: Routledge.
 
-Parsons, C. (2006) ‘The Problem of Absolute Universality’. In A. Rayo & G. Uzquiano (Authors), 
+Parsons, C. (2006) ‘The Problem of Absolute Universality’. In A. Rayo &
+G. Uzquiano (Authors), 
 
 ''Absolute Generality'' (pp. 203-19). Oxford: Clarendon Press. 
 
-Peters, S., & Westerståhl, D. (2006) ''Quantifiers in Language and Logic''. Oxford: Clarendon Press.
+Peters, S., & Westerståhl, D. (2006) ''Quantifiers in Language and Logic''.
+Oxford: Clarendon Press.
 
-Priest, G. (2008) ''An Introduction to Non-Classical Logic: From If to Is''. Cambridge: Cambridge
+Priest, G. (2008) ''An Introduction to Non-Classical Logic: From If to Is''.
+Cambridge: Cambridge
 
 <div style="margin-left:0in;margin-right:0in;">University Press.</div>
 
-Putnam, H. (1980) ‘Models and Reality’, ''The Journal of Symbolic Logic'' 45:3, 464-82.
+Putnam, H. (1980) ‘Models and Reality’, ''The Journal of Symbolic
+Logic'' 45:3, 464-82.
 
-Quine, W. V. (1968) ‘Ontological Relativity’, ''Journal of Philosophy'' 65, 185-212. 
+Quine, W. V. (1968) ‘Ontological Relativity’, ''Journal of Philosophy''
+65, 185-212. 
 
-Rayo, A., & Uzquiano, G. (2006) ''Absolute Generality''. Oxford: Clarendon Press. 
+Rayo, A., & Uzquiano, G. (2006) ''Absolute Generality''. Oxford: Clarendon
+Press. 
 
-Russell, B. (1906) ‘On some Difficulties in the Theory of Transfinite Numbers and Order Types’, 
+Russell, B. (1906) ‘On some Difficulties in the Theory of Transfinite
+Numbers and Order Types’, 
 
 ''Proceedings of the London Mathematical Society'' 4, 29-53. 
 
-Shapiro, S. (2011) ''Thinking About Mathematics: The Philosophy of Mathematics''. Oxford: Oxford
+Shapiro, S. (2011) ''Thinking About Mathematics: The Philosophy of
+Mathematics''. Oxford: Oxford
 
 <div style="margin-left:0in;margin-right:0in;">University Press. </div>
 
-Shapiro, S., & Wright, C. (2006) ‘All Things Indefinitely Extensible’. In A. Rayo & G. Uzquiano 
+Shapiro, S., & Wright, C. (2006) ‘All Things Indefinitely Extensible’.
+In A. Rayo & G. Uzquiano 
 
 (Authors), ''Absolute Generality'' (pp. 255-304). Oxford: Clarendon Press. 
 
-Taylor, D. E., & Burgess, A. (2015) ‘What in the World is Semantic Indeterminacy?’ ''Analytic ''
+Taylor, D. E., & Burgess, A. (2015) ‘What in the World is Semantic
+Indeterminacy?’ ''Analytic ''
 
 ''Philosophy, ''56:4, 298-317.
 
-<span style="color:#1a1a1a;">Whitehead, A. N., & Russell, B. (1910) </span><span style="color:#1a1a1a;">''Principia Mathematica''</span><span style="color:#1a1a1a;">. Cambridge: Cambridge</span>
+<span style="color:#1a1a1a;">Whitehead, A. N., & Russell, B. (1910) </span><span
+style="color:#1a1a1a;">''Principia Mathematica''</span><span
+style="color:#1a1a1a;">. Cambridge: Cambridge</span>
 
-<div style="margin-left:0in;margin-right:0in;"><span style="color:#1a1a1a;">University Press.</span></div>
+<div style="margin-left:0in;margin-right:0in;"><span
+style="color:#1a1a1a;">University Press.</span></div>
 
-Williamson, T. (2003) ‘Everything’, ''Philosophical Perspectives'' 17, 415-65.
+Williamson, T. (2003) ‘Everything’, ''Philosophical Perspectives'' 17,
+415-65.
 
-Williamson, T. (2006) ‘Absolute Identity and Absolute Generality’. In A. Rayo & G. Uzquiano 
+Williamson, T. (2006) ‘Absolute Identity and Absolute Generality’. In A.
+Rayo & G. Uzquiano 
 
 (Authors), ''Absolute Generality'' (pp. 369-90). Oxford: Clarendon Press. 
 
-----
-<references/>
+---- <references/>

@@ -5,15 +5,52 @@ PHL 418
 Reading Response – Week 12
 
 
-Wittgenstein has been painstakingly insistent on several technical terms. Some of them include ''judgment'', ''believe'', ''know''. It seems that the latter two are primarily contrasted by how they relate to doubts i.e., I ''know'' that I have two hands just in case I could not doubt it to be the case that I don’t; it isn’t part of the language game that I play for me to not have two hands. I could not be mistaken, as Wittgenstein might say. Belief, on the other hand, seems to offer room for doubt. It isn’t the case that I believe that I have not been far from the surface of the Earth because there isn’t good reason to doubt that I haven’t; but I perhaps could believe that the Earth was flat if I was taught incorrectly… Do the ways we are taught to believe change the things that we can know and doubt? Is this the grounds for kinds of miscommunication? We are taught differently, we believe and know differently? We play different games? Judgment, on the other hand, seems far different from the other two. I am still unclear on how things like judgment and decision fall into this system. They seem radically different, more about how it is I come to believe and know rather than aspects of belief and knowing. I ''decide'' to belief that the Earth is flat, I do not ''judge'' that I believe so. Do I judge about what I know? Is this how the two come apart? 
+Wittgenstein has been painstakingly insistent on several technical terms. Some
+of them include ''judgment'', ''believe'', ''know''. It seems that the latter
+two are primarily contrasted by how they relate to doubts i.e., I ''know'' that
+I have two hands just in case I could not doubt it to be the case that I
+don’t; it isn’t part of the language game that I play for me to not have
+two hands. I could not be mistaken, as Wittgenstein might say. Belief, on the
+other hand, seems to offer room for doubt. It isn’t the case that I believe
+that I have not been far from the surface of the Earth because there isn’t
+good reason to doubt that I haven’t; but I perhaps could believe that the
+Earth was flat if I was taught incorrectly… Do the ways we are taught to
+believe change the things that we can know and doubt? Is this the grounds for
+kinds of miscommunication? We are taught differently, we believe and know
+differently? We play different games? Judgment, on the other hand, seems far
+different from the other two. I am still unclear on how things like judgment and
+decision fall into this system. They seem radically different, more about how it
+is I come to believe and know rather than aspects of belief and knowing. I
+''decide'' to belief that the Earth is flat, I do not ''judge'' that I believe
+so. Do I judge about what I know? Is this how the two come apart? 
 
 
 In line 374, Wittgenstein says: 
 
 
-We teach a child “that is your hand”, not “that is perhaps [or “probably”] your hand”. That is how a child learns the innumerable language-games that are concerned with his hand. An investigation or question, ‘whether this is really a hand’ never occurs to him. Nor, on the other hand, does he learn that he ''knows'' that this is a hand. 
+We teach a child “that is your hand”, not “that is perhaps [or
+“probably”] your hand”. That is how a child learns the innumerable
+language-games that are concerned with his hand. An investigation or question,
+‘whether this is really a hand’ never occurs to him. Nor, on the other
+hand, does he learn that he ''knows'' that this is a hand. 
 
 
 
 
-Many things jump out at me from this line. First, the innumerability of the language-games which concern only our hands? Is this about the sheer size and scope of the things we can say about hands, or perhaps the things that we can believe or know about them? The things which we can say seem certainly restricted to the language-games we play, but what we ''mean'' with claims about knowledge and belief fall within these games; Certainly, we restrict what we can say about hands, but Wittgenstein seems to be offering us avenues in which questions which would seem like nonsense are not so (and he has gone through great lengths in the last fifty or so lines to provide instances where certain questions might not be nonsense). Secondly, ‘An investigation or question, ‘whether this is really a hand’ never occurs to him’. I am not certain that this is the case. Perhaps about more “mundane” facts this is true, but how is it that we would judge what such a fact were? Is that also ingrained within our language-game? Certainly, it did not occur to people prior to Copernicus that the Earth revolved around the Sun, so what spurred Copernicus to his investigation? Was he not also taught that it was the case that the heavens surrounded the Earth? 
+Many things jump out at me from this line. First, the innumerability of the
+language-games which concern only our hands? Is this about the sheer size and
+scope of the things we can say about hands, or perhaps the things that we can
+believe or know about them? The things which we can say seem certainly
+restricted to the language-games we play, but what we ''mean'' with claims about
+knowledge and belief fall within these games; Certainly, we restrict what we can
+say about hands, but Wittgenstein seems to be offering us avenues in which
+questions which would seem like nonsense are not so (and he has gone through
+great lengths in the last fifty or so lines to provide instances where certain
+questions might not be nonsense). Secondly, ‘An investigation or question,
+‘whether this is really a hand’ never occurs to him’. I am not
+certain that this is the case. Perhaps about more “mundane” facts this
+is true, but how is it that we would judge what such a fact were? Is that also
+ingrained within our language-game? Certainly, it did not occur to people prior
+to Copernicus that the Earth revolved around the Sun, so what spurred Copernicus
+to his investigation? Was he not also taught that it was the case that the
+heavens surrounded the Earth? 

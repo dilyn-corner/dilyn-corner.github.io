@@ -1,25 +1,178 @@
 A46883195
 
-<div style="text-align:center;"><u>Essentialism and Possibility: Can We Save the Worlds?</u></div>
+<div style="text-align:center;"><u>Essentialism and Possibility: Can We Save the
+Worlds?</u></div>
 
-<div style="margin-left:0in;margin-right:0in;">In “A Philosopher’s Paradise”, Lewis sketches for us a multiplicity of worlds, all of which are existing possibilities, or ways in which the world could have been. These worlds are the objects of our modal language, and are what we are talking about when we discuss possibilities of our world – things that aren’t, but could be potentially, or things that could have been but didn’t happen. I will seek to argue that the essentialist is committed to the thesis that there are no such possible worlds besides the actual one and thus, considerations of possible worlds and ‘ways things could have been’ as existing possibilities are false. There are, in effect, no other worlds for the essentialist. However, this claim is not necessarily true for all essentialists. Instead, it is only true in its strongest sense for the super essentialist. Less maximal essentialists can appeal to other aspects of Lewis’ characterization of possible worlds to keep their modal language meaningful. I also consider that this does not necessarily limit the super essentialist’s use of modal language. Instead, the essentialist can consider these possible worlds as being of an abstract kind, not of an existing kind as Lewis asserts. </div>
+<div style="margin-left:0in;margin-right:0in;">In “A Philosopher’s
+Paradise”, Lewis sketches for us a multiplicity of worlds, all of which are
+existing possibilities, or ways in which the world could have been. These worlds
+are the objects of our modal language, and are what we are talking about when we
+discuss possibilities of our world – things that aren’t, but could be
+potentially, or things that could have been but didn’t happen. I will seek
+to argue that the essentialist is committed to the thesis that there are no such
+possible worlds besides the actual one and thus, considerations of possible
+worlds and ‘ways things could have been’ as existing possibilities are
+false. There are, in effect, no other worlds for the essentialist. However, this
+claim is not necessarily true for all essentialists. Instead, it is only true in
+its strongest sense for the super essentialist. Less maximal essentialists can
+appeal to other aspects of Lewis’ characterization of possible worlds to
+keep their modal language meaningful. I also consider that this does not
+necessarily limit the super essentialist’s use of modal language. Instead,
+the essentialist can consider these possible worlds as being of an abstract
+kind, not of an existing kind as Lewis asserts. </div>
 
-<div style="margin-left:0in;margin-right:0in;">The first thing we must consider is the kind of essentialism I’m talking about. Essentialism is, most broadly, the idea that objects must have some particular properties. That is to say, that these properties are necessary for these objects. This is to be contrasted with what has been termed accidental properties, those properties which are mere accidents of an object, not necessary for its existence but nevertheless true of it. This account of essentialism has been argued against<ref name="ftn1">See Kit Fine’s “Essence and Modality”. </ref>, but this is something that one would be inclined to agree with, at least intuitively. For it does seem to be the case that Socrates is essentially human, and that if Socrates were not human he would not ''be ''Socrates. How far and deep these essential properties of objects might be I’m not quite sure, but what is important here is that the essentialist believes that it must be the case that at least some properties of an object are essential to it<ref name="ftn2">Whether or not this notion of essentialism can be extended to things people would not call objects (numbers, concepts, etc.) I don’t really consider here in this paper. </ref>. What I have described might be termed some kind of minimal essentialism, as it isn’t the case for people who accept this position to accept that all properties of an object are essential to it, thus leaving room for some kind of accidental properties an object could have. This is to be contrasted with the super essentialist. The super essentialist believes that all properties of an object are essential to it. Thus, it is necessarily the case that Socrates has all of the properties which Socrates has, otherwise he would not be Socrates. Indeed, Socrates would not exist; he might be someone else, in some other time or place, or he might not exist entirely. What matters here is that this other Socrates, lacking some kind of property, would not be the person we all come to know and refer to as Socrates. So, given this understanding of necessary and accidental properties, one might be inclined to ask what this means for modal language. If all of an object’s properties are essential (and thus necessary), how can we possibly talk of possibility, of ways things could have been otherwise? </div>
+<div style="margin-left:0in;margin-right:0in;">The first thing we must consider
+is the kind of essentialism I’m talking about. Essentialism is, most
+broadly, the idea that objects must have some particular properties. That is to
+say, that these properties are necessary for these objects. This is to be
+contrasted with what has been termed accidental properties, those properties
+which are mere accidents of an object, not necessary for its existence but
+nevertheless true of it. This account of essentialism has been argued
+against<ref name="ftn1">See Kit Fine’s “Essence and Modality”.
+</ref>, but this is something that one would be inclined to agree with, at least
+intuitively. For it does seem to be the case that Socrates is essentially human,
+and that if Socrates were not human he would not ''be ''Socrates. How far and
+deep these essential properties of objects might be I’m not quite sure, but
+what is important here is that the essentialist believes that it must be the
+case that at least some properties of an object are essential to it<ref
+name="ftn2">Whether or not this notion of essentialism can be extended to things
+people would not call objects (numbers, concepts, etc.) I don’t really
+consider here in this paper. </ref>. What I have described might be termed some
+kind of minimal essentialism, as it isn’t the case for people who accept
+this position to accept that all properties of an object are essential to it,
+thus leaving room for some kind of accidental properties an object could have.
+This is to be contrasted with the super essentialist. The super essentialist
+believes that all properties of an object are essential to it. Thus, it is
+necessarily the case that Socrates has all of the properties which Socrates has,
+otherwise he would not be Socrates. Indeed, Socrates would not exist; he might
+be someone else, in some other time or place, or he might not exist entirely.
+What matters here is that this other Socrates, lacking some kind of property,
+would not be the person we all come to know and refer to as Socrates. So, given
+this understanding of necessary and accidental properties, one might be inclined
+to ask what this means for modal language. If all of an object’s properties
+are essential (and thus necessary), how can we possibly talk of possibility, of
+ways things could have been otherwise? </div>
 
-<div style="margin-left:0in;margin-right:0in;">David Lewis begins his discussion in “A Philosopher’s Paradise” with a detailed picture of the world. His declaration that “the way things are, at its most inclusive, means the way this entire world is” (1) is rivalled by the claim that “things might have been different” (1). In so arguing, Lewis gives to us his position on possibility and necessity: there is a “plurality of worlds” (2), a thesis he calls modal realism. These worlds exist in much the way that our own world does, and there are “countless other worlds” (2), all differing in some respect to our own, and to each other. These worlds realize the possibilities of the ways in which our world could have been. Lewis ties this notion of the nature of possible worlds to modality. He says that “other worlds are unactualised possibilities… whenever such-and-such might be the case, there is some world where such-and-such is the case” (5). We can formalize this discussion of Lewis’ possible worlds semantics for modal logic as follows: </div># It is necessary that P is true at a world W iff, for all possible worlds W, P is true at W. 
-# It is possible that P is true at a world W iff, for some possible world W, P is true at W.
+<div style="margin-left:0in;margin-right:0in;">David Lewis begins his discussion
+in “A Philosopher’s Paradise” with a detailed picture of the world.
+His declaration that “the way things are, at its most inclusive, means the
+way this entire world is” (1) is rivalled by the claim that “things
+might have been different” (1). In so arguing, Lewis gives to us his
+position on possibility and necessity: there is a “plurality of worlds”
+(2), a thesis he calls modal realism. These worlds exist in much the way that
+our own world does, and there are “countless other worlds” (2), all
+differing in some respect to our own, and to each other. These worlds realize
+the possibilities of the ways in which our world could have been. Lewis ties
+this notion of the nature of possible worlds to modality. He says that
+“other worlds are unactualised possibilities… whenever such-and-such
+might be the case, there is some world where such-and-such is the case” (5).
+We can formalize this discussion of Lewis’ possible worlds semantics for
+modal logic as follows: </div># It is necessary that P is true at a world W iff,
+for all possible worlds W, P is true at W.  # It is possible that P is true at a
+world W iff, for some possible world W, P is true at W.
 
 
 
-Thus the notion of possibility and necessity are born: some particular statement is necessary only if it holds in all worlds, and it is possible only if it holds in at least one world. Given this notion of possibility and necessity, one might wonder if it is indeed the case that the essentialist could possibly talk in such a way. Put another way: can the essentialist use modal language in this way and have it still be meaningful? 
+Thus the notion of possibility and necessity are born: some particular statement
+is necessary only if it holds in all worlds, and it is possible only if it holds
+in at least one world. Given this notion of possibility and necessity, one might
+wonder if it is indeed the case that the essentialist could possibly talk in
+such a way. Put another way: can the essentialist use modal language in this way
+and have it still be meaningful? 
 
-<div style="margin-left:0in;margin-right:0in;">The essentialist as we said talks about essential properties in terms of necessity. This I think, while contentious, can be put aside for now. What might be more concerning is whether or not the essentialist is able to speak of ''possibility''. Can the essentialist appeal to possible worlds to ask how things might have otherwise been? It seems to be the case that they cannot. Take for example, my writing this paper. Perhaps it is essential to me, as a philosopher or a student, that I write papers, and that I choose topics that might bore my friends. Could it be the case that in some possible world W that this is not the case? Given the essentialness of this property, it seems that to say that I myself as I actually exist could write interesting papers doesn’t talk about me at all. If it is essential that I write in some kind of way about some kind of thing, and if it were not the case that I do so, then I must be talking about some other person, a someone who is not me as I am. This person is some other individual, much like Socrates would not be Socrates if he were not human, did not die to Hemlock, or was not an Ancient Greek philosopher - they differ in some meaningful way, a way that defines the person as they are. These people do not seem to be the people they are purported to be. Thus, it does not seem to be the case that the essentialist can speak of possible ways the world could have been. That is to say, the essentialist’s body of worlds can only be one, that of the actual world. Perhaps the essentialist is not bothered by this conclusion. But at the very least, it seems plausible that the essentialist would like to talk about possibilities in a more concrete, meaningful way. Is there a way for the essentialist to save the worlds? I think that this question breaks apart into cases: one for the more minimal essentialist<ref name="ftn3">Further referred to simply as “the essentialist”. </ref>, and one for the super essentialist. </div>
+<div style="margin-left:0in;margin-right:0in;">The essentialist as we said talks
+about essential properties in terms of necessity. This I think, while
+contentious, can be put aside for now. What might be more concerning is whether
+or not the essentialist is able to speak of ''possibility''. Can the
+essentialist appeal to possible worlds to ask how things might have otherwise
+been? It seems to be the case that they cannot. Take for example, my writing
+this paper. Perhaps it is essential to me, as a philosopher or a student, that I
+write papers, and that I choose topics that might bore my friends. Could it be
+the case that in some possible world W that this is not the case? Given the
+essentialness of this property, it seems that to say that I myself as I actually
+exist could write interesting papers doesn’t talk about me at all. If it is
+essential that I write in some kind of way about some kind of thing, and if it
+were not the case that I do so, then I must be talking about some other person,
+a someone who is not me as I am. This person is some other individual, much like
+Socrates would not be Socrates if he were not human, did not die to Hemlock, or
+was not an Ancient Greek philosopher - they differ in some meaningful way, a way
+that defines the person as they are. These people do not seem to be the people
+they are purported to be. Thus, it does not seem to be the case that the
+essentialist can speak of possible ways the world could have been. That is to
+say, the essentialist’s body of worlds can only be one, that of the actual
+world. Perhaps the essentialist is not bothered by this conclusion. But at the
+very least, it seems plausible that the essentialist would like to talk about
+possibilities in a more concrete, meaningful way. Is there a way for the
+essentialist to save the worlds? I think that this question breaks apart into
+cases: one for the more minimal essentialist<ref name="ftn3">Further referred to
+simply as “the essentialist”. </ref>, and one for the super
+essentialist. </div>
 
-<div style="margin-left:0in;margin-right:0in;">It seems that the essentialist does have a way of speaking about possibilities meaningfully. Indeed, this possibility is sketched out by Lewis. He considers what it would be for a person to have counterparts across worlds and how such an analysis might impact modal language. A counterpart of x is all of the y’s across possible worlds which resemble x over a portion of their history in each of their respective worlds. This resemblance relation can be spoken of as being a sharing of some essential properties, perhaps. Thus, when the essentialist in our actual world speaks of possibilities, what they are actually speaking of is ways in which their class of counterparts could be in their own world. She is constructing a map between herself and her counterpart in the relevant way to speak of how she would have been or might have come to be. This might seem to be a vague way of talking about counterparts (what exactly might this resemblance the essentialist is seeing be, after all), but that is due to the sheer abundance of properties. In order to satisfy the inquirer as to what counterparts it is that they are resembling, they need only outline the particular kinds of properties that they are thinking of when they describe how their counterpart is similar (and different). Thus, the essentialist can speak of possibilities under Lewis’ framework of modal realism. </div>
+<div style="margin-left:0in;margin-right:0in;">It seems that the essentialist
+does have a way of speaking about possibilities meaningfully. Indeed, this
+possibility is sketched out by Lewis. He considers what it would be for a person
+to have counterparts across worlds and how such an analysis might impact modal
+language. A counterpart of x is all of the y’s across possible worlds which
+resemble x over a portion of their history in each of their respective worlds.
+This resemblance relation can be spoken of as being a sharing of some essential
+properties, perhaps. Thus, when the essentialist in our actual world speaks of
+possibilities, what they are actually speaking of is ways in which their class
+of counterparts could be in their own world. She is constructing a map between
+herself and her counterpart in the relevant way to speak of how she would have
+been or might have come to be. This might seem to be a vague way of talking
+about counterparts (what exactly might this resemblance the essentialist is
+seeing be, after all), but that is due to the sheer abundance of properties. In
+order to satisfy the inquirer as to what counterparts it is that they are
+resembling, they need only outline the particular kinds of properties that they
+are thinking of when they describe how their counterpart is similar (and
+different). Thus, the essentialist can speak of possibilities under Lewis’
+framework of modal realism. </div>
 
-<div style="margin-left:0in;margin-right:0in;">But what of the super essentialist? It looks as though she is far more strongly committed to the actual world as being the only world. If every property of x is essential to x, it seems to be the case that every counterpart x would have in any possible world W would exactly resemble that x. Since x exists only in the actual world, it must be the case that all of x’s counterparts exist in the actual world. That is to say, x herself is (perhaps trivially) her only counterpart. The super essentialist could perhaps commit herself to never speaking of possible ways the world could be, but this seems unsatisfactory and contrary to the ways we ordinarily speak. So perhaps instead, the super essentialist could suspend her belief in the brief moments in which she speaks of possibilities. She could, as it were, construct her own world that represents the possibility she wishes to talk about. When she expounds upon a possibility, she may be charged with violating her own philosophy. But she can recover! If she were to outline a set of propositions, growing in depth and detail stemming from her own position in this possible world, until she had satisfactorily constructed a world for her interlocutor. Of course, this world would not exist in any way remotely resembling the way Lewis takes worlds to exist, in a real and literal sense. Instead, these worlds would be objects of severe abstraction, collections of propositions constraining the imagination of those who hear them. In this proposition world there are no counterparts, there is no resemblance relation between her and her possible self. There is only a person who exists in a particular way, and this person is who we are take the super essentialist to be speaking of when she talks about possible ways the world could be. It is the case then that possible worlds are not real for the super essentialist. Instead, they are mere abstracta, objects of thought that we consider to be real insofar as they allow us to discuss what we mean by a possibility. </div>
+<div style="margin-left:0in;margin-right:0in;">But what of the super
+essentialist? It looks as though she is far more strongly committed to the
+actual world as being the only world. If every property of x is essential to x,
+it seems to be the case that every counterpart x would have in any possible
+world W would exactly resemble that x. Since x exists only in the actual world,
+it must be the case that all of x’s counterparts exist in the actual world.
+That is to say, x herself is (perhaps trivially) her only counterpart. The super
+essentialist could perhaps commit herself to never speaking of possible ways the
+world could be, but this seems unsatisfactory and contrary to the ways we
+ordinarily speak. So perhaps instead, the super essentialist could suspend her
+belief in the brief moments in which she speaks of possibilities. She could, as
+it were, construct her own world that represents the possibility she wishes to
+talk about. When she expounds upon a possibility, she may be charged with
+violating her own philosophy. But she can recover! If she were to outline a set
+of propositions, growing in depth and detail stemming from her own position in
+this possible world, until she had satisfactorily constructed a world for her
+interlocutor. Of course, this world would not exist in any way remotely
+resembling the way Lewis takes worlds to exist, in a real and literal sense.
+Instead, these worlds would be objects of severe abstraction, collections of
+propositions constraining the imagination of those who hear them. In this
+proposition world there are no counterparts, there is no resemblance relation
+between her and her possible self. There is only a person who exists in a
+particular way, and this person is who we are take the super essentialist to be
+speaking of when she talks about possible ways the world could be. It is the
+case then that possible worlds are not real for the super essentialist. Instead,
+they are mere abstracta, objects of thought that we consider to be real insofar
+as they allow us to discuss what we mean by a possibility. </div>
 
-In this paper I have argued that the essentialist and super essentialist seem committed to abandoning modal language as they relate to possible ways the world could be. That is to say, the only world that exist for the essentialist is the actual world. While there are good reasons to think that this is the case, it also seems plausible that both the essentialist and the super essentialist could find ways out of this problem. Indeed, they can appeal to their resemblance to their counterparts or to abstract worlds constructed from propositions to give their modal language content that people can understand. While these ways of thinking about possibilities might not seem to align entirely with our usual way of speaking about possibility, they aren’t necessary ways of talking about possibility. One is free to do away with these constraints on speaking when it isn’t beneficial for communicating, after all. It is only when one tries to understand what the essentialist is referring to or what situations they are talking about that this further elaboration may be necessary. The super essentialist diverges most sharply from Lewis in this regard, however. Possible worlds, for the super essentialist, do not exist, and are really only worlds of an abstract kind; a collection of propositions left to describe only a small and relevant part of the world as it could have been. 
+In this paper I have argued that the essentialist and super essentialist seem
+committed to abandoning modal language as they relate to possible ways the world
+could be. That is to say, the only world that exist for the essentialist is the
+actual world. While there are good reasons to think that this is the case, it
+also seems plausible that both the essentialist and the super essentialist could
+find ways out of this problem. Indeed, they can appeal to their resemblance to
+their counterparts or to abstract worlds constructed from propositions to give
+their modal language content that people can understand. While these ways of
+thinking about possibilities might not seem to align entirely with our usual way
+of speaking about possibility, they aren’t necessary ways of talking about
+possibility. One is free to do away with these constraints on speaking when it
+isn’t beneficial for communicating, after all. It is only when one tries to
+understand what the essentialist is referring to or what situations they are
+talking about that this further elaboration may be necessary. The super
+essentialist diverges most sharply from Lewis in this regard, however. Possible
+worlds, for the super essentialist, do not exist, and are really only worlds of
+an abstract kind; a collection of propositions left to describe only a small and
+relevant part of the world as it could have been. 
 
-----
-<references/>
+---- <references/>
