@@ -1,6 +1,6 @@
 +------------------------------------------------------------------------------+
 |                                                                              |
-|    _____   _      _  _                            _      _              _    |   
+|    _____   _      _  _                            _      _              _    |
 |   |  __ \ | |    (_)| |                          | |    (_)            | |   |
 |   | |__) || |__   _ | |  ___   ___   ___   _ __  | |__   _   ___  __ _ | |   |
 |   |  ___/ | '_ \ | || | / _ \ / __| / _ \ | '_ \ | '_ \ | | / __|/ _` || |   |
@@ -23,21 +23,40 @@
 
 +-------------------------------------+  +-------------------------------------+
 |                                     |  |                                     |
-| Language                            |  | Logic                               |
+| Philosophy of Language              |  | Philosophy of Logic                 |
 |                                     |  |                                     |
-| @/language/meaning-as-understanding |  | @/logic/law-of-excluded-middle      |
-| @/language/ambiguity                |  | @/logic/limited-view-on-everything  |
-| @/language/verificationism          |  |                                     |
+| @/language/ambiguity                |  | @/logic/law-of-excluded-middle      |
+| @/language/verificationism          |  | @/logic/limited-view-on-everything  |
+| @/language/meaning-as-understanding |  |                                     |
 |                                     |  |                                     |
 +-------------------------------------+  +-------------------------------------+
 
-+-----------------------+  +------------------------+  +-----------------------+
-|                       |  |                        |  |                       |
-| 20th Century          |  | Metaphysics            |  | Feminism              |
-|                       |  |                        |  |                       |
-|  @/dev/replacing-udev |  |  @/init/busybox        |  |  @/boot/efistub       |
-|                       |  |  @/init/changing-init  |  |  @/boot/efivarfs      |
-|                       |  |  @/init/sysmgr         |  |                       |
-|                       |  |                        |  |                       |
-+-----------------------+  +------------------------+  +-----------------------+
++------------------------------------------------------------------------------+
+|                                                                              |
+| 20th Century Philosophy                                                      |
+|                                                                              |
+| @/20th/russell-logical-atomism              @/20th/response-02               |
+| @/20th/wittgenstein-on-certainty            @/20th/response-03               |
+| @/20th/ayer-language-truth-and-logic        @/20th/response-01               |
+|                                             @/20th/response-04               |
+| @/20th/leibnizs-relational-space            @/20th/response-05               |
+| @/20th/kants-synthetic-mathematics          @/20th/response-06               |
+| @/20th/kants-refutation-of-idealism         @/20th/response-07               |
+|                                             @/20th/response-08               |
+| @/20th/truth-and-proof-in-analytic-thought  @/20th/response-09               |
+| @/20th/history-of-the-analytic-tradition    @/20th/response-10               |
+|                                                                              |
++------------------------------------------------------------------------------+
 
++----------------------------------------+ +-----------------------------------+
+|                                        | |                                   |
+| Metaphysics                            | | Feminism & Epistemology           |
+|                                        | |                                   |
+| @/metaphysics/quine-and-nonbeing       | | @/feminism/letters                |
+| @/metaphysics/stalnakers-realism       | | @/feminism/journal                |
+| @/metaphysics/armstrongs-universals    | | @/feminism/ignorance              |
+| @/metaphysics/pauls-aspect-causation   | | @/feminism/critical-theory        |
+| @/metaphysics/essentialism-possibility | | @/feminism/oppression-of-men      |
+|                                        | | @/feminism/essentialism-of-gender |
+|                                        | |                                   |
++----------------------------------------+ +-----------------------------------+

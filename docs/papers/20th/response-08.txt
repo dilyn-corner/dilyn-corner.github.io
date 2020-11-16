@@ -1,0 +1,50 @@
+Dilyn Corner
+
+PHL 418
+
+Reading Response – Week 13
+
+
+Originally when I had read Carnap’s ''Empiricism, Semantics, and Ontology'',
+it was for Professor Grey’s Metaphysics course. We had introduced it with
+the primary focus on answering questions of existence. We compared the idea with
+other ideas of existence and how certain things existing commit us to certain
+ontologies. For instance, Quine requires that we are committed to the existence
+of any bound variable in the existential quantifier, at least for any of our
+scientific theories. Carnap’s idea about frameworks seems quite closely
+related to this. However, for Carnap, it seems that Quine’s position is but
+one of many distinct possibilities that we could choose. Indeed, other papers we
+read in that course, such as Meinong’s work on fictional objects, also seem
+as though they can be accommodated by Carnap’s work. The position itself
+seems reasonable: we admit the existence of certain entities insofar as they
+provide useful for the kind of work we are doing. Electrons exist because our
+physical theories are well-equipped to deal with them; we can speak of them,
+describe their properties, and so on. It would be outrageous for us to say,
+“the electron has such properties as these, but it does not exist”.
+However, it seems hard to commit those who do not share our theories – about
+more than ‘science’, especially – to the existence of what our
+theories posit. Carnap argues that the decisions about which framework to use
+are largely pragmatic ones. While this sounds remarkably similar to Wittgenstein
+in ''On Certainty'', I am more convinced by Wittgenstein than Carnap on this
+matter.<ref name="ftn1">I am not entirely certain why this is the case; perhaps
+I just like Wittgenstein more? It might have something to do with the fact that
+I take Wittgenstein to be saying “there are many choices, none of which are
+wholly correct”, whereas it feels as though Carnap wants to point at a
+particular framework and say “this is it; this is the one framework to rule
+them all”. </ref> It seems terribly difficult to ''convince someone'' that
+their theory is incorrect, or that yours isn’t, on pragmatic grounds alone.
+Pragmatic reasons also don’t seem to be the correct sorts of reasons for
+choosing certain theories in the first place. For instance, it doesn’t seem
+like the pragmatic choice to choose skeptical or antirealist theories over
+realist ones. Indeed, under Carnap’s position, it seems that the lack of
+pragmatic reasons for accepting something like idealism would be a strike
+against such a theory, but a strike in what way? If the logic we choose or the
+principles we prefer also fall under a framework, then it seems that these ways
+of weighing theories against each other is circular. I guess the point I’m
+trying to make here is analogous to the point Graham Priest attempts to make in
+favor of paraconsistent logic. Our reasons for accepting the law of excluded
+middle are either ungrounded or circular; insofar as Graham Priest has failed to
+convince me that paraconsistent logic is the way to go, Carnap’s argument
+that pragmatic reasons are how we justify frameworks loses ground. 
+
+---- <references/>

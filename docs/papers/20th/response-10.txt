@@ -1,0 +1,71 @@
+Dilyn Corner
+
+PHL 418
+
+Reading Response – Week 16
+
+
+This week I just want to ask a few clarificatory questions. Last class we were
+asked if we understood the project Sellars was embarking on and I certainly
+couldn’t figure out what his goals were. The discussion which followed was
+illuminating and informative, and hopefully my following discussion about my
+confusions, in tandem with applying Sellars’ approach and position to it
+will better elucidate his point. 
+
+The place I would like to start is perhaps at the beginning: what precisely is
+‘sense data’. The concept itself seems confused to me. The empiricist
+originally, beginning all the way with Locke and his primary and secondary
+qualities, wanted to embed certain facts about objects within the objects
+themselves. The property of having a smell, a shape, a color, a density, a
+weight, a size, etc. were facts in the object or they were extensions that we
+gathered through our sense perceptions (if I am properly understanding
+Locke’s distinction between primary and secondary qualities). Kant, while
+not an empiricist, certainly attempted to unify empiricist and rationalist ideas
+by using an approach which sought to bear out the properties of objects as
+impositions on our concepts through a ‘unification’ of a manifold which
+the ‘thing in itself’ impressed upon us. In this way, properties were
+simultaneously of the noumena and the phenomena. Throughout this
+two-hundred-year historical arc, it seems that most people of the nonidealist
+camp wanted to impress upon us that the objects which we perceive have these
+properties we experience in very real kinds of ways. Sellars seems to want to
+split this connection. 
+
+Like Wittgenstein, Sellars seems to be putting this notion of objects and
+meaning on its head. While Wittgenstein was far more concerned with meaning and
+justification in general, Sellars seems primarily motivated to ground our sense
+perceptions themselves in a kind of justificatory practice. It seems that
+Sellars wants us to say that we sense particular facts and they generate
+knowledge if it is the case that we can justifiably believe these perceptions to
+be the case. '''(If this is horribly incorrect please correct me
+immediately!)''' My first question is, how does such a view hold up against
+Gettier-style problems of knowledge? It seems that our fallibility of perception
+would be in part due to our fallibility of knowing in general, and this seems to
+be something which Sellars takes quite seriously. But this leads me to my next
+point. 
+
+Why do we want to attribute ''knowledge'' to the act of sense perceptions in the
+first place? This might perhaps seem radical or ridiculous; I’m not aware of
+anyone who has suggested this. But it seems that in general we want knowledge to
+be a kind of immutable thing; we know ''facts'' about the world – the things
+which we know cannot undergo revision because then it doesn’t seem to be the
+case that we can be credited with knowledge at all. But sense perceptions are
+not about the world, but instead they are about our interactions with the world
+as it is. Take for instance, deer. There is a very good reason why they stare at
+your headlights when you’re driving fifty miles an hour down the road and
+want them to move so you don’t hit them: they perceive the speed of your car
+differently than you do. This is primarily due to the ‘refresh rate’ of
+their eyes; we see things at a different frequency than them (this is why, for
+instance, movies are always shot at 29.97 frames per second: it’s the
+perfect frequency for our eyes; likewise why lights seem to not be flickering;
+they are, you just can’t tell because it happens too fast for your eyes to
+pick up on). Mantis shrimp see far more colors than humans do; if we could see
+the microwave spectrum of light, we would see a very different world. What I
+guess I’m trying to say is that the world appears to us in particular kinds
+of ways not because the world is a certain way, but because ''we ''are a certain
+way. It isn’t because we’re limited or fallible or finite or whatever
+reason which has been put forward historically; it is because our bodies are
+built in a particular kind of way which makes the way we perceive ''the way we
+perceive''. We are not seeing the world as it is, much like Kant believed. We
+are seeing the world the way that ''we'' see the world. Can we actually be
+credited of having sensory knowledge of the world if this is the case? It seems
+only than we can be charged with seeing the world how we see the world. 

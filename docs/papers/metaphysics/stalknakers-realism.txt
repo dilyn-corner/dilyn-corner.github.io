@@ -1,0 +1,88 @@
+A46883195
+
+<div style="margin-left:0in;margin-right:0in;">In Stalnaker’s “Possible
+Worlds”, he attempts to flesh out a more moderate version of what he calls
+an extreme realism about possible worlds, a view held by Lewis. He caches out
+Lewis’ view in terms of four theses, and claims that these need not all be
+accepted in order to maintain a sort of realism about possible worlds (67).
+Indeed, he seeks to defend what he calls the more plausible parts of Lewis’
+possible worlds theses, therefore coming to much more moderate conclusions than
+Lewis has about the reality of possible worlds (67). Lewis’ four theses are
+as follows:</div># Possible worlds exist # Other possible worlds are things of
+the same sort as the actual world – “I and all my surroundings”.  #
+The indexical analysis of the adjective ‘actual’ is the correct
+analysis.  # Possible worlds cannot be reduced to something more basic. 
+
+
+
+Stalnaker ultimately wishes to accept theses (1) and (3) and to reject thesis
+(2). That is to say, Stalnaker wants the reality of possible worlds to be far
+more limited than being of a similar kind to the actual world (70). Stalnaker
+himself rejects thesis (4) by instead offering up an analysis of possible worlds
+in terms of propositions and the kinds of sets of them that can be instantiated
+by those worlds, but it isn’t altogether a necessary analysis one must
+accept to have the kind of moderate realism about possible worlds that Stalnaker
+wishes to defend. Indeed, he thinks that Adams’ view, which he heavily
+responds to in the latter part of the paper, is amenable to his own, it is
+simply an identical view if one wishes to impose further constraints on the
+structures of these propositions i.e., that necessarily equivalent propositions
+are identical and that there are necessary propositions that are true if and
+only if, given any set of propositions, all of those propositions are true (72).
+Stalnaker disagrees with Lewis on thesis (2) for reasons similar to why Lewis
+accepts thesis (1). Given the semantic understanding of our modal language i.e.,
+that our talk of possible worlds is merely the same thing as saying that things
+might be different than they are, it doesn’t seem to be the case that
+possible worlds can be similar to our actual world in the way that Lewis claims;
+as being “I and all my surroundings” (68). That is to say, the way that
+the world actually is is a state of the world, it is not identical to what that
+world is (68). 
+
+<div style="margin-left:0in;margin-right:0in;">There are several objections
+which Lewis could raise to Stalnaker’s moderate realism. I think one of the
+most interesting objections would be to how Stalnaker interprets thesis (3):
+that the indexical reading of ‘actual’ is the correct one. Stalnaker
+claims that the standpoint of the use of ‘actual’ being a neutral one is
+false – instead, the actual world ''is ''the absolute standpoint by which we
+can judge the reality of possible worlds (69). This avoids the problem that
+Stalnaker sees with a more neutral reading of ‘actual’, that actuality
+is a world-relative attribute and that, as a result, possible people and their
+own surroundings are just as real as our own world, our own people, and our own
+surroundings (69). Stalnaker’s motivation for this move is to strip possible
+worlds of their reality that Lewis wants them to have. Stalnaker does not want
+possible worlds be the real and existing worlds, but instead to be mere
+possibilities; that our affirming of possible worlds as existing is the same as
+saying that fictional beings have just as much reality, but that their point of
+view is just a fictional one; ours is that which is real (69). Lewis would
+reject this notion entirely. Lewis wants us to accept the reality of possible
+worlds as being existing realities, spoken of by their inhabitants in just the
+same way in which we speak of our own (67). The indexicality of ‘actual’
+is supposed to be a neutral position, it is supposed to be unable to distinguish
+what can be actual and what can be possible; the only difference between our
+world and possible worlds is that things are as they are in this world, not as
+they are in other worlds – we are here, and they are there. Weakening the
+reading of ‘actual’ to accommodate a more moderate realism doesn’t
+provide any actual reason to reject that reading besides the point that one
+simply wants a more moderate realism. To deny Lewis’ reading of
+‘actual’ is to deny exactly what Lewis wants to say about possible
+worlds in the first place: that our semantics accounts for this worlds as real
+things, and that these things have their own kind of reality in a similar way to
+ours (65). </div># What is the strongest reply Stalnaker could give to this
+objection? 
+
+
+
+<div style="margin-left:0.5in;margin-right:0in;">Stalnaker could give numerous
+replies to this objection, and I think one of the strongest would be to run with
+his objection to thesis (2). The way in which Lewis would characterize possible
+worlds and how he reads ‘actual’ as an indexical term largely comes from
+how he understands worlds to be. Because of how Stalnaker rejects thesis (2) -
+by denying the equivalence of a world’s state and what a world is -
+Stalnaker is able to remove stronger claims of their reality from his position.
+Thus, Stalnaker can accept his position on the indexical nature of
+‘actual’, still seeing possible worlds as modally useful objects, but by
+stripping them of their reality in the way he does by rejecting (2), he can
+escape many criticisms of his position on (3). The problem then isn’t that
+Stalnaker’s view becomes misaligned with our semantic meaning, as Lewis
+might argue, but that we are simply giving too much value to possible worlds and
+the ways in which we speak of them – they are merely a fiction, of which our
+language makes it easier to speak about. </div>

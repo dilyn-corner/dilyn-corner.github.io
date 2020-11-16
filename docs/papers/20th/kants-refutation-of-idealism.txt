@@ -1,0 +1,136 @@
+Dilyn Corner
+
+4/5/15
+
+Professor Rauscher
+
+PHL 415 
+
+In this paper I argue that Immanuel Kant’s Refutation of Idealism serves to
+refute his own transcendental idealism. Kant utilizes the Refutation to
+demonstrate that we have an experience of ‘outer’ objects; that is to
+say, objects spatially external to ourselves, in an attempt to demonstrate that
+the empirical idealism taken on by René Descartes in his Meditations as an act
+of determining what he can “know” is false. The problem that I raise (in
+pulling from Gardner) is that Kant’s own transcendental idealism is not safe
+from his Refutation. I argue that Kant’s understanding of a transcendental
+object means that our representations of objects serve as a strong enough
+grounding for the argument. Kant must provide some way to get the existence of
+an object out of this representation, and he must provide some sort of
+justification for why we can know such a transcendental object actually exists
+spatially external to ourselves. If he does not, then his refutation of idealism
+not only serves to rule out empirical idealism, but also his transcendental
+idealism. 
+
+Kant follows the Analogies with his Refutation of Idealism. He takes idealism in
+this case to be of the empirical strain. Kant calls out René Descartes and
+George Berkeley as the primary trumpeters of this philosophy. He dubs the former
+one with a “problematic” idealism, one which rejects the existence of
+all but the indubitable “I am”, and the latter one with a dogmatic
+idealism, one which declares space and the objects within it to be imaginary
+(B275). Kant believes, however, that he has summarily refuted Berkeley’s
+dogmatic idealism in the Transcendental Aesthetic with the way in which he has
+argued the nature of space to be - as a form of our inner intuition, and thus
+not empirically real but instead transcendentally ideal. Thus, Kant focuses in
+on Descartes form of idealism and does not target Berkeley at all in his
+argument. Descartes idealism appears to escape Kant’s understanding of
+space. To refute this problematic idealism Kant declares that he must
+demonstrate that we have experience of outer objects and that our inner
+experience is only possible with these experiences of outer objects. Kant needs
+an experience of an outer object and not just an imagination of one because Kant
+needs that the representation is from an object outside of the mind – this
+stops Descartes from merely declaring that the representation is only in our
+mind. 
+
+Kant adds, in the revised preface found in the B edition, that a statement
+within his argument is to be exchanged for another to make his argument more
+clear. His edited argument runs as follows: it can be agreed, at least by
+Descartes and others subscribing to his idealism, that I am conscious of my
+existence as determined in time. This determination presupposes, however,
+something persistent within my perception. This persistent thing cannot,
+however, be some sort of intuition that I have inside of myself. This cannot be
+the case because I have in my consciousness only representations that I have
+been given from appearances, and thus are not things in themselves. I instead
+would require something more than this representation; that is, something
+distinct from it which is persistent. Through this distinct persistent thing I
+can take my relation to that object through its persistence in time and
+determine my own existence. Thus, the determination of my own existence relies
+entirely on actual objects as things in themselves existing outside of and
+separately from myself. As my consciousness in time is “necessarily
+combined” with my consciousness of the possibility of this
+time-determination, it is in fact necessary that this be tied in with the
+existence of things outside of me - that is to say, the consciousness that I
+have of my own existence in time is likewise my having an immediate
+consciousness of objects who exist outside of myself (B276). 
+
+Kant’s argument is rather tricky, so I will now elucidate a few portions
+that I find key to understand his argument. Kant states that the
+time-determination presupposes something persistent within my perception. This
+is the case because if this time-determination did not presuppose something that
+was persistent in my perception - there was something perceived - how would I
+measure my own existence through time? I would not have a way of ordering my
+self-representation - there would be no sensations by which I could order
+experience. Kant also states that this consciousness is immediate. For if it
+were not of an immediate sort, it would violate what Kant has stated in the
+First Analogy; it would “require me to identify the time-order of my
+representations prior to that of their objects” (Gardner 182). Thus, this
+consciousness must be immediate, and so my consciousness of my own existence and
+of other objects spatially external (that is to say, spatially located in
+general) to me, and it is precisely this latter consciousness that gives me the
+persistent thing to which I am allowed to make a time-determination of my own
+awareness of my consciousness. With these points, Kant has shown that
+Descartes’ “mental objects” are not enough to determine my own
+persistence - these mental objects are representations which I am conscious of
+simultaneously with my own consciousness of my existence, and these
+representations are of objects spatially external to myself. Thus, my
+consciousness of my own existence relies on my consciousness of persistent,
+external objects. That is to say, there is a real world of which I am conscious,
+and empirical idealism is false. 
+
+If one thinks considers what this argument has presented, one recognizes
+something that Kant seems to leave implicit in his talk of the representation of
+an object and the object itself. This argument makes no reference to Kant’s
+transcendental idealism. The question then, of course, is whether or not this
+argument could possibly argue against the idealism Kant worked so hard to build
+up earlier. If he has in fact left something implicit within the declaration of
+an existing object in his argument, then we must consider what this assumption
+is. We can immediately rule out a kind of knowledge of an actually existing
+object – Kant does not want to say that we can have knowledge of things in
+themselves, and so we can’t know if an object in itself actually exists.
+What Kant needs to say is that “the existence of X (the object) can be
+inferred from the necessity of our representing X, because X is something whose
+very existence is a function of such necessities” (Gardner 186). However,
+these “objects X” only play this kind of justificatory role via the
+representations that we have of them. Kant denies that we could have knowledge
+of objects as things in themselves, and his framework does not provide any kind
+of robust way of determining anything about the transcendental object itself.
+Indeed, Kant states at points throughout the ''Critique'' that he does not know
+what the transcendental object is or that it can at all be known: “Now,
+however, as soon as I raise my concept of an object to transcendental
+significance, the house is not a thing in itself at all but only an appearance,
+i.e., a representation, the transcendental object of which is unknown”
+(B236). Kant seems to want this representation to correspond to some sort of
+transcendental object, and this line of argumentation would seem to suggest that
+the transcendental object is in fact the object in itself – some actually
+existing thing. It would seem to be the case then that all one would have to do
+to deny the transcendental idealist’s position would be to ask why exactly
+an object is required if a representation does just as well. That is to say, the
+representations that we have seemed to do all the work that we require, so why
+demand anything more of them? Thus, it would seem as though Kant’s
+refutation of idealism does no work to defend Kant from the skeptic who would
+declare this point: it suffices to be conscious of a representation of an object
+in order to ground my consciousness of my existence. Therefore, Kant’s
+refutation of idealism does not only refute the “problematic” idealism
+of Descartes, but it also refutes Kant’s own transcendental idealism. 
+
+Thus I have shown that Kant has refuted his own idealism. Or, at the very least,
+Kant must do additional work and give us a reason to believe that the
+representation that we have of an object is sufficient to surmise the existence
+of any sort of object. But he must also show why this does not grant us
+knowledge of an object in itself if this is the case. Instead, he must show that
+this knowledge is of a transcendental object, and that this knowledge does not
+grant us knowledge of how the object really is. Although the argument perhaps
+could be fixed with this work being done, I do not think that it provides enough
+firepower against the position of the skeptic – it does not give any kind of
+reason to accept that knowledge of a transcendental object could at all be had,
+a least not with how we construct our knowledge. 
