@@ -1,36 +1,28 @@
-Dilyn Corner
-
-PHL 418
-
-Reading Response – Week 4
-
-
 When I took Metaphysics last spring with professor Grey, we started the course
 discussing what it means to exist. Many in the course proposed a wide array of
-ideas and definitions, eventually leading to distinguishing between
-‘being’ and ‘existing’ and whether fictional objects could
-exist. We found ourselves carving out fine-grained distinctions for the purpose
-of placing some objects in a different category of existing than others. Some
-were not, for instance, comfortable with the idea that numbers were real,
-physical things, and so they were made something else – mathematical objects
-are ones which exist, but have no being. The distinctions seemed, at the time,
-worthwhile. However, later in the course after studying factionalism and arguing
-over Meinong’s work, professor Grey paraphrased G.E. Moore: “I have one
-hand, I have another had. I have two hands”. He would later explain that the
-work we were doing resembled something of a denial of Moorean facts; things
-which are so obvious it seems absurd to deny their truth. 
+ideas and definitions, eventually leading to distinguishing between 'being' and
+'existing' and whether fictional objects could exist. We found ourselves carving
+out fine-grained distinctions for the purpose of placing some objects in a
+different category of existing than others. Some were not, for instance,
+comfortable with the idea that numbers were real, physical things, and so they
+were made something else - mathematical objects are ones which exist, but have
+no being. The distinctions seemed, at the time, worthwhile. However, later in
+the course after studying factionalism and arguing over Meinong's work,
+professor Grey paraphrased G.E. Moore: "I have one hand, I have another had. I
+have two hands". He would later explain that the work we were doing resembled
+something of a denial of Moorean facts; things which are so obvious it seems
+absurd to deny their truth. 
 
-<div style="margin-left:0in;margin-right:0in;">Moore’s ''A Defense of Common
-Sense'' seems to be, in many ways, a direct precursor to the work of those in
-the Vienna Circle, the Positivists, and their progeny. He begins by offering a
-strong criticism of the work of “some philosophers” (106). He argues
-that, in some cases, their rejection of common sense is contradictory in their
-very act of rejecting it. In others, it merely doesn’t pan out (110-1).
-Overall, he seems to be criticizing the metaphysical work of other philosophers,
-in ways reminiscent but not entirely as explicit as people like Hume or his
-contemporary Neurath. However, his criticism of Mill’s account of material
-objects at the end is striking. He says that it is “the only possible
-alternative if (1) and (2) are rejected” (132), but still finds the argument
-questionable. Indeed, Moore seems to instead want to stick with the far simpler
-account that he simply knows these facts to be the case, because of common
-sense. </div>
+Moore's 'A Defense of Common Sense' seems to be, in many ways, a direct
+precursor to the work of those in the Vienna Circle, the Positivists, and their
+progeny. He begins by offering a strong criticism of the work of "some
+philosophers" (106). He argues that, in some cases, their rejection of common
+sense is contradictory in their very act of rejecting it. In others, it merely
+doesn't pan out (110-1).  Overall, he seems to be criticizing the metaphysical
+work of other philosophers, in ways reminiscent but not entirely as explicit as
+people like Hume or his contemporary Neurath. However, his criticism of Mill's
+account of material objects at the end is striking. He says that it is "the only
+possible alternative if (1) and (2) are rejected" (132), but still finds the
+argument questionable. Indeed, Moore seems to instead want to stick with the far
+simpler account that he simply knows these facts to be the case, because of
+common sense.

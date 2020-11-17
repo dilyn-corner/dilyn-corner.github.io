@@ -35,9 +35,9 @@
 |                                                                              |
 | 20th Century Philosophy                                                      |
 |                                                                              |
-| @/20th/russell-logical-atomism              @/20th/response-02               |
-| @/20th/wittgenstein-on-certainty            @/20th/response-03               |
-| @/20th/ayer-language-truth-and-logic        @/20th/response-01               |
+| @/20th/russell-logical-atomism              @/20th/response-01               |
+| @/20th/wittgenstein-on-certainty            @/20th/response-02               |
+| @/20th/ayer-language-truth-and-logic        @/20th/response-03               |
 |                                             @/20th/response-04               |
 | @/20th/leibnizs-relational-space            @/20th/response-05               |
 | @/20th/kants-synthetic-mathematics          @/20th/response-06               |
