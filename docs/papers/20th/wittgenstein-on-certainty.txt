@@ -1,26 +1,21 @@
-Dilyn Corner
+Critical Review - Ludwig Wittgenstein's 'On Certainty'
 
-PHL 418
-
-Critical Review – Ludwig Wittgenstein’s ''On Certainty''
-
-Written As a review for the ''New York Times Sunday Book Review''
 
 Questions about knowledge have plagued philosophical inquiry for centuries.
 Stretching across the span of time, we can see philosophers wrestling with
 questions about knowledge, justification, beliefs, and doubt. Near the beginning
 of the twentieth century, a shift in epistemic thinking occurred, perhaps seen
-most evidently in G.E. Moore’s ''Proof of an External World'', in which
-Moore attempts to refute the skeptic using what may be called a common sense
+most evidently in G.E. Moore's 'Proof of an External World', in which Moore
+attempts to refute the skeptic using what may be called a common sense
 understanding of knowledge. In the mid-twentieth century, we find Ludwig
-Wittgenstein commenting on Moore’s argument. ''On Certainty'' is perhaps at
-first a jumbled-up compendium of comments and thoughts with no clear direction
-or goal except to explore Moore’s ideas. However, upon a closer reading, we
-can find clear themes and insightful ideas which serve to shed light on his
-later thinking. The question might be raised, why precisely should we study
+Wittgenstein commenting on Moore's argument. 'On Certainty' is perhaps at first
+a jumbled-up compendium of comments and thoughts with no clear direction or goal
+except to explore Moore's ideas. However, upon a closer reading, we can find
+clear themes and insightful ideas which serve to shed light on his later
+thinking. The question might be raised, why precisely should we study
 Wittgenstein? What insights can he shed on the world that can help us with
-today’s problems? This is a perfectly fine question; indeed, the problems of
-the 1950s might not exist today, or at least not to a similar extent as they did
+today's problems? This is a perfectly fine question; indeed, the problems of the
+1950s might not exist today, or at least not to a similar extent as they did
 then. However, the questions about knowledge that philosophers have been
 attempting to tackle remain, perhaps fleshed out more than ever. With the
 previously failed philosophies of logical positivism and, to a lesser extent,
@@ -30,15 +25,14 @@ variety of fields. Perhaps the most relevant of those fields today are those of
 feminist epistemologies. And while it certainly does no justice to these
 disciplines to say that Wittgenstein was working with them and for them or that
 he started on their work well before they even began, perhaps the most important
-aspect of Wittgenstein’s work to put forward is its powerful ability to
-allow those who don’t understand these different epistemologies to gain some
-sort of window into how those fields work and what they are attempting to
-accomplish. 
+aspect of Wittgenstein's work to put forward is its powerful ability to allow
+those who don't understand these different epistemologies to gain some sort of
+window into how those fields work and what they are attempting to accomplish. 
 
 First it might be beneficial to frame this discussion more properly. The
 projects which I am considering when it comes to feminist epistemology are those
 which seek to characterize our communal and scientific practices. Much of the
-movement in today’s social and political climates seem deeply tied to
+movement in today's social and political climates seem deeply tied to
 fundamental miscommunications on all sides of what is going on. While these
 finer points certainly belong in a fundamentally different sort of venue than
 this, it does not seem to be much of a mystery that this is the case in general.
@@ -49,20 +43,20 @@ arena in which competing theories fight for our support, seems to pervade how
 many people today think and believe we should operate in the political or
 scientific sphere. The task of many feminist epistemologists has been to rework
 this arena, to mold it and shape it into something where more than a certain
-majority’s beliefs hold the most sway. In essence, they seek to change the
+majority's beliefs hold the most sway. In essence, they seek to change the
 dialogue and rules which govern our practices, and the clashes we see are in
 some way related to that project making its way into the mainstream. Out of the
 ensuing fray arises a question: how do we convince people that their beliefs are
-wrong, that they don’t know what they think they know? In short, how do we
-make them doubt? 
+wrong, that they don't know what they think they know? In short, how do we make
+them doubt? 
 
-Over the course of Wittgenstein’s notes in ''On Certainty'' he attempts to
-make explicit what it is that can and can’t be doubted. Further questions
+Over the course of Wittgenstein's notes in 'On Certainty' he attempts to make
+explicit what it is that can and can't be doubted. Further questions
 Wittgenstein seeks to answer are what is it that we accept when we believe
 certain things, and why is it that we seem to doubt certain things and not
 others. To Wittgenstein, we may readily accept that we have not been far from
 the surface of the Earth or that others with bodies and behaviors like mine have
-brains much like mine, though I have never seen it, because there isn’t good
+brains much like mine, though I have never seen it, because there isn't good
 reason to doubt it. To him, the act of doubting comes after the believing, once
 one has had some sort of relevant experience which appears to contradict the
 thing that was believed. Our principles of justification can only carry us so
@@ -74,47 +68,43 @@ because we are aware of its use. This use is, in particular, with respect to the
 kinds of language games we play. Our linguistic practices in our communities,
 our use of words in these groups, is what we bevy ourselves with against doubt,
 until an experience comes along which casts a shadow over our beliefs. To use
-what might be a more explanatory example, it isn’t the case that arrows
-point in a certain direction because that is what arrows do. Instead, following
-the arrowhead is what we do when we see an arrow – it is built into our
-practices to do so. Wittgenstein is certain to point out that our beliefs and
-practices aren’t isolated propositions or immutable to change by other
-propositions. Indeed, as he puts it, light dawns gradually over the whole: we
-accept a variety of beliefs, all supporting and justifying each other in tandem.
-The question is to be raised then, just how far such axioms and connections go.
-We should ask the question, to what extent is my participation in a language
-game guiding my knowledge and beliefs? Wittgenstein says that our communities
-frame these things; and these communities are brought together by scientific and
-educational practices. It is here that the intimate ties between the feminist
-project and Wittgenstein’s thoughts comes out. To put Wittgenstein’s
-point in a feminist example, certain individuals do not see misogyny not because
-it isn’t there, but because what they’re seeing they do not take to be
-misogyny. Indeed, their practices and beliefs are framed in such a way that
-misogyny may seem as normal behavior. Put another way, they do not know about
-misogyny because they do not understand the use of the word. There are no rules
-in the language game of these individuals to allow them to recognize or
-understand the meanings of those who inform them that their practices are wrong,
-that their behavior is incorrect; they are speaking a different language. The
-power of Wittgenstein’s work here is in its ability to separate such a
-loaded question, what do we know, from the messy array of other questions that
-might follow. Wittgenstein offers a tentative but surefooted exploration to the
-edges of our knowledge and our language. Explaining this kind of journey to
-those who disagree with us on fundamentally important topics might be what paves
-the way to reconciling the divide.
+what might be a more explanatory example, it isn't the case that arrows point in
+a certain direction because that is what arrows do. Instead, following the
+arrowhead is what we do when we see an arrow - it is built into our practices to
+do so. Wittgenstein is certain to point out that our beliefs and practices
+aren't isolated propositions or immutable to change by other propositions.
+Indeed, as he puts it, light dawns gradually over the whole: we accept a variety
+of beliefs, all supporting and justifying each other in tandem.  The question is
+to be raised then, just how far such axioms and connections go.  We should ask
+the question, to what extent is my participation in a language game guiding my
+knowledge and beliefs? Wittgenstein says that our communities frame these
+things; and these communities are brought together by scientific and educational
+practices. It is here that the intimate ties between the feminist project and
+Wittgenstein's thoughts comes out. To put Wittgenstein's point in a feminist
+example, certain individuals do not see misogyny not because it isn't there, but
+because what they're seeing they do not take to be misogyny. Indeed, their
+practices and beliefs are framed in such a way that misogyny may seem as normal
+behavior. Put another way, they do not know about misogyny because they do not
+understand the use of the word. There are no rules in the language game of these
+individuals to allow them to recognize or understand the meanings of those who
+inform them that their practices are wrong, that their behavior is incorrect;
+they are speaking a different language. The power of Wittgenstein's work here is
+in its ability to separate such a loaded question, what do we know, from the
+messy array of other questions that might follow. Wittgenstein offers a
+tentative but surefooted exploration to the edges of our knowledge and our
+language. Explaining this kind of journey to those who disagree with us on
+fundamentally important topics might be what paves the way to reconciling the
+divide.
 
-In summary, Wittgenstein’s employment of meaning as use and the rules of a
+In summary, Wittgenstein's employment of meaning as use and the rules of a
 language game as governing our knowledge and beliefs shines a bright spotlight
 in an area which once may have been a dark corner for some people. To avoid
 charges of anachronism, I will restate that it may be wholly incorrect to
 attribute to Wittgenstein the honor of having laid the bedrock for the work of
-feminist thought on the topics of ignorance and knowledge. Indeed, it
-needn’t be the case that Wittgenstein intended to do so at all when he was
-responding to Moore. But what he has provided is a way in which we can discuss
-certain topics which currently are so successful in dividing us in our daily
-lives. Wittgenstein’s ''On Certainty'' provides a way of speaking which,
-while perhaps foreign to most people, can be better known with just a bit of
-teaching. All it might take is a bit of proper instruction on how we use our
-words. 
-
-
-
+feminist thought on the topics of ignorance and knowledge. Indeed, it needn't be
+the case that Wittgenstein intended to do so at all when he was responding to
+Moore. But what he has provided is a way in which we can discuss certain topics
+which currently are so successful in dividing us in our daily lives.
+Wittgenstein's 'On Certainty' provides a way of speaking which, while perhaps
+foreign to most people, can be better known with just a bit of teaching. All it
+might take is a bit of proper instruction on how we use our words. 
