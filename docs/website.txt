@@ -25,15 +25,3 @@ offline and as intended.
 
 This remains quick despite the loss in caching as each page is no larger than
 3-10 kilobytes. See: https://tools.pingdom.com/#5ca38087eb000000
-
-/* 
-    Providing some kind of inline favicon is the only way to quiet the browser
-    and prevent it from trying to load something non-existent. Prior to creating
-    the above favicon, this website used the following snippet.
-    
-    &lt;link href=data:, rel=icon&gt;
-    
-    Through a lot of tinkering I found that this is the smallest possible
-    (inline) favicon. This successfully shushes the web request in all tested
-    browsers.
-*/
