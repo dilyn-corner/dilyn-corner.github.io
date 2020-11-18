@@ -27,8 +27,7 @@ My transition looked like...
 Ubuntu (2006) 
 Windows Vista (2007) 
 Mint (2008)
-Windows 7 
-(2009) 
+Windows 7 (2009) 
 Windows 8 (2012) 
 Arch (2013) 
 OSX (2014) 
@@ -71,7 +70,7 @@ I quickly dropped Astrophysics in my third semester - it was simply too much
 work for very little payoff. 
 
 I switched to a dual-degree in Advanced Mathematics and Physics my sophomore
-year, and dropped Physics the following semester - it was unfufilling and I
+year, and dropped Physics the following semester - it was unfulfilling and I
 didn't appreciate the teaching practices of MSUs Physics faculty. 
 
 My junior year I dropped Advanced Mathematics after brutally failing the hardest
@@ -98,7 +97,7 @@ was my favorite book, if that gives you some indication). I studied history
 philosophy of mind (more-or-less an overview of the field's history and current
 topics), and some metaphysics (again, a history of the field and current
 topics). I didn't take a proper epistemic course (in the tradition of
-epistemology). Most of my exposure to epistemology filtered through what I
+epistemology). Most of my exposure to epistemology filtered in through what I
 learned of 20th century philosophy. I was primarily educated on current topics
 in the field through Critical Theory. More specifically, feminism and feminist
 epistemologies. Far more fulfilling than the stuffy empiricism I scoffed at back
@@ -107,7 +106,7 @@ then, and still do today.
 However, my primary focus was lanaguage and logic. 
 
 I took an advanced course on classical logic (we worked through all of Plummer,
-Barwise, and Etchemendy's Language, Proof, and Logic), and topics course on
+Barwise, and Etchemendy's Language, Proof, and Logic), and a topics course on
 non-classical logics (using Priest's introductory text). It was in these courses
 where I honed my disdain for the classical logician and the law of excluded
 middle. 
@@ -115,11 +114,11 @@ middle.
 I took several seminars and topics courses on philosophy of language - topics
 spanned everything from ambiguity and relevance, intentionality, cooperative
 communication, linguistic meaning, the reality of language, and so on. A
-veritable feast, if you will. I attempted to develop a theory behind how
-precisely communication should be understood - too large a project for a
-fledging undergrad with no funding. But it was interesting and exciting to
-flesh-out a theory I had been developing in the back of my mind since high
-school, which was nice. 
+veritable feast, if you will. I attempted to develop a theory of  how precisely
+communication should be understood - too large a project for a fledging
+undergrad with no funding. But it was interesting and exciting to flesh-out a
+theory I had been developing in the back of my mind since high school, which was
+nice. 
 
 In @/papers you will be able to find a large number of the papers I worked on
 for a variety of courses. Some of them are fine, most of them are bad. Good luck
@@ -140,7 +139,7 @@ suffered for it. But I loved it! I tutored topics ranging from introductory
 algebra/trigonometry/precalculus, up through multivariable calculus and
 differential equations. I was a teaching assistant for algebra, precalculus,
 calculus I & II, the latter for which I won an Excellence in Teaching Award. I
-supervised three of MSUs six learning centers, one of which housed in the
+supervised three of MSUs six learning centers, one of which was housed in the
 Engineering dorm - it had the highest amount of foot traffic of all the centers
 besides the main one that year. 
 
