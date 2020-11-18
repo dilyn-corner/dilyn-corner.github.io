@@ -153,3 +153,16 @@ tutoring centers - and none of it panned out for me. I conceded my failures, and
 took a job at Starbucks. After a year, I recommenced the job search, and six
 months later got a job at major bank. It's fine, but I yearn for something more
 productive, hands-on, and educational.
+
+
+Current
+________________________________________________________________________________
+
+ Currently, I have a few projects I am working on. In no particular order: 
+
+    * The content in @/papers needs some revision so I can be more proud.
+    * Learning C as a beginner - mostly to better support other work.
+    * Improving documentation at $/kisslinux/wiki
+    * Maintaining several packages in $/kisslinux/community
+       * This includes Qt software to maintain libressl support 
+    * Benevolent Dictator For Now of $/dilyn-corner/KISS-kde
