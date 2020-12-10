@@ -1,4 +1,4 @@
 BLOG
 ________________________________________________________________________________
 
-RSS Feed available here: @/blog/blog.xml
+@/blog/STATIC-kiss A New Project!
