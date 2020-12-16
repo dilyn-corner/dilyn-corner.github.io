@@ -157,7 +157,7 @@ static libraries over shared ones during the link step <a href=#6>[6]</a>. This 
 for, say, some nonfoundational utility where its dependencies also provide their
 static libraries in addition to their shared ones (which is not always a given,
 mind). However, for our more important and foundational utilities like the ones
-provided by binutils, we have to do a bit mroe work.
+provided by binutils, we have to do a bit more work.
 
 If you don't believe me, try it for yourself. Add -static to your CFLAGS, and
 build flex. Then try to build binutils; it will fail because it can't find
@@ -175,7 +175,7 @@ easy <a href=#7>[7]</a>. For now, we can settle for a toolchain guide a la Linux
 <span id=8><a href=#8>[8]</a></span>. Because we want to use musl, it might be better if we use Musl-LFS <a href=#9>[9]</a> as a
 reference. 
 
-Indeed, I ended up following the documentation dslm4515 generously provided with
+Indeed, I ended up following the documentation $/<a href=https://github.com/dslm4515>dslm4515</a> generously provided with
 Musl-LFS. While it follows the official LFS documentation quite closely, it 
 still provides some useful information. 
 
@@ -430,7 +430,7 @@ Thus begineth the building.
     Ultimately, running ldd on any of the binaries we have here should output
     that they are only linked against the host libc.so, with the exception of
     ar and ranlib which require libfl (flex). Additionally, there should only
-    be one shared library on the system; libcc1.so. In the next section these
+    be one shared library on the system; libgcc1.so. In the next section these
     requirements shall fall away.
     
     
@@ -668,6 +668,8 @@ work.
     
     tar xvf gcc-*.tar.xz
     cd gcc-*
+
+    mkdir -v build && cd build
     
     ../libstdc\+\+-v3/configure \
         --build=${KISS_HOST} \
@@ -916,10 +918,10 @@ aren't chrooted. Otherwise, you might break something.
     Our target should match $(gcc -dumpmachine)
     export KISS_TARGET=x86_64-kiss-linux-musl
     
-    mv -v  /tools/bin/ld              /tools/bin/ld-old
-    mv -v  /tools/$KISS_TARGET/bin/ld /tools/$KISS_TARGET/bin/ld-old
-    mv -v  /tools/bin/ld-new          /tools/bin/ld
-    ln -sv /tools/bin/ld              /tools/$KISS_TARGET/bin/ld
+    mv -v  /tools/bin/ld                /tools/bin/ld-old
+    mv -v  /tools/${KISS_TARGET}/bin/ld /tools/${KISS_TARGET}/bin/ld-old
+    mv -v  /tools/bin/ld-new            /tools/bin/ld
+    ln -sv /tools/bin/ld                /tools/${KISS_TARGET}/bin/ld
     
     export SPECFILE=`dirname $(gcc -print-libgcc-file-name)`/specs
     gcc -dumpspecs | sed -e 's@/<a href=/blog/tools@@g'>tools@@g'</a>                   \
@@ -936,7 +938,7 @@ aren't chrooted. Otherwise, you might break something.
     *cpp:
     %{posix:-D_POSIX_SOURCE} %{pthread:-D_REENTRANT} -isystem /usr/include
     
-    Now just make our tweaked permanent!
+    Now just make our tweaks permanent!
 
     mv -vf tempspecfile $SPECFILE &&
     unset SPECFILE  KISS_TARGET
@@ -1319,7 +1321,7 @@ system once more, just to be safe.
 
 
 If you're interested in following this project, the outcome will exist on
-$/<a href=https://github.com/dilyn-corner/KISS-static,>dilyn-corner/KISS-static,</a> and will host a basic tarball (the one we've built
+$/<a href=https://github.com/dilyn-corner/KISS-static>dilyn-corner/KISS-static</a> and will host a basic tarball (the one we've built
 here), along with the official KISS repositories adapted for our needs. 
 
 
