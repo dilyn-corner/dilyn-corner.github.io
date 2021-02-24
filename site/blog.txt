@@ -1,4 +1,5 @@
 BLOG
 ________________________________________________________________________________
 
-@/blog/STATIC-kiss A New Project!
+@/blog/Trajectory  - The Direction of KISS
+@/blog/STATIC-kiss - A New Project!
