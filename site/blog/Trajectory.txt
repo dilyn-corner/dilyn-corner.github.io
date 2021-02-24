@@ -17,8 +17,15 @@ and responsibilities, so I thought I would take some time to explain my plans,
 goals, and intentions. I have a tendency to be overly verbose, so I'll break
 this up into sections; feel free to read as much or as little as you'd like. 
 
+The Guidestones                                                            [1.0]
+The Package Manager                                                        [2.0]
+The Website                                                                [3.0]
+The Repositories                                                           [4.0]
+Reddit & IRC                                                               [5.0]
+Structure                                                                  [6.0]
 
-THE GUIDESTONES
+
+[1.0] THE GUIDESTONES
 ________________________________________________________________________________
 
 I take Dylan quite seriously in his declaration that "[the Guidestones] are a
@@ -55,7 +62,7 @@ intend to do so that the KISS project can avoid going through these last few
 months again. 
 
 
-THE PACKAGE MANAGER
+[2.0] THE PACKAGE MANAGER
 ________________________________________________________________________________
 
 Dylan was previously working on K, a version of kiss written in C. Recently,
@@ -93,7 +100,7 @@ of life changes that do not fundamentally alter the package manager - in my
 eyes, kiss is essentially 'feature complete'. 
 
 
-THE WEBSITE
+[3.0] THE WEBSITE
 ________________________________________________________________________________
 
 With Dylan's disappearance, many things have slowly crumbled. The domain expired
@@ -138,7 +145,7 @@ and I am fine with making reasonable and good changes to the site if that would
 help. And, of course, linking to their work for the users who want that option.
 
 
-THE REPOSITORIES
+[4.0] THE REPOSITORIES
 ________________________________________________________________________________
 
 Much like the website, people are curious about where the repositories should be
@@ -169,7 +176,7 @@ least be a mirror of the repositories on GitHub. Here it was born, and here it
 shall stay. 
 
 
-REDDIT & IRC
+[5.0] REDDIT & IRC
 ________________________________________________________________________________
 
 I got notified literally while writing this that my request for Mod privileges
@@ -190,7 +197,7 @@ or Newsgroups. Y'all are more than welcome to start your own, if you'd like. But
 I won't be joining them.
 
 
-STRUCTURE
+[6.0] STRUCTURE
 ________________________________________________________________________________
 
 This is, I think, the most important topic to tackle. Obviously we were left out
