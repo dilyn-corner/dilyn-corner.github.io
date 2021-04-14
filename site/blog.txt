@@ -1,5 +1,6 @@
 BLOG
 ________________________________________________________________________________
 
+@/blog/Server      - My Server Project - Part 1
 @/blog/Trajectory  - The Direction of KISS
-@/blog/STATIC-kiss - A New Project!
+@/blog/KISS-static - A New Project!
