@@ -1,0 +1,204 @@
+You've Got Mail
+________________________________________________________________________________
+
+There are plenty of guides all over the internet for how to setup a mail server.
+Honestly, it's a bit overwhelming just how many there are. And they're all the
+same: use your package manager to install bla, do bla hoopla, set foo and mv
+bar... It's tedious, it's dumb, it isn't one-to-one. There are simpler ways. 
+
+I am running a mailserver with exactly 51 packages and fewer than 2GB of space
+used up. It idles at around 140MB RAM usage. It works very well. And it was
+mindnumbingly simple, after I read a few manpages, read one of the package's
+author's blog post on usage, and figured out how I had created an infinite
+delivery loop that rendered the whole stack dead until I added a quick match
+directive to a configuration file. 
+
+People will tell you mail was hard, and that's just not true. And while it took
+me four days to set everything up, that's mostly because I did a lot of
+exploring in the meantime. All-in-all, it probably took around an afternoon to
+do the core parts that mattered - and that includes building all the
+dependencies *on the server* - a real genius would've scp'd them up. 
+
+I don't intend on doing any in-depth explanations of what most of these parts
+are, just know that you need/want them. This is essentially the minimum-viable
+setup, with a bit of gravy to handle the spam. If you want actual details on
+most of this stuff, I'd recommend starting by looking here [1] - Linode offers a
+great and compact little explainer of how the whole thing operates. It's concise
+enough to get the picture. 
+
+The basic stack is OpenSMTPD as our MTA, dovecot providing our IMAP and mailbox
+management stuff, rspamd+redis for spam filtering and DKIM signing, mlmmj for
+mailing list management (made it joyful), and finally bubger for archiving. We
+make use of caddy to power our archive website, because we already had it for
+our other servers. If you're not making your archives public, you don't need it.
+We make light use of crond, certbot once a year (so install python on December
+31st and then please, PLEASE uninstall it), and a service manager (busybox sv is
+all we need). You can find the whole stack this server runs that isn't covered
+by $/kiss-community/repo or $/kiss-community/community over at
+$dilyn-corner/KISS-serv - seriously, that's it.
+
+The short answer of where you *have* to read is: you need an MTA, regardless.
+That's what OpenSMTPD covers. If you just want a mailing list, you just need
+this. If you want to replace Gmail/Protonmail/Tutanota/whatevermail, then you'll
+want to run an IMAP server - that's what dovecot is for. 
+
+Spam filtering is covered by rspamd, which requires redis. You'll want spam
+filtering, because it's great. rspamd also covers DKIM signing our emails in a
+really easy to configure way, so there's no good reason not to just do it.
+
+All of these resources you need to refer to otherwise can be found here:
+Core setup        [2]
+Clarify OpenSMTPD [3]
+mlmmj             [4]
+bubger            [5]
+
+Linode instituted a policy that ports 25, 465, and 587 are closed by default on
+all new accounts. I'd suggest opening a ticket after continuing to get those
+ports opened up - they usually respond within a few hours.
+Or you can use iptables2 in community and do it yourself... who knows... [6]
+
+I'm assuming you're using KISS here as described in @/Server
+If you're not, adapt, evolve, overcome.
+
+This is going to be divied up into sections:
+________________________________________________________________________________
+
+- DNS records                                                              [1.0]
+- OpenSMTPD configuration                                                  [2.0]
+- mailing list configuration                                               [3.0]
+- rspamd+redis configuration                                               [4.0]
+- dovecot configuration                                                    [5.0]
+- bubger configuration                                                     [6.0]
+
+
+[1.0] DNS records
+________________________________________________________________________________
+
+domain.tld is whatever website you're setting up mail for - in my case, it was
+k1sslinux.org. In your case, maybe it's goodtimesat5.com. Who knows. Just don't
+assume domain.tld is a literal - it's a variable, fill in the blank.
+
+Here are precisely the records you need for all this - even if you just want a
+mailing list. An A record for your mail domain (mail.domain.tld), an MX record
+pointing from domain.tld TO mail.domain.tld, and 3 TXT records; one for DMARC,
+one for DKIM, and one for SPF. 
+
+First, your hostname should be what you want the banner from OpenSMTPD to be
+when when it handshakes other servers - this banner should match the A record
+you made (mail.domain.tld). Just do a quick 
+
+# echo mail.domain.tld > /etc/hostname
+
+You might want to add to /etc/hosts a line that reads
+
+<server ip address> mail.domain.tld
+
+Alternatively you can the hostname to /etc/mail/mailname or add 'helo
+mail.domain.tld' to the end of your outbound relay action in /etc/smtpd.conf,
+but hostname is useless for the most part so there's no good reason not to just
+set it there.
+
+For DKIM, we need to generate a key. We can do that pretty easily:
+
+# dkimpath=/etc/mail/dkim
+# mkdir $dkimpath
+# openssl genrsa -out $dkimpath/domain.tld.key 1024
+# openssl rsa -in $dkimpath/domain.tld.key -pubout -out $dkimpath/domain.tld.pub
+# cat $dkimpath/domain.cat.pub
+# chmod 0600 $dkimpath/domain.tld.key
+
+Copy the public key (that gross strong after/before the ----***-----). We need
+it. 
+
+Open up your domain registrar's page to set your DNS records. Suffixes are
+important here.
+
+Make an A record for mail.domain.tld pointing to the external IP of your server
+
+Make an MX record for domain.tld, pointing to mail.domain.tld.
+
+Make a TXT record for _dmarc.domain.tld, pointing to:
+v=DMARC1;p=none;pct=100;rua=mailto:postmaster@domain.tld;
+
+// 'selector' below can be anything; I chose the date I made the key. We will
+//  need this for later
+Make a TXT record for _selector._domainkey.domain.tld, pointing to:
+v=DKIM1;k=rsa;p=the public key that you copied from earlier
+
+Make a TXT record for k1sslinux.org, that points to v=spf1 mx ~all
+
+The first record does what we want. The rest is so that $BadEmailMonopoly
+doesn't throw our email away when it gets to our recipient. 
+
+Next you need to setup rDNS. This is just reverse DNS - if you give them an IP,
+they can give you the domain name. On Linode, it's as easy as opening up your
+Linode on the website, clicking the Network tab, and under the IP Addresses
+block, click the ... in the row of the IPv4 address and choose 'edit rDNS'. Make
+the rDNS for this address be mail.domain.tld
+With rDNS, you will look more trustworthy. Spamsters and jerks don't usually
+have the ability to set something like this, much like the rest of these records
+we've set up. 
+
+With all this work, I've only had my emails go to spam for two providers:
+Protonmail and Tutanota. They're unkind to most of the internet. Half the
+mailing lists I subscribe get marked as spam by Tutanota; they're just too
+unreliable in my opinion. 
+Gmail gave my emails flying colors :)
+
+And just like that, our DNS records are all setup! Be aware that DNS records can
+take up to two days to propogate. In my experience, it happens pretty quickly. 
+There are a couple ways to verify this. You can use https://mxtoolbox.com/ :
+MX Lookup    domain.tld          -> to mail.domain.tld
+DNS Lookup   mail.domain.tld     -> to Your Linode server IP
+SPF Lookup   domain.tld          -> All green
+DKIM Lookup  domain.tld:selector -> All green
+DMARC Lookup _dmarc.domain.tld   -> Pass everything but DMARC Policy enabled
+
+Useful test for later when we have SMTPD setup:
+Test Email Server mail.domain.tld -> All green!
+
+You can also install bind from community and use host mail.domain.tld to get the
+ip, and, the then host on that ip to get back mail.domaind.tld. If you do, then
+rDNS is setup properly. You can use dig {mail.}domain.tld to get the rest of the
+information mxtoolbox would give you.
+
+And that's it! The DNS setup is done. With all this scaffolding work, you can
+basically all but guarantee that your emails will be delivered 1) successfully,
+2) to an inbox. 
+
+
+[2.0] OpenSMTPD configuration
+________________________________________________________________________________
+
+
+[3.0] mailing list configuration
+________________________________________________________________________________
+
+
+[4.0] rspamd+redis configuration
+________________________________________________________________________________
+
+
+[5.0] dovecot configuration
+________________________________________________________________________________
+
+
+[6.0] bubger configuration
+________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+[7.0] References
+________________________________________________________________________________
+
+[1] https://www.linode.com/docs/guides/running-a-mail-server/
+[2] https://poolp.org/posts/2019-09-14/setting-up-a-mail-server-with-opensmtpd-dovecot-and-rspamd/
+[3] https://www.opensmtpd.org/manual.html
+[4] http://mlmmj.org/
+[5] https://text.causal.agency/019-mailing-list.txt
