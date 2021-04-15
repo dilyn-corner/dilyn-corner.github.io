@@ -162,6 +162,20 @@ ip, and, the then host on that ip to get back mail.domaind.tld. If you do, then
 rDNS is setup properly. You can use dig {mail.}domain.tld to get the rest of the
 information mxtoolbox would give you.
 
+Finally, we need some TLS certificates. Technically, Porkbun provides them for
+me, and updates them for me too. But I didn't want to bother with this, so I
+made my own! It's pretty easy if you opt to use something like certbot,
+available via pip (I didn't want to package a billion python dependencies). Make
+sure you have rust installed (because of some dumb upstream related decision
+making, forcing rust to do SSL/TLS/Auth/Encryption things), and simply do:
+
+# pip install certbot
+# mkdir /var/www/mail.k1sslinux.org 
+# certbot certonly --standalone -d mail.domain.tld
+
+You're important files made from this process are:
+/etc/letsencrypt/live/mail.domain.tld/{fullchain,privkey}.pem
+
 And that's it! The DNS setup is done. With all this scaffolding work, you can
 basically all but guarantee that your emails will be delivered 1) successfully,
 2) to an inbox. 
@@ -169,6 +183,148 @@ basically all but guarantee that your emails will be delivered 1) successfully,
 
 [2.0] OpenSMTPD configuration
 ________________________________________________________________________________
+
+Now we move on to the lovely task of configuring OpenSMTPD!
+
+OpenSMTPD had an update not too long ago which rendered older configuration
+files incompatible with the newer version. This, I think, is a good thing; the
+syntax is basically human readable, you only need one command to really make it
+all work, it's a very well designed program (what else would I expect, thank you
+for libressl/openssh/openntpd BSD folks). 
+
+A second hurdle for figuring out how to configure MTAs in general is that if you
+do a single thing wrong, you can end up with undeliverable mail. Or worse, an
+infinite loopback of mail deliveries. Ask me how I know (luckily OpenSMTPD just
+timed out instead of actually delivering a billion emails between two accounts
+for eternity). 
+
+Finally, of all the guides that exist in the ether of the Internet, nobody
+really explains how you can properly serve mailing list emails && host your own.
+All-in-all, it isn't hard. Spend a little time with the OpenSMTPD manpages to
+familiarize yourself with the syntax and options - honestly, if you think to
+yourself 'can I do this thing in these case and something else in others?', the
+answer is almost certainly yes; it's a very thorough program, you can route,
+filter, and send in basically any ways you could dream of. 
+
+All that being said, here is a simple configuration file. Explanation of what it
+does after:
+
+________________________________________________________________________________
+#       $OpenBSD: smtpd.conf,v 1.10 2018/05/24 11:40:17 gilles Exp $
+
+# This is the smtpd server system-wide configuration file.
+# See smtpd.conf(5) for more information.
+
+# Setup PKI for our certs
+pki domain.tld cert "/etc/letsencrypt/live/mail.domain.tld/fullchain.pem"
+pki domain.tld key  "/etc/letsencrypt/live/mail.domain.tld/privkey.pem"
+
+# This allows us to rewrite the body when we bounce it
+# That way, it looks like it came the original sender.
+# Important for DMARC, DKIM to pass.
+# # Currently this works for the mailing list, but not my own mails
+srs key "/etc/mail/dkim/domain.tld.key"
+
+# All the filters we could ever want.
+filter "rspamd" proc-exec "/usr/lib/opensmtpd/filter-rspamd"
+filter "dyndns" phase connect match rdns regex { '.*\.dyn\..*', '.*\.dsl\..*' } \
+    disconnect "550 no residential connections"
+filter "rdns"  phase connect match !rdns \
+    disconnect "550 no rDNS is so 80s"
+filter "fcrdns" phase connect match !fcrdns \
+    disconnect "550 no FCrDNS is so 80s"
+
+# The alias table for virtual users so we don't need real users
+table passwd   file:/etc/mail/passwd
+table aliases  file:/etc/mail/aliases
+table domains  file:/etc/mail/domains
+table virtuals file:/etc/mail/virtuals
+
+# Listen for mail on eth0, enable TLS/PKI/filters/authentication
+listen on lo
+listen on eth0 port 25 tls pki "domain.tld" filter {"dyndns", "rdns", "fcrdns", "rspamd" }
+listen on eth0 port 587 tls-require pki "domain.tld" auth <passwd> filter "rspamd"
+
+# Define some actions - receiving and relaying
+action "send"        relay                        srs
+action "receive"     maildir                      alias <aliases>
+action "domain_mail" lmtp "/var/run/dovecot/lmtp" rcpt-to virtual <virtuals>
+
+## Send mail out when it hits
+## Specifically, to me, OR to the mailing list.
+match for  any                                     action "send"
+match from any auth for     any                    action "send"
+match from any for  domain  "domain.tld"           action "receive"
+match from any for  rcpt-to "user.name@domain.tld" action "domain_mail"
+________________________________________________________________________________
+
+The `pki...` lines define where our certificates are for TLS authentication.
+The `srs...` line defines where our DKIM key is for signing our mails.
+The `filter...` lines define what does filtering on what, and what to do. 
+    My favorite is the disconnect messages. Feel free to change these to meme
+    on those poor saps who want to connect to your server :)
+The `table...` lines tell OpenSMTPD what files to open for <table> expansions.
+The `listen...` lines define what sockets we listen to for what types of
+    connections. Additionally, we filter those connections based on the `filter...`
+    lines, and authenticate emails by their passwords so random users can't just
+    send mail to the universe.
+The `action...` lines define what OpenSMTPD does - these are used by `match...`
+    lines. We have a relay for sending mail out, and we use srs to say that these
+    should be relayed with our DKIM key. We'll define a 'receive' action that
+    delivers in the maildir format to our aliases, and we also have an action for
+    when mail is delivered to a domain user, that sends the mail to dovecot over
+    lmtp. Because this is a server and the users being delivered to don't have real
+    accounts, we just deliver to virtual users.
+The `match...` lines connect our listens to our actions. When any mail arrives,
+    we send it. When any mail arrives for our domain, we receive it, when ships
+    those off to our aliases. When mail is received for a specific user, it gets to
+    delivered to them via dovecot. 
+
+There are many ways to set this up. Because I'm hosting this on a server and not
+my own machine, I made myself a virtual user and put myself in the virtuals
+file - all mail is actually delivered to a system user named vmail who we will
+setup later. Our mailing list is actually just a trigger-on-receipt; OpenSMTPD
+passes the mail off to mlmmj, and this action is in the aliases file.
+
+It's quite possible this configuration is suboptimal, or even bad. If you find a
+way to improve it, let me know! 
+
+As for the files we've defined, do:
+# for file in aliases domains mailname passwd virtuals; do
+#    touch /etc/mail/$file
+# done
+
+# cat >> /etc/mail/domains << EOF
+domain.tld
+mail.domain.tld
+EOF
+
+# cat >> /etc/mail/virtuals << EOF
+abuse@domain.tld      user.name@domain.tld
+hostmaster@domain.tld user.name@domain.tld
+postmaster@domain.tld user.name@domain.tld
+webmaster@domain.tld  user.name@domain.tld
+user.name@domain.tld  vmail
+EOF
+
+# echo 'mail.domain.tld' > /etc/mail/mailname
+
+Now we just need to add our user vmail who will act as the proxy through which
+all of our mail is delivered to our fake users! 
+
+addgroup -S vmail
+adduser -S -D -H -h /var/vmail -s /bin/nologin -G vmail -g vmail vmail
+
+All of the mail vmail delivers will eventually be delivered to:
+/var/vmail/user.name@domain.tld/Mail
+
+So if you want it to go somewhere else (for whatever FHS reasons you might
+have), set the home directory for vmail to be somewhere else. Just make sure to
+change the home directory of this new user to have the right permissions:
+chown vmail:vmail /var/vmail
+
+We'll come back to the alises file in the next section, and the passwd file when
+we get to the dovecot section.
 
 
 [3.0] mailing list configuration
