@@ -1,6 +1,20 @@
 You've Got Mail
 ________________________________________________________________________________
 
+Bonus fun fact right at the start: in 2019 I was looking for jobs that weren't
+at a coffee shop. I was tired of getting rejected, so I found a startup company
+that did a lot of Unix-servery things and send them a Resume, a flashy CV, and a
+steep starting salary, just to catch their eye. It worked! I got a callback for
+a prescreen - the first callback I had gotten in about two hundred applications
+over the course of a few months. 
+
+I bombed it. The position was for building and maintaing a mail server. I knew
+absolutely nothing. 
+
+I imagine I could get the job now though. 
+
+---
+
 There are plenty of guides all over the internet for how to setup a mail server.
 Honestly, it's a bit overwhelming just how many there are. And they're all the
 same: use your package manager to install bla, do bla hoopla, set foo and mv
@@ -22,9 +36,9 @@ dependencies *on the server* - a real genius would've scp'd them up.
 I don't intend on doing any in-depth explanations of what most of these parts
 are, just know that you need/want them. This is essentially the minimum-viable
 setup, with a bit of gravy to handle the spam. If you want actual details on
-most of this stuff, I'd recommend starting by looking here [1] - Linode offers a
-great and compact little explainer of how the whole thing operates. It's concise
-enough to get the picture. 
+sounds like most of this stuff, I'd recommend starting by looking here [1] -
+Linode offers a great and compact little explainer of how the whole thing
+operates. It's concise enough to get the picture. 
 
 The basic stack is OpenSMTPD as our MTA, dovecot providing our IMAP and mailbox
 management stuff, rspamd+redis for spam filtering and DKIM signing, mlmmj for
@@ -66,8 +80,8 @@ ________________________________________________________________________________
 - DNS records                                                              [1.0]
 - OpenSMTPD configuration                                                  [2.0]
 - mailing list configuration                                               [3.0]
-- rspamd+redis configuration                                               [4.0]
-- dovecot configuration                                                    [5.0]
+- dovecot configuration                                                    [4.0]
+- rspamd+redis configuration                                               [5.0]
 - bubger configuration                                                     [6.0]
 
 
@@ -146,7 +160,7 @@ unreliable in my opinion.
 Gmail gave my emails flying colors :)
 
 And just like that, our DNS records are all setup! Be aware that DNS records can
-take up to two days to propogate. In my experience, it happens pretty quickly. 
+take up to two days to propogate. In my experience, it happens pretty quickly.
 There are a couple ways to verify this. You can use https://mxtoolbox.com/ :
 MX Lookup    domain.tld          -> to mail.domain.tld
 DNS Lookup   mail.domain.tld     -> to Your Linode server IP
@@ -209,6 +223,7 @@ filter, and send in basically any ways you could dream of.
 All that being said, here is a simple configuration file. Explanation of what it
 does after:
 
+# cat /etc/smptd.conf
 ________________________________________________________________________________
 #       $OpenBSD: smtpd.conf,v 1.10 2018/05/24 11:40:17 gilles Exp $
 
@@ -261,24 +276,24 @@ ________________________________________________________________________________
 The `pki...` lines define where our certificates are for TLS authentication.
 The `srs...` line defines where our DKIM key is for signing our mails.
 The `filter...` lines define what does filtering on what, and what to do. 
-    My favorite is the disconnect messages. Feel free to change these to meme
-    on those poor saps who want to connect to your server :)
+    My favorite is the disconnect messages. Feel free to change these to meme on
+    those poor saps who want to connect to your server :)
 The `table...` lines tell OpenSMTPD what files to open for <table> expansions.
 The `listen...` lines define what sockets we listen to for what types of
-    connections. Additionally, we filter those connections based on the `filter...`
-    lines, and authenticate emails by their passwords so random users can't just
-    send mail to the universe.
+    connections. Additionally, we filter those connections based on the
+    `filter...` lines, and authenticate emails by their passwords so random
+    users can't just send mail to the universe.
 The `action...` lines define what OpenSMTPD does - these are used by `match...`
-    lines. We have a relay for sending mail out, and we use srs to say that these
-    should be relayed with our DKIM key. We'll define a 'receive' action that
-    delivers in the maildir format to our aliases, and we also have an action for
-    when mail is delivered to a domain user, that sends the mail to dovecot over
-    lmtp. Because this is a server and the users being delivered to don't have real
-    accounts, we just deliver to virtual users.
+    lines. We have a relay for sending mail out, and we use srs to say that
+    these should be relayed with our DKIM key. We'll define a 'receive' action
+    that delivers in the maildir format to our aliases, and we also have an
+    action for when mail is delivered to a domain user, that sends the mail to
+    dovecot over lmtp. Because this is a server and the users being delivered to
+    don't have real accounts, we just deliver to virtual users.
 The `match...` lines connect our listens to our actions. When any mail arrives,
     we send it. When any mail arrives for our domain, we receive it, when ships
-    those off to our aliases. When mail is received for a specific user, it gets to
-    delivered to them via dovecot. 
+    those off to our aliases. When mail is received for a specific user, it gets
+    to delivered to them via dovecot. 
 
 There are many ways to set this up. Because I'm hosting this on a server and not
 my own machine, I made myself a virtual user and put myself in the virtuals
@@ -321,33 +336,386 @@ All of the mail vmail delivers will eventually be delivered to:
 So if you want it to go somewhere else (for whatever FHS reasons you might
 have), set the home directory for vmail to be somewhere else. Just make sure to
 change the home directory of this new user to have the right permissions:
-chown vmail:vmail /var/vmail
+# chown vmail:vmail /var/vmail
 
-We'll come back to the alises file in the next section, and the passwd file when
-we get to the dovecot section.
+We'll come back to the aliases file in the next section, and the passwd file
+when we get to the dovecot section.
 
 
 [3.0] mailing list configuration
 ________________________________________________________________________________
 
+Setting up mlmmj is super simple! It has a lot of components that you'll
+probably never have to interact with directly - it basically runs itself, while
+you get to focus on the actual usability of your list! 
 
-[4.0] rspamd+redis configuration
+# mlmmj-make-ml
+
+That's it. The script gives you a couple of prompts it will reference to
+generate all of the files it needs. It defaults to putting the list in
+/var/spool/mlmmj, which can be changed. It'll ask for your list name, domain
+name, the owner's email, and the languages. It creates a collection of folders
+and files in /var/spool/mlmmj/listname, and list management happens by editing,
+adding, and removing these files. Check out the listname/text directory for some
+useful files to edit, like FAQ! 
+
+After you've made your list, you should help OpenSMTPD with getting access:
+
+# chown -R smtpd:smptd /var/spoo/mail/listname
+
+Next, we'll have to add the alias to OpenSMTPD for the list - which the script
+kindly reminds you to do (in fact, it offers to add the entry for you!)
+
+Add the following line anywhere to your /etc/mail/alises file we made earlier:
+listname "|/usr/bin/mlmmj-receive -L /var/spool/mlmmj/listname"
+
+When OpenSMTPD gets an email, it follows the rules in the configuration file.
+Our configuration tells it that, whenever it receives an email for domain.tld,
+it should lookup the recipient in /etc/mail/alises, and send that mail to
+wherever it should go. In this case, OpenSMTPD is going execute a command,
+the program mlmmj-receive, with an argument. It's pretty genius. 
+
+Add a cronjob to automate list maitenance - it's a script that handles
+auto-unsubscribing emails that have bounced too many times, resending emails
+that bounced, and more. It's pretty hands off after that! The suggested time is
+every two hours:
+
+# crontab -e
+0 */2 * * * "/bin/mlmmj-maintd -F -L /var/spool/mlmmj/mlmmj-test/"
+
+You can do it any way you prefer though - maintd can even be daemonized, though
+I haven't tried it...
+
+I'd recommend looking at the mlmmj READMEs [6], they're absolutely packed with
+good information. Some final things for /var/spool/mlmmj/listname/control:
+
+The default digest timer is to go out once a week. If you want it to go out more
+frequently, add a file named digestinterval whose only contents are the time
+between digests, in seconds. 
+
+If your list address ever changes, modify it in the list address file.
+
+notmetoo if a file that makes it so that when a user emails the list, they don't
+get a copy of it back from the list. Though the documentation says 'attempts',
+so who knows how well it works...
+
+If you run into errors involving mlmmj being unable to connect to localhost,
+some issues might exist either with your hostname or your /etc/hosts file; the
+default relay host for the list is set in relayhost, you can pass along the
+correct relay IP address in there.
+
+Repeat these steps as needed for the rest of your lists. 
+
+And... That's basically it. email listname+help@domain.tld and if you get a
+response back from your server, you did it all correctly! Otherwise, check your
+logs for what the problem might be (and see all the lovely errors filling your
+log from people assaulting your smtp connection). 
+
+For troubleshooting, smtpd -n will verify the contents of your smtpd.conf. You
+can run smtpd -Fv for verbose logging and keep it running in the foreground
+incase the lines in the log get cut off. 
+
+Start your opensmtpd service and let the spam connections start rolling in.
+
+
+[4.0] dovecot configuration
 ________________________________________________________________________________
 
+dovecot is arguably the hardest part of all of this to configure. There is a TON
+of documentation, but the features available and what they can do changes a lot
+between even the most minor version bumps. So be pretty for your configuration
+to potentially break at some future time. For now, however, the following is
+quite workable:
 
-[5.0] dovecot configuration
+# cat /etc/dovecot/dovecot.conf
 ________________________________________________________________________________
+
+# Some simple + sane SSL/TLS stuff
+ssl = required
+ssl_cert = </etc/letsencrypt/live/mail.domain.tld/fullchain.pem
+ssl_key  = </etc/letsencrypt/live/mail.domain.tld/privkey.pem
+ssl_min_protocol = TLSv1.2
+ssl_prefer_server_ciphers = yes
+
+# For special_use in our mailboxes
+imap_capability = +SPECIAL-USE
+
+# We have to make sure we start with system users
+disable_plaintext_auth = no
+first_valid_uid = 100
+
+# Mail for our users; %n == username@domain.tld 
+#                     %u == username
+# OpenSMTPD is delivering in the maildir format, dovecot should follow
+# suit. Mail is a subdir to put it in (in case ~ where, say, in /home). 
+mail_home=/var/vmail/%Lu
+mail_location = maildir:~/Mail/:LAYOUT=fs
+
+# Always watching, waiting
+listen = *, ::
+
+# lmpt for smptd
+protocols = lmtp imap
+service lmtp {
+        unix_listener lmtp {
+                user  = vmail
+                group = vmail
+        }
+}
+service imap-login {
+        inet_listener imap {
+                port = 143
+        }
+        inet_listener imaps {
+                port = 993
+        }
+}
+
+# Define our user database for auth lookups.
+# Theoretically, this can be shared with OpenSMPTD a la passwd format
+# If we were delivering mail for actual system users and no virtual users, we
+# wouldn't actually need a passwd file aside from system /etc/passwd for either.
+passdb {
+        driver = passwd-file
+    args = scheme=SHA512-CRYPT username_format=%Lu /etc/dovecot/users
+}
+userdb {
+        driver = passwd-file
+    args = username_format=%Lu /etc/dovecot/users
+        override_fields = uid=vmail gid=vmail
+}
+
+# Define the imap protocol to use our sieve plugins
+protocol imap {
+    mail_plugins = $mail_plugins imap_sieve
+}
+# Our sieve plugins
+plugin {
+    sieve_plugins = sieve_imapsieve sieve_extprograms
+        sieve_global_extensions = +vnd.dovecot.pipe +vnd.dovecot.environment
+        
+        imapsieve_mailbox1_name = Spam
+        imapsieve_mailbox1_causes = COPY APPEND
+        imapsieve_mailbox1_before = file:/usr/lib/dovecot/sieve/report-spam.sieve        
+        imapsieve_mailbox2_name = *
+        imapsieve_mailbox2_from = Spam
+        imapsieve_mailbox2_causes = COPY
+        imapsieve_mailbox2_before = file:/usr/lib/dovecot/sieve/report-ham.sieve
+        
+        imapsieve_mailbox3_name = INBOX
+        imapsieve_mailbox3_causes = APPEND
+        imapsieve_mailbox3_before = file:/usr/lib/dovecot/sieve/report-ham.sieve
+
+        sieve_pipe_bin_dir = /usr/lib/dovecot/sieve
+}
+
+# Create mailboxes you expect to exist. Thanks, RFCs.
+namespace inbox {
+    # the namespace prefix isn't added again to the mailbox names.
+    #prefix = INBOX.
+    inbox = yes
+        separator = /
+    mailbox Archive {
+        auto = create
+        special_use = \Archive
+    }
+    mailbox Drafts {
+        auto = create
+        special_use = \Drafts
+    }
+    mailbox Sent {
+        auto = subscribe # autocreate and autosubscribe the Sent mailbox
+        special_use = \Sent
+    }
+    mailbox Spam {
+        auto = create # autocreate Spam, but don't autosubscribe
+        special_use = \Junk
+    }
+    mailbox Trash {
+        auto = create
+        special_use = \Trash
+    }
+}
+________________________________________________________________________________
+
+There are some comments throughout this config that loosely explain what's going
+on. Basically it...
+implements some basic SSL, 
+sets up lmtp so OpenSMTPD can send your mail to and from dovecot,
+sets up imap so you can get your mail on your phone,
+define account usernames and passwords,
+setup spam filtering sieves,
+create the tradition mailbox folders you would expect of any email service
+
+This is really the most involved portion of the whole setup, assuming you
+actually want to dive into dovecot at all. It took me a while to come up with
+all of this; I spent a lot of time paging through the wiki. Their documentation
+is fine, if a little presumptuous. 
+
+If we had regular old system users, we wouldn't have to do much else - all
+account authentication would be done by looking at the /etc/passwd file. But
+because we're special and don't want sensitive user data kept on our mail
+server, we insist on virtual users to avoid the temptation of treating our
+mailserver like our own PC. So we have to setup a passwords file. Generate some
+password for your user to connect with this server for authentication.
+
+# mkdir /etc/dovecot/users
+# doveadm pw -s SHA512-CRYPT
+
+You'll be prompted for that password with the second command. Copy the output
+(except for the {SHA512-CRYPT} part), and add it to /etc/dovecot/users like so:
+
+user.name:ThePasswordYouCopied::::::
+
+Next, add the following to /etc/mail/passwd:
+user.name@domain.tld ThePasswordYouCopied
+
+And your authentication is basically handled. You can add this to whatever mail
+app you fancy - your domain is mail.domain.tld, your user name is user.name, and
+your password is whatever plaintext password you chose. ezclap
+
+Start your dovecot service and you should be able to login and send fully
+Gmail/Microsoft compliant emails to anyone and everyone! Protonmail, Tutanota,
+and the like might complain, but they're special. We don't send mail to them.
+
+
+[5.0] rspamd+redis configuration
+________________________________________________________________________________
+
+rspamd and redis have a ton of configuration possibilities, which makes me think
+that they're overkill. But my server is idling at 140MB of RAM usage serving
+three websites and all this mess, so it seems fine enough. 
+
+I had to do the following for DKIM signing and spam filtering to work:
+
+# cat >> /etc/rspamd/local.d/dkim-signing.conf << EOF
+allow_username_mismatch = true;
+
+domain {
+    k1sslinux.org {
+        path = "/etc/mail/dkim/k1sslinux.org.key";
+        selector = "20210408";
+    }
+}
+EOF
+
+# cat >> /etc/rspamd/local.d/classifier-bayes.conf << EOF
+servers = "127.0.0.1";
+backend = "redis";
+autolearn = true;
+EOF
+
+# cat >> /usr/lib/dovecot/sieve/report-ham.sieve << EOF
+require ["vnd.dovecot.pipe", "copy", "imapsieve", "environment", "variables"];
+
+if environment :matches "imap.mailbox" "*" {
+  set "mailbox" "${1}";
+}
+
+if string "${mailbox}" "Trash" {
+  stop;
+}
+
+if environment :matches "imap.user" "*" {
+  set "username" "${1}";
+}
+
+pipe :copy "sa-learn-ham.sh" [ "${username}" ];
+
+# cat >> /usr/lib/dovecot/sieve/report-spam.sieve << EOF
+require ["vnd.dovecot.pipe", "copy", "imapsieve", "environment", "variables"];
+
+if environment :matches "imap.user" "*" {
+  set "username" "${1}";
+}
+
+pipe :copy "sa-learn-spam.sh" [ "${username}" ];
+
+# cat >> /usr/lib/dovecot/sieve/sa-learn-ham.sh << EOF
+#!/bin/sh
+exec /usr/bin/rspamc -d "${1}" learn_ham
+
+# cat >> /usr/lib/dovecot/sieve/sa-learn-spam.sh << EOF
+#!/bin/sh
+exec /usr/bin/rspamc -d "${1}" learn_spam
+
+# sievec /usr/lib/dovecot/sieve/report-ham.sieve
+# sievec /usr/lib/dovecot/sieve/report-spam.sieve
+# chmod 755 /usr/lib/dovecot/sieve/salearn-ham.sh
+# chmod 755 /usr/lib/dovecot/sieve/salearn-spam.sh
+
+Restart your dovecot service and you should be good to go with spam detection!
+rspamd will have to be trained a little bit before it becomes super smart, but
+given time it'll learn. You can test it by moving and email to your spam folder
+in your mail app of choice - you shold see in your rspamd logs about spam
+training. So far I have yet to receive any spam, so I have no actual idea how
+good it is; but some stranger on the internet told me it was good, so... shrug.
 
 
 [6.0] bubger configuration
 ________________________________________________________________________________
 
+bubger is literally a genius piece of software. I don't know why it's so hard to
+find a program that just generates simple static pages of content that it
+generates from a simple file hierarchy as email, but it is. mlmmj-archiver is
+ancient and requires... hypermail... Others require php, and I didn't feel like
+packaging php for this project - just look at Alpine's pkgbuild for it. No.
+
+bubger is just a simple C program that does heavy lifting very quickly. Checkout
+its creator June's thought process behind it [7]. It'll need your plaintext
+password in the environment or passed super securely to it somehow, and setting
+all that up is on YOU. Good luck.
+
+Setup == easy. I made a script that is executed by a cronjob twice a day.
+Because I was working on this whole stack for a week and I just wanted to roll
+it out and not worry about efficiency right now, the script just deletes the
+entire served archive and replaces it with an updated version. bubger supports
+doing incremental updates though, and you can make powerful use of rsync to do
+it. 
+
+For the dovecot config, I copied the Archive mailbox and renamed it to List
+(feel free to be more creative). Sieve is a powerful spec that we can make
+perfect use of here; whenever we get an email from the list, archive a copy of
+it - that way, when bubger goes snooping, it only finds emails for the list. 
+
+Add this to your plugins section:
+    imapsieve_mailbox4_name = *
+    imapsieve_mailbox4_caues = APPEND
+    imapsieve_mailbox4_before = file:/usr/lib/dovecot/sieve/mailing-list.sieve
+
+Finally, the actual sieve itself:
+
+# cat >> /usr/lib/dovecot/sieve/mailing-list.sieve << EOF
+require ["fileinto", "copy", "imap4flags"];
+
+if address :matches ["To", "Cc"] "listname@domain.tld" {
+    fileinto :copy :flags "\\Seen" "List";
+}
+EOF
+
+# sievec /usr/lib/dovecot/sieve/mailing-list.sieve
+
+And restart the dovecot service. Wham, Bham, Thank You, Ma'am. 
+
+As for the archive script, it's just something simple, cd's to where the static
+files for the archive should go, the domain and username for the account, and
+what folder to peak into for all those good, good convos:
+
+bubger -C /var/www/archive.domain.tld user.name@domain.tld List
+
+And that's basically it. Painless setup, hands off management. And the aesthetic
+jives with the rest of the k1sslinux.org style, so it's a win-win!
 
 
+________________________________________________________________________________
 
-
-
-
+And that's all there is to it. I spent about a week reading a ton of stuff about
+all of these things. I had never done a full-scale project like this before, so
+it was a fun learning experience! I breezed over a ton of the more fine-grained
+details that are essentially uneccessary if you 'just want something that
+works' - this is all workable. But I highly recommend readin the documentation
+for these projects - most of them are palatable and easy to read, and you'll
+learn a lot along the way! 
 
 
 [7.0] References
@@ -357,4 +725,6 @@ ________________________________________________________________________________
 [2] https://poolp.org/posts/2019-09-14/setting-up-a-mail-server-with-opensmtpd-dovecot-and-rspamd/
 [3] https://www.opensmtpd.org/manual.html
 [4] http://mlmmj.org/
-[5] https://text.causal.agency/019-mailing-list.txt
+[5] https://git.causal.agency/bubger/about/
+[6] http://mlmmj.org/docs/readme/
+[7] https://text.causal.agency/019-mailing-list.txt
