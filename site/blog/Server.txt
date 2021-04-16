@@ -56,7 +56,6 @@ ________________________________________________________________________________
 [1.0] Choose a Domain
 ________________________________________________________________________________
 
-GoDaddy, Domain.com, Google Domains, NameCheap, Porkbun
 The most important thing to get right here is that it should be unique. Lesser
 known TLDs are usually cheaper, and they allow for more variety and personality.
 Just don't choose a .net, those are gross. 
@@ -82,7 +81,6 @@ Mostly, I'm just mad .corner isn't a TLD.
 [2.0] Choose a Hoster
 ________________________________________________________________________________
 
-Linode, AWS, self-hosting
 Hosting for your server can be a fickle business. In general, serving things
 from your own server at home can be quite unsafe - exposing any part of your own
 network beyond what you do with a webbrowser is probably a bad move. Luckily,
@@ -93,7 +91,7 @@ Referral link [1].
 
 Choose whatever Linode lines up with your goals - I chose a simple Linode to be
 my server. 
-Choose any distribution you want - we're going to nuke it twenty seconds
+Choose any distribution you want - we're going to nuke it in twenty seconds
 anyways.
 Pick a region near where most people will access it, I guess? Linode has
 incredibly low latency and high speeds. It's incredible. Perks of being your own
@@ -136,7 +134,7 @@ Power off | Reboot | Launch LISH Console ...
 Click Rescue, and set any option to anything - as long as one of them is the
 disk you made earlier. Make note of which disk it is. This is where we'll be
 unpacking our KISS rootfs tarball. After you've selected which disk goes where,
-click 'Reboot inot Rescue Mode'. Launch the LISH console - we won't be here for
+click 'Reboot into Rescue Mode'. Launch the LISH console - we won't be here for
 long, I promise. 
 
 In the console, you'll be greeted by Linode's useful rescue system. Do an lsblk
