@@ -277,12 +277,12 @@ listen on lo
 listen on eth0 port 25 tls pki "domain.tld" \
     filter {"dyndns", "rdns", "fcrdns", "rspamd" }
 listen on eth0 port 587 tls-require pki "domain.tld" \
-    auth &sp<passwd> filter "rspamd"
+    auth &ltpasswd&gt filter "rspamd"
 
 # Define some actions - receiving and relaying
 action "send"        relay                        srs
-action "receive"     maildir                      alias &sp<aliases>
-action "domain_mail" lmtp "/var/run/dovecot/lmtp" rcpt-to virtual &sp<virtuals>
+action "receive"     maildir                      alias &ltaliases&gt
+action "domain_mail" lmtp "/var/run/dovecot/lmtp" rcpt-to virtual &ltvirtuals&gt
 
 ## Send mail out when it hits
 ## Specifically, to me, OR to the mailing list.
@@ -297,7 +297,7 @@ The `srs...` line defines where our DKIM key is for signing our mails.
 The `filter...` lines define what does filtering on what, and what to do. 
     My favorite is the disconnect messages. Feel free to change these to meme on
     those poor saps who want to connect to your server :)
-The `table...` lines tell OpenSMTPD what files to open for &sp<table> expansions.
+The `table...` lines tell OpenSMTPD what files to open for &lttable&gt expansions.
 The `listen...` lines define what sockets we listen to for what types of
     connections. Additionally, we filter those connections based on the
     `filter...` lines, and authenticate emails by their passwords so random
@@ -451,8 +451,8 @@ ________________________________________________________________________________
 
 # Some simple + sane SSL/TLS stuff
 ssl = required
-ssl_cert = &sp</etc/letsencrypt/live/mail.domain.tld/fullchain.pem
-ssl_key  = &sp</etc/letsencrypt/live/mail.domain.tld/privkey.pem
+ssl_cert = &lt/etc/letsencrypt/live/mail.domain.tld/fullchain.pem
+ssl_key  = &lt/etc/letsencrypt/live/mail.domain.tld/privkey.pem
 ssl_min_protocol = TLSv1.2
 ssl_prefer_server_ciphers = yes
 
