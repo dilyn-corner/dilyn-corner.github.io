@@ -3,7 +3,7 @@ ________________________________________________________________________________
 
 Bonus fun fact right at the start: in 2019 I was looking for jobs that weren't
 at a coffee shop. I was tired of getting rejected, so I found a startup company
-that did a lot of Unix-servery things and send them a Resume, a flashy CV, and a
+that did a lot of Unix-servery things and sent them a Resume, a flashy CV, and a
 steep starting salary, just to catch their eye. It worked! I got a callback for
 a prescreen - the first callback I had gotten in about two hundred applications
 over the course of a few months. 
@@ -35,26 +35,26 @@ dependencies *on the server* - a real genius would've scp'd them up.
 
 I don't intend on doing any in-depth explanations of what most of these parts
 are, just know that you need/want them. This is essentially the minimum-viable
-setup, with a bit of gravy to handle the spam. If you want actual details on
-sounds like most of this stuff, I'd recommend starting by looking here [1] -
-Linode offers a great and compact little explainer of how the whole thing
-operates. It's concise enough to get the picture. 
+setup, with a bit of gravy to handle the spam. If you want some rough details on
+most of this stuff, I'd recommend starting by looking here [1] - Linode offers a
+great and compact little explainer of how the whole thing operates. It's concise
+enough to get the picture. 
 
 The basic stack is OpenSMTPD as our MTA, dovecot providing our IMAP and mailbox
 management stuff, rspamd+redis for spam filtering and DKIM signing, mlmmj for
 mailing list management (made it joyful), and finally bubger for archiving. We
 make use of caddy to power our archive website, because we already had it for
-our other servers. If you're not making your archives public, you don't need it.
+our other sites. If you're not making your archives public, you don't need it.
 We make light use of crond, certbot once a year (so install python on December
 31st and then please, PLEASE uninstall it), and a service manager (busybox sv is
 all we need). You can find the whole stack this server runs that isn't covered
 by $/kiss-community/repo or $/kiss-community/community over at
-$dilyn-corner/KISS-serv - seriously, that's it.
+$/dilyn-corner/KISS-serv - seriously, that's it.
 
-The short answer of where you *have* to read is: you need an MTA, regardless.
-That's what OpenSMTPD covers. If you just want a mailing list, you just need
-this. If you want to replace Gmail/Protonmail/Tutanota/whatevermail, then you'll
-want to run an IMAP server - that's what dovecot is for. 
+The short answer of where you *have* to read if you just want a mailing list is:
+you need an MTA, regardless.  That's what OpenSMTPD covers. If you just want a
+mailing list, you just need this. If you want to replace Gmail/Protonmail/$mail,
+then you'll want to run an IMAP server - that's what dovecot is for. 
 
 Spam filtering is covered by rspamd, which requires redis. You'll want spam
 filtering, because it's great. rspamd also covers DKIM signing our emails in a
@@ -67,7 +67,7 @@ mlmmj             [4]
 bubger            [5]
 
 Linode instituted a policy that ports 25, 465, and 587 are closed by default on
-all new accounts. I'd suggest opening a ticket after continuing to get those
+all new accounts. I'd suggest opening a ticket before continuing to get those
 ports opened up - they usually respond within a few hours.
 Or you can use iptables2 in community and do it yourself... who knows... [6]
 
@@ -98,16 +98,16 @@ pointing from domain.tld TO mail.domain.tld, and 3 TXT records; one for DMARC,
 one for DKIM, and one for SPF. 
 
 First, your hostname should be what you want the banner from OpenSMTPD to be
-when when it handshakes other servers - this banner should match the A record
-you made (mail.domain.tld). Just do a quick 
+when it handshakes other servers - this banner should match the A record you
+made (mail.domain.tld). Just do a quick 
 
 # echo mail.domain.tld > /etc/hostname
 
 You might want to add to /etc/hosts a line that reads
 
-<server ip address> mail.domain.tld
+ServerIPAddress mail.domain.tld
 
-Alternatively you can the hostname to /etc/mail/mailname or add 'helo
+Alternatively you can add the hostname to /etc/mail/mailname or add 'helo
 mail.domain.tld' to the end of your outbound relay action in /etc/smtpd.conf,
 but hostname is useless for the most part so there's no good reason not to just
 set it there.
@@ -129,9 +129,9 @@ important here.
 
 Make an A record for mail.domain.tld pointing to the external IP of your server
 
-Make an MX record for domain.tld, pointing to mail.domain.tld.
+Make an MX record for domain.tld pointing to mail.domain.tld.
 
-Make a TXT record for _dmarc.domain.tld, pointing to:
+Make a TXT record for _dmarc.domain.tld pointing to:
 v=DMARC1;p=none;pct=100;rua=mailto:postmaster@domain.tld;
 
 // 'selector' below can be anything; I chose the date I made the key. We will
@@ -139,7 +139,7 @@ v=DMARC1;p=none;pct=100;rua=mailto:postmaster@domain.tld;
 Make a TXT record for _selector._domainkey.domain.tld, pointing to:
 v=DKIM1;k=rsa;p=the public key that you copied from earlier
 
-Make a TXT record for k1sslinux.org, that points to v=spf1 mx ~all
+Make a TXT record for domain.tld that points to v=spf1 mx ~all
 
 The first record does what we want. The rest is so that $BadEmailMonopoly
 doesn't throw our email away when it gets to our recipient. 
@@ -171,10 +171,10 @@ DMARC Lookup _dmarc.domain.tld   -> Pass everything but DMARC Policy enabled
 Useful test for later when we have SMTPD setup:
 Test Email Server mail.domain.tld -> All green!
 
-You can also install bind from community and use host mail.domain.tld to get the
-ip, and, the then host on that ip to get back mail.domaind.tld. If you do, then
-rDNS is setup properly. You can use dig {mail.}domain.tld to get the rest of the
-information mxtoolbox would give you.
+You can also install bind from community and use `host mail.domain.tld` to get
+the ip, and, the then host on that ip to get back mail.domaind.tld. If you do,
+then rDNS is setup properly. You can use `dig {mail.}domain.tld` to get the rest
+of the information mxtoolbox would give you.
 
 Finally, we need some TLS certificates. Technically, Porkbun provides them for
 me, and updates them for me too. But I didn't want to bother with this, so I
@@ -184,7 +184,7 @@ sure you have rust installed (because of some dumb upstream related decision
 making, forcing rust to do SSL/TLS/Auth/Encryption things), and simply do:
 
 # pip install certbot
-# mkdir /var/www/mail.k1sslinux.org 
+# mkdir /var/www/mail.domain.tld 
 # certbot certonly --standalone -d mail.domain.tld
 
 You're important files made from this process are:
@@ -234,20 +234,17 @@ ________________________________________________________________________________
 pki domain.tld cert "/etc/letsencrypt/live/mail.domain.tld/fullchain.pem"
 pki domain.tld key  "/etc/letsencrypt/live/mail.domain.tld/privkey.pem"
 
-# This allows us to rewrite the body when we bounce it
+# This allows us to rewrap the body when we bounce it
 # That way, it looks like it came the original sender.
 # Important for DMARC, DKIM to pass.
-# # Currently this works for the mailing list, but not my own mails
 srs key "/etc/mail/dkim/domain.tld.key"
 
 # All the filters we could ever want.
 filter "rspamd" proc-exec "/usr/lib/opensmtpd/filter-rspamd"
-filter "dyndns" phase connect match rdns regex { '.*\.dyn\..*', '.*\.dsl\..*' } \
-    disconnect "550 no residential connections"
-filter "rdns"  phase connect match !rdns \
-    disconnect "550 no rDNS is so 80s"
-filter "fcrdns" phase connect match !fcrdns \
-    disconnect "550 no FCrDNS is so 80s"
+filter "dyndns" phase connect match rdns regex \
+    { '.*\.dyn\..*', '.*\.dsl\..*' } disconnect "550 no residential connections"
+filter "rdns"  phase connect match !rdns disconnect "550 no rDNS is so 80s"
+filter "fcrdns" phase connect match !fcrdns disconnect "550 no FCrDNS is so 80s"
 
 # The alias table for virtual users so we don't need real users
 table passwd   file:/etc/mail/passwd
@@ -257,13 +254,15 @@ table virtuals file:/etc/mail/virtuals
 
 # Listen for mail on eth0, enable TLS/PKI/filters/authentication
 listen on lo
-listen on eth0 port 25 tls pki "domain.tld" filter {"dyndns", "rdns", "fcrdns", "rspamd" }
-listen on eth0 port 587 tls-require pki "domain.tld" auth <passwd> filter "rspamd"
+listen on eth0 port 25 tls pki "domain.tld" \
+    filter {"dyndns", "rdns", "fcrdns", "rspamd" }
+listen on eth0 port 587 tls-require pki "domain.tld" \
+    auth \<passwd> filter "rspamd"
 
 # Define some actions - receiving and relaying
 action "send"        relay                        srs
-action "receive"     maildir                      alias <aliases>
-action "domain_mail" lmtp "/var/run/dovecot/lmtp" rcpt-to virtual <virtuals>
+action "receive"     maildir                      alias \<aliases>
+action "domain_mail" lmtp "/var/run/dovecot/lmtp" rcpt-to virtual \<virtuals>
 
 ## Send mail out when it hits
 ## Specifically, to me, OR to the mailing list.
@@ -278,7 +277,7 @@ The `srs...` line defines where our DKIM key is for signing our mails.
 The `filter...` lines define what does filtering on what, and what to do. 
     My favorite is the disconnect messages. Feel free to change these to meme on
     those poor saps who want to connect to your server :)
-The `table...` lines tell OpenSMTPD what files to open for <table> expansions.
+The `table...` lines tell OpenSMTPD what files to open for \<table> expansions.
 The `listen...` lines define what sockets we listen to for what types of
     connections. Additionally, we filter those connections based on the
     `filter...` lines, and authenticate emails by their passwords so random
@@ -291,9 +290,9 @@ The `action...` lines define what OpenSMTPD does - these are used by `match...`
     dovecot over lmtp. Because this is a server and the users being delivered to
     don't have real accounts, we just deliver to virtual users.
 The `match...` lines connect our listens to our actions. When any mail arrives,
-    we send it. When any mail arrives for our domain, we receive it, when ships
-    those off to our aliases. When mail is received for a specific user, it gets
-    to delivered to them via dovecot. 
+    we send it. When any mail arrives for our domain, we receive it, which are
+    then shipped off to our aliases. When mail is received for a specific user, 
+    it gets delivered to them via dovecot. 
 
 There are many ways to set this up. Because I'm hosting this on a server and not
 my own machine, I made myself a virtual user and put myself in the virtuals
@@ -305,9 +304,9 @@ It's quite possible this configuration is suboptimal, or even bad. If you find a
 way to improve it, let me know! 
 
 As for the files we've defined, do:
-# for file in aliases domains mailname passwd virtuals; do
-#    touch /etc/mail/$file
-# done
+
+# touch /etc/mail/aliases
+# touch /etc/mail/passwd
 
 # cat >> /etc/mail/domains << EOF
 domain.tld
@@ -366,16 +365,16 @@ After you've made your list, you should help OpenSMTPD with getting access:
 Next, we'll have to add the alias to OpenSMTPD for the list - which the script
 kindly reminds you to do (in fact, it offers to add the entry for you!)
 
-Add the following line anywhere to your /etc/mail/alises file we made earlier:
+Add the following line anywhere to your /etc/mail/aliases file we made earlier:
 listname "|/usr/bin/mlmmj-receive -L /var/spool/mlmmj/listname"
 
 When OpenSMTPD gets an email, it follows the rules in the configuration file.
 Our configuration tells it that, whenever it receives an email for domain.tld,
-it should lookup the recipient in /etc/mail/alises, and send that mail to
+it should lookup the recipient in /etc/mail/aliases, and send that mail to
 wherever it should go. In this case, OpenSMTPD is going execute a command,
 the program mlmmj-receive, with an argument. It's pretty genius. 
 
-Add a cronjob to automate list maitenance - it's a script that handles
+Add a cronjob to automate list maintenance - it's a script that handles
 auto-unsubscribing emails that have bounced too many times, resending emails
 that bounced, and more. It's pretty hands off after that! The suggested time is
 every two hours:
@@ -393,11 +392,11 @@ The default digest timer is to go out once a week. If you want it to go out more
 frequently, add a file named digestinterval whose only contents are the time
 between digests, in seconds. 
 
-If your list address ever changes, modify it in the list address file.
+If your list address ever changes, modify it in the listaddress file.
 
-notmetoo if a file that makes it so that when a user emails the list, they don't
-get a copy of it back from the list. Though the documentation says 'attempts',
-so who knows how well it works...
+notmetoo if a file whose existence makes it so that when a user emails the list,
+they don't get a copy of it back from the list. Though the documentation says
+'attempts', so who knows how well it works...
 
 If you run into errors involving mlmmj being unable to connect to localhost,
 some issues might exist either with your hostname or your /etc/hosts file; the
@@ -423,7 +422,7 @@ ________________________________________________________________________________
 
 dovecot is arguably the hardest part of all of this to configure. There is a TON
 of documentation, but the features available and what they can do changes a lot
-between even the most minor version bumps. So be pretty for your configuration
+between even the most minor version bumps. So be ready for your configuration
 to potentially break at some future time. For now, however, the following is
 quite workable:
 
@@ -432,8 +431,8 @@ ________________________________________________________________________________
 
 # Some simple + sane SSL/TLS stuff
 ssl = required
-ssl_cert = </etc/letsencrypt/live/mail.domain.tld/fullchain.pem
-ssl_key  = </etc/letsencrypt/live/mail.domain.tld/privkey.pem
+ssl_cert = \</etc/letsencrypt/live/mail.domain.tld/fullchain.pem
+ssl_key  = \</etc/letsencrypt/live/mail.domain.tld/privkey.pem
 ssl_min_protocol = TLSv1.2
 ssl_prefer_server_ciphers = yes
 
@@ -586,15 +585,16 @@ rspamd and redis have a ton of configuration possibilities, which makes me think
 that they're overkill. But my server is idling at 140MB of RAM usage serving
 three websites and all this mess, so it seems fine enough. 
 
+Remember that selector from earlier in [1.0]? Yeah, we need it here.
 I had to do the following for DKIM signing and spam filtering to work:
 
 # cat >> /etc/rspamd/local.d/dkim-signing.conf << EOF
 allow_username_mismatch = true;
 
 domain {
-    k1sslinux.org {
-        path = "/etc/mail/dkim/k1sslinux.org.key";
-        selector = "20210408";
+    domain.tld {
+        path = "/etc/mail/dkim/domain.tld.key";
+        selector = "selector";
     }
 }
 EOF
@@ -646,7 +646,7 @@ exec /usr/bin/rspamc -d "${1}" learn_spam
 
 Restart your dovecot service and you should be good to go with spam detection!
 rspamd will have to be trained a little bit before it becomes super smart, but
-given time it'll learn. You can test it by moving and email to your spam folder
+given time it'll learn. You can test it by moving an email to your spam folder
 in your mail app of choice - you shold see in your rspamd logs about spam
 training. So far I have yet to receive any spam, so I have no actual idea how
 good it is; but some stranger on the internet told me it was good, so... shrug.
@@ -657,7 +657,7 @@ ________________________________________________________________________________
 
 bubger is literally a genius piece of software. I don't know why it's so hard to
 find a program that just generates simple static pages of content that it
-generates from a simple file hierarchy as email, but it is. mlmmj-archiver is
+generates from a file hierarchy as simple as email, but it is. mlmmj-archiver is
 ancient and requires... hypermail... Others require php, and I didn't feel like
 packaging php for this project - just look at Alpine's pkgbuild for it. No.
 
