@@ -288,8 +288,8 @@ action "domain_mail" lmtp "/var/run/dovecot/lmtp" rcpt-to virtual &ltvirtuals&gt
 ## Specifically, to me, OR to the mailing list.
 match for  any                                     action "send"
 match from any auth for     any                    action "send"
-match from any for  domain  "domain.tld"           action "receive"
 match from any for  rcpt-to "user.name@domain.tld" action "domain_mail"
+match from any for  domain  "domain.tld"           action "receive"
 ________________________________________________________________________________
 
 The `pki...` lines define where our certificates are for TLS authentication.
@@ -313,6 +313,10 @@ The `match...` lines connect our listens to our actions. When any mail arrives,
     we send it. When any mail arrives for our domain, we receive it, which are
     then shipped off to our aliases. When mail is received for a specific user, 
     it gets delivered to them via dovecot. 
+Be aware that the ordering for your `match...` lines matter. Mail coming in for
+    user.name@domain.tld are *also* coming in for domain.tld, and so they will
+    match the first match rule. Of course, user.name isn't a valid user in the
+    alises file, and so the mail will be undeliverable.
 
 There are many ways to set this up. Because I'm hosting this on a server and not
 my own machine, I made myself a virtual user and put myself in the virtuals
