@@ -719,7 +719,7 @@ it - that way, when bubger goes snooping, it only finds emails for the list.
 
 Add this to your plugins section in /etc/dovecot/dovecot.conf:
     imapsieve_mailbox4_name = *
-    imapsieve_mailbox4_caues = APPEND
+    imapsieve_mailbox4_cause = APPEND
     imapsieve_mailbox4_before = file:/usr/lib/dovecot/sieve/mailing-list.sieve
 
 Finally, the actual sieve itself:
