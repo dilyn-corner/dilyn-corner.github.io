@@ -1,0 +1,246 @@
+Git Yourself A Mirror
+________________________________________________________________________________
+
+Given that KISS is a project fundamentally served by VCS, finding a way to
+reliably serve our repositories is one of the most important feature of the
+distribution. Because GitHub is owned by Microsoft and has been experiencing
+more and more server problems as time goes on, there has always been a call from
+the KISS community to use an alternative repository hosting platform. 
+
+But even if you don't have git repositories used by literally tens of people,
+there are good reasons to move away from GitHub! Reliability, freedom, control,
+and knowledge are all sufficient reasons to make the Great Migration(tm).
+Luckily for us, git is distinct enough from GitHub that self-hosting your own
+repositories is incredibly simple! There are plenty of options if you decide to
+go this way. One of my personal favorites is Gitea [1]. Other people are big
+fans of Source Hut [2]. Because source Hut aims to provide a full-featured suite
+of features including a mailing list, a wiki, and a bug tracker, packaging it is
+a bit trickier and more involved than I like. I prefer simple, straightforward
+options, with as few moving parts as possible (that's why this site is served on
+static pages, of course!). So instead, we will utilize another tool: stagit [3]. 
+
+This is the third part of my Server series. It works off of the same Linode
+created in @/Server. Adapt to your own needs!
+
+Unlike my @/Server-Mail article, there is basically zero work to do. Expect this
+to be a much shorter post. 
+
+Index
+________________________________________________________________________________
+
+- Setup the user and repositories                                          [1.0]
+- Stagit                                                                   [2.0]
+- The Git Daemon                                                           [3.0]
+- References                                                               [4.0]
+
+
+[1.0] Setup the user and repositories
+________________________________________________________________________________
+
+One of the most important features a server can have (especially one that holds
+potentially sensitive information) is a nonprivileged user. This user's entire
+job is to simply serve our git repositories and manage them for us. Their home
+directory will be coopted for our needs, their desires eschewed for the Greater
+Good(tm), and their agency stripped to make way for more important things. 
+
+# adduser vcs
+# passwd vcs
+# su - vcs
+
+You can put vcs' home directory wherever you would like; I'm fine with /home/vcs
+because there isn't much of importance on this server, and /home feels homey.
+Just remember wherever you put their home directory for the future - we're going
+to be serving our git repositories out of it. 
+
+Speaking of which, we need to do that! 
+
+The simplest way is to just create a bare repository, because we won't ever
+actually be doing any work out of it. 
+
+# git init --bare repo.git
+
+So simple. 
+
+Next we have to populate this repository with all of our local work. If you plan
+on mirroring your repository, do something like the first command. If instead
+you're wanting to migrate from your current git host (like GitHub) to your own
+server, use the second command:
+
+# git remote add mirror vcs@IPAddress:repo.git
+# git remot set-url origin vcs@IPAddress:repo.git
+
+Do a `git remote -v` to make sure that the old or new remote (named mirror) has
+the correct IP address, user name, and path (:repo.git is of course short for
+:~/repo.git). 
+
+TIP: if you changed the default SSH port from 22 on your server (as you should),
+you can do: 
+
+# cat >> ~/.ssh/config << EOF
+Host IPAddress
+    port PORT
+EOF
+
+This will ensure that your SSH connection to that server (in any instance) uses
+that port by default. Very useful. 
+Repeat this as necessary; I ended up mirroring KISS' repo, community, kiss
+itself, the init, the website, and the wiki. 
+
+git has a powerful tool called hooks we're going to be making use of in the next
+section. hooks are just actions git will take after a certain type of event
+happens - they're incredibly powerful tools [4]. Unfortunately for us, there
+isn't a post-push hook. So either remember to push to your mirror when you make
+your regular pushes, or setup an alias of some sort to handle doing it for you!
+
+
+[2.0] Stagit
+________________________________________________________________________________
+
+Next we are going to setup Stagit. Stagit will magically index our entire bare
+repository and generate some pretty static pages for us to show off our work.
+It's got some nice features, and it's very simplistic. $/armaanb, a wonderful
+member of our blessed KISS Community, actually forked stagit to add some useful
+features and modifications to it, like faster syntax highlighting! Check it out
+on his Source Hut page [5].
+
+Add owner and description files to our repositories for stagit to use:
+
+# echo "My Cool Name" > repo.git/owner
+# echo "My Cool Repo" > repo.git/description
+
+stagit should be run in the directory where all the pages are to end up.
+Ideally, it happens every time our server's repository receives a push, that way
+we don't have to do it manually every time. This is the where the beautiful
+magic of git hooks come in:
+
+# cat >> repo.git/hooks/post-receive << EOF
+#!/bin/sh -e 
+
+repo="$PWD"
+dst="/var/www/git.domain.tld/$(basename "$(pwd)" '.git')"
+
+mkdir -p "$dst"
+(cd "$dst" && stagit "$repo")
+ln -sf "$dst/index.html" "$dst/log.html"
+EOF
+# chmod +x repo.git/hooks/post-receive
+
+This hook will be run by git after the repository receives some changes, after
+it finishes updating. It just runs stagit in the directory we want to host the
+static pages on (git.domain.tld/repo) for the repository in question. 
+
+On your own machine, do `git push mirror` to update your repository. Next we
+just need to index all of our repositories so that git.domain.tld will do
+something useful - provide a page listing all of our repositories! 
+
+# stagit-index /home/vcs/repo.git > /var/www/git.domain.tld/index.html
+
+If you have multiple repositories you'd like to index, do them all in a single
+stagit-index command. Feel free to add some stylesheets and icons to the
+repository to make it yours.
+
+In order to checkout this new webpage we've made, we should setup a webserver
+for it. You can do something as simple as `httpd /var/www/git.domain.tld`, but
+if you want to serve it over https you can always use something like caddy; it's
+basically a one-click way to quickly get a website up. Feel free to do it
+however you want; I have a caddy file and caddy comes with a service:
+
+# cat > /etc/caddy/caddy.conf << EOF
+http://git.domain.tld {
+    redir https://git.domain.tld
+}
+https://git.domain.tld {
+    root * /var/www/git.domain.tld
+    file_server
+}
+EOF
+
+# ln -sv /etc/sv/caddy/ /var/service/
+# sv up caddy
+
+Caddy has a ton of options, there are plenty of ways to do this, bla bla bla.
+Run your site as you see fit! Make an MX record for your site with your
+registrar, having git.domain.tld point to your server's IP address, and you
+should be good to go!
+
+Now you can visit your site and see the beauty of your work [7]. I still need to
+work on my stylesheet, which I ungraciously swiped from [8]. Thank you for your
+work and effort, Roman.
+
+
+[3.0] The Git Daemon
+________________________________________________________________________________
+
+If you try to git clone your repository however, you're going to have a bad
+time. You have to do one final trick, so that the repository changes from
+look-but-don't-clone to look-but-don't-push. It's actually quite simple, if you
+just want to serve it from git://git.domain.tld/repo - we're going to take
+advantage of the git-daemon!
+
+# touch /home/vcs/repo.git/git-daemon-export-ok
+# mkdir -p /etc/sv/git-daemon
+# echo >> /etc/sv/git-daemon/run << EOF
+#!/bin/sh
+
+exec git daemon --reuseaddr --base-path=/home/vcs/ /home/vcs/
+EOF
+# chmod +x /etc/sv/git-daemon/run 
+# ln -sv /etc/sv/git-daemon/ /var/service/
+# sv up git-daemon
+
+Now you should find that your repositories are quite cloneable. ezclap
+
+
+___
+
+I told you it'd be a short one. Serving your own git repositories is probably
+one of the easiest things to self host. The entire infrastructure is already
+there for you! Here's a bonus section:
+
+# mkdir -p /var/www/fossil.domain.tld
+# cat >> /home/vcs/repo.git/hooks/post-receive << EOF
+
+fdst="/var/www/fossil.domain.tld/$(basename "$(pwd)" '.git')"
+
+git fast-export --import-marks="$fdst/git.marks" \
+    --export-marks="$fdst/git.marks" --all | fossil import --git \
+    --incremental --import-marks "$fdst/fossil.marks" \
+    --export-marks "$fdst/fossil.marks" "${fdst}.fossil"
+(cd "$fdst" && fossil push)
+EOF
+
+# mkdir -p /etc/sv/fossil-server
+# cat >> /etc/sv/fossil-server/run << EOF
+#!/bin/sh
+
+exec fossil server --https --port XXXX --repolist /var/www/fossil.domain.tld
+EOF
+# chmod +x /etc/sv/fossil-server/run
+# ln -sv /etc/sv/fossil-server/ /var/service/
+# sv up fossil-server
+
+On your local machine:
+# git push mirror
+
+Add a wiki page who's title is the name of the repository file to have the
+welcome page for the repo be that wiki, and you'll be greeted by a shiny
+one-to-one fossil mirror [9] of your beloved git repository, inching one step
+closer to dropping the GPL infected git :v
+
+Bonus points if you implement fossil support in kiss before I do.
+
+___
+
+
+[4.0] References
+________________________________________________________________________________
+
+[1] https://gitea.com/
+[2] https://sr.ht/
+[3] https://codemadness.org/stagit.html
+[4] https://githooks.com/
+[5] https://git.sr.ht/~armaan/stagit/
+[6] https://www.romanzolotarev.com/git.html
+[7] https://git.k1sslinux.org/
+[8] https://www.romanzolotarev.com/stagit.html
+[9] https://fossil.k1sslinux.org/
