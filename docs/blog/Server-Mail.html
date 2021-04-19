@@ -139,9 +139,9 @@ For DKIM, we need to generate a key. We can do that pretty easily:
 # openssl genrsa -out $dkimpath/domain.tld.key 1024
 # openssl rsa -in $dkimpath/domain.tld.key -pubout -out $dkimpath/domain.tld.pub
 # cat $dkimpath/domain.cat.pub
-# chmod 0600 $dkimpath/domain.tld.key
+# chmod 0440 $dkimpath/domain.tld.key
 
-Copy the public key (that gross strong after/before the ----***-----). We need
+Copy the public key (that gross strong after/before the -----***-----). We need
 it. 
 
 Open up your domain registrar's page to set your DNS records. Suffixes are
@@ -192,7 +192,7 @@ Useful test for later when we have SMTPD setup:
 Test Email Server mail.domain.tld -> All green!
 
 You can also install bind from community and use `host mail.domain.tld` to get
-the ip, and, the then host on that ip to get back mail.domaind.tld. If you do,
+the ip, and then do `host` on that ip to get back mail.domaind.tld. If you do,
 then rDNS is setup properly. You can use `dig {mail.}domain.tld` to get the rest
 of the information mxtoolbox would give you.
 
@@ -263,7 +263,7 @@ srs key "/etc/mail/dkim/domain.tld.key"
 filter "rspamd" proc-exec "/usr/lib/opensmtpd/filter-rspamd"
 filter "dyndns" phase connect match rdns regex \
     { '.*\.dyn\..*', '.*\.dsl\..*' } disconnect "550 no residential connections"
-filter "rdns"  phase connect match !rdns disconnect "550 no rDNS is so 80s"
+filter "rdns"   phase connect match !rdns   disconnect "550 no rDNS is so 80s"
 filter "fcrdns" phase connect match !fcrdns disconnect "550 no FCrDNS is so 80s"
 
 # The alias table for virtual users so we don't need real users
@@ -280,16 +280,16 @@ listen on eth0 port 587 tls-require pki "domain.tld" \
     auth &ltpasswd&gt filter "rspamd"
 
 # Define some actions - receiving and relaying
-action "send"        relay                        srs
 action "receive"     maildir                      alias &ltaliases&gt
 action "domain_mail" lmtp "/var/run/dovecot/lmtp" rcpt-to virtual &ltvirtuals&gt
+action "send"        relay                        srs
 
 ## Send mail out when it hits
 ## Specifically, to me, OR to the mailing list.
-match for  any                                     action "send"
-match from any auth for     any                    action "send"
-match from any for  rcpt-to "user.name@domain.tld" action "domain_mail"
-match from any for  domain  "domain.tld"           action "receive"
+match      from any for rcpt-to "user.name@domain.tld" action "domain_mail"
+match      from any for domain  <domains>              action "receive"
+match               for any                            action "send"
+match auth from any for any                            action "send"
 ________________________________________________________________________________
 
 The `pki...` lines define where our certificates are for TLS authentication.
@@ -436,7 +436,11 @@ log from people assaulting your smtp connection).
 
 For troubleshooting, smtpd -n will verify the contents of your smtpd.conf. You
 can run smtpd -Fv for verbose logging and keep it running in the foreground
-incase the lines in the log get cut off. 
+incase the lines in the log get cut off. Finally, the most useful:
+# smtpd -d -T rules
+This will print a trace of what rule OpenSMTPD ends up matching to for any give
+piece of mail. -T takes many arguments for better and more fine-grained
+debugging; check the manpage!
 
 Start your opensmtpd service and let the spam connections start rolling in.
 
@@ -467,10 +471,10 @@ imap_capability = +SPECIAL-USE
 disable_plaintext_auth = no
 first_valid_uid = 100
 
-# Mail for our users; %n == username@domain.tld 
-#                     %u == username
+# Mail for our users; %n == user.name@domain.tld 
+#                     %u == user.name
 # OpenSMTPD is delivering in the maildir format, dovecot should follow
-# suit. Mail is a subdir to put it in (in case ~ where, say, in /home). 
+# suit. Mail is a subdir to put it in (in case ~ were in say, /home). 
 mail_home=/var/vmail/%Lu
 mail_location = maildir:~/Mail/:LAYOUT=fs
 
@@ -495,7 +499,7 @@ service imap-login {
 }
 
 # Define our user database for auth lookups.
-# Theoretically, this can be shared with OpenSMPTD a la passwd format
+# Theoretically, this can be shared with OpenSMTPD a la passwd format
 # If we were delivering mail for actual system users and no virtual users, we
 # wouldn't actually need a passwd file aside from system /etc/passwd for either.
 passdb {
@@ -520,6 +524,7 @@ plugin {
         imapsieve_mailbox1_name = Spam
         imapsieve_mailbox1_causes = COPY APPEND
         imapsieve_mailbox1_before = file:/usr/lib/dovecot/sieve/report-spam.sieve        
+
         imapsieve_mailbox2_name = *
         imapsieve_mailbox2_from = Spam
         imapsieve_mailbox2_causes = COPY
@@ -588,7 +593,7 @@ password for your user to connect with this server for authentication.
 You'll be prompted for that password with the second command. Copy the output
 (except for the {SHA512-CRYPT} part), and add it to /etc/dovecot/users like so:
 
-user.name:ThePasswordYouCopied::::::
+user.name@domain.tld:ThePasswordYouCopied::::::
 
 Next, add the following to /etc/mail/passwd:
 user.name@domain.tld ThePasswordYouCopied
@@ -623,6 +628,12 @@ domain {
 }
 EOF
 
+Additionally, we'll need to make sure that rspamd can read the DKIM keys we made
+back at the beginning - otherwise you'll end up with intermittent timeout issues
+as the daemon simply fails to do its job. 
+
+# chown -R smtpd:rspamd /etc/mail/dkim
+
 # cat >> /etc/rspamd/local.d/classifier-bayes.conf << EOF
 servers = "127.0.0.1";
 backend = "redis";
@@ -645,6 +656,7 @@ if environment :matches "imap.user" "*" {
 }
 
 pipe :copy "sa-learn-ham.sh" [ "${username}" ];
+EOF
 
 # cat >> /usr/lib/dovecot/sieve/report-spam.sieve << EOF
 require ["vnd.dovecot.pipe", "copy", "imapsieve", "environment", "variables"];
@@ -654,19 +666,22 @@ if environment :matches "imap.user" "*" {
 }
 
 pipe :copy "sa-learn-spam.sh" [ "${username}" ];
+EOF
 
 # cat >> /usr/lib/dovecot/sieve/sa-learn-ham.sh << EOF
 #!/bin/sh
 exec /usr/bin/rspamc -d "${1}" learn_ham
+EOF
 
 # cat >> /usr/lib/dovecot/sieve/sa-learn-spam.sh << EOF
 #!/bin/sh
 exec /usr/bin/rspamc -d "${1}" learn_spam
+EOF
 
 # sievec /usr/lib/dovecot/sieve/report-ham.sieve
 # sievec /usr/lib/dovecot/sieve/report-spam.sieve
-# chmod 755 /usr/lib/dovecot/sieve/salearn-ham.sh
-# chmod 755 /usr/lib/dovecot/sieve/salearn-spam.sh
+# chmod 755 /usr/lib/dovecot/sieve/sa-learn-ham.sh
+# chmod 755 /usr/lib/dovecot/sieve/sa-learn-spam.sh
 
 Restart your dovecot service and you should be good to go with spam detection!
 rspamd will have to be trained a little bit before it becomes super smart, but
@@ -702,7 +717,7 @@ For the dovecot config, I copied the Archive mailbox and renamed it to List
 perfect use of here; whenever we get an email from the list, archive a copy of
 it - that way, when bubger goes snooping, it only finds emails for the list. 
 
-Add this to your plugins section:
+Add this to your plugins section in /etc/dovecot/dovecot.conf:
     imapsieve_mailbox4_name = *
     imapsieve_mailbox4_caues = APPEND
     imapsieve_mailbox4_before = file:/usr/lib/dovecot/sieve/mailing-list.sieve
@@ -737,7 +752,7 @@ And that's all there is to it. I spent about a week reading a ton of stuff about
 all of these things. I had never done a full-scale project like this before, so
 it was a fun learning experience! I breezed over a ton of the more fine-grained
 details that are essentially uneccessary if you 'just want something that
-works' - this is all workable. But I highly recommend readin the documentation
+works' - this is all workable. But I highly recommend reading the documentation
 for these projects - most of them are palatable and easy to read, and you'll
 learn a lot along the way! 
 
