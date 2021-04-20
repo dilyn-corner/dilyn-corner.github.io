@@ -49,7 +49,7 @@ We make light use of crond, certbot once a year (so install python on December
 31st and then please, PLEASE uninstall it), and a service manager (busybox sv is
 all we need). You can find the whole stack this server runs that isn't covered
 by $/kiss-community/repo or $/kiss-community/community over at
-$/dilyn-corner/KISS-serv - seriously, that's it.
+$/dilyn-corner/KISS-host - seriously, that's it.
 
 The short answer of where you *have* to read if you just want a mailing list is:
 you need an MTA, regardless.  That's what OpenSMTPD covers. If you just want a
