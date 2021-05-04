@@ -141,7 +141,7 @@ For DKIM, we need to generate a key. We can do that pretty easily:
 # cat $dkimpath/domain.cat.pub
 # chmod 0440 $dkimpath/domain.tld.key
 
-Copy the public key (that gross strong after/before the -----***-----). We need
+Copy the public key (that gross string after/before the -----***-----). We need
 it. 
 
 Open up your domain registrar's page to set your DNS records. Suffixes are
@@ -207,7 +207,7 @@ making, forcing rust to do SSL/TLS/Auth/Encryption things), and simply do:
 # mkdir /var/www/mail.domain.tld 
 # certbot certonly --standalone -d mail.domain.tld
 
-You're important files made from this process are:
+Your important files made from this process are:
 /etc/letsencrypt/live/mail.domain.tld/{fullchain,privkey}.pem
 
 And that's it! The DNS setup is done. With all this scaffolding work, you can
@@ -255,7 +255,7 @@ pki domain.tld cert "/etc/letsencrypt/live/mail.domain.tld/fullchain.pem"
 pki domain.tld key  "/etc/letsencrypt/live/mail.domain.tld/privkey.pem"
 
 # This allows us to rewrap the body when we bounce it
-# That way, it looks like it came the original sender.
+# That way, it looks like it came from the original sender.
 # Important for DMARC, DKIM to pass.
 srs key "/etc/mail/dkim/domain.tld.key"
 
@@ -266,7 +266,8 @@ filter "dyndns" phase connect match rdns regex \
 filter "rdns"   phase connect match !rdns   disconnect "550 no rDNS is so 80s"
 filter "fcrdns" phase connect match !fcrdns disconnect "550 no FCrDNS is so 80s"
 
-# The alias table for virtual users so we don't need real users
+# The tables that define where any mail goes in any instance
+# Passwords, real (system) users, domains, and virtual (not-system) users.
 table passwd   file:/etc/mail/passwd
 table aliases  file:/etc/mail/aliases
 table domains  file:/etc/mail/domains
@@ -298,7 +299,7 @@ The `filter...` lines define what does filtering on what, and what to do.
     My favorite is the disconnect messages. Feel free to change these to meme on
     those poor saps who want to connect to your server :)
 The `table...` lines tell OpenSMTPD what files to open for &lttable&gt expansions.
-The `listen...` lines define what sockets we listen to for what types of
+The `listen...` lines define what ports we listen to for what types of
     connections. Additionally, we filter those connections based on the
     `filter...` lines, and authenticate emails by their passwords so random
     users can't just send mail to the universe.
@@ -617,6 +618,7 @@ three websites and all this mess, so it seems fine enough.
 Remember that selector from earlier in <a href=#1.0>[1.0]</a>? Yeah, we need it here.
 I had to do the following for DKIM signing and spam filtering to work:
 
+`domain {` and `selector =` are both literally 'domain' and 'selector'. 
 # cat >> /etc/rspamd/local.d/dkim-signing.conf << EOF
 allow_username_mismatch = true;
 
