@@ -17,3 +17,5 @@ And a view at an angle. Don't mind the dugeon in the top right, it isn't
 supremely relevant:
 
 <img src="imgs/s1/candlekeepangle.jpg" alt="Candlkeep at an angle"></img>
+
+<img src="imags/s1/mainfloor.jpg" alt="Main mansion floor"></img>
