@@ -9,4 +9,4 @@ This is meant as a reference for players both before, during, and after
 sessions. Feel free to come back here as often as you like; we'll see what
 happens!
 
-<a href src="imgs/s1/candlekeep.jpg" alt="Candlekeep from above"></a>
+<img src="imgs/s1/candlekeep.jpg" alt="Candlekeep from above"></img>
