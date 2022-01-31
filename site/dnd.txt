@@ -1,4 +1,4 @@
-BLOG
+Dungeons and Dragons -- Bump in the Night
 ________________________________________________________________________________
 
-@/dnd/session1 - Baby's First Session
+@/dnd/session0 - Baby's Session Zero
