@@ -109,7 +109,7 @@ main() {
         page "$page"
     done
 
-    ln -sf ../style.css docs/style.css
+    cp style.css docs/style.css
 }
 
 main "$@"
