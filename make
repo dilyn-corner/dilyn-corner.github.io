@@ -108,6 +108,8 @@ main() {
         printf '%s\n' "CC $page"
         page "$page"
     done
+
+    ln -sf ../style.css docs/style.css
 }
 
 main "$@"
