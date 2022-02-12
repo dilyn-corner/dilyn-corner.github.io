@@ -2,3 +2,4 @@ Dungeons and Dragons -- Bump in the Night
 ________________________________________________________________________________
 
 @/dnd/session0 - Baby's Session Zero
+@/dnd/session1 - The Search For Ripper
