@@ -1,0 +1,382 @@
+<!doctype html><html lang=en><link href=data:, rel=icon><title>DC - RISC-V</title><meta charset=utf-8><meta name=Description content="A personal website"><meta name=viewport content="width=device-width,initial-scale=1"><style>body{overflow-y:scroll;font:16px monospace,monospace}img,.c{display:table-cell;max-width:999px;max-width:80ch}pre{margin:0;overflow-x:hidden}@media(max-width:999px){.c{display:block;font-size:1.94vw}}@media(prefers-color-scheme:dark){body{background:#000;color:#fff}a{color:#6CF}}</style><div style="display:table;margin:16px auto"><div class=c><pre style="top:0;position:sticky;user-select:none;padding-right:64px">
+<a href=/ style="text-decoration:none;color:#a00">
+<link rel="stylesheet" type="text/css" href="/style.css" />
+Home
+</a>
+<a href=/papers>Papers</a>
+
+<a href=/blog>Blog</a>
+
+<a href=/pictures>Pictures</a>
+
+<a href=/about-me>About Me</a>
+
+<a href=/contact>Contact</a>
+
+<a href=https://github.com/dilyn-corner/>GitHub</a>
+
+<a href=https://k1sslinux.org>KISS Linux</a>
+
+</pre></div><div class=c><pre>
+
+Riscy Business
+________________________________________________________________________________
+
+RISC-V <a href=#0>[0]</a> is one of the newest instruction set architectures on the block. It's
+not necessarily novel as an FOSS ISA, but it's certainly interesting for another
+thing: it has broad support in toolchains with glibc/musl/uclibc all supporting
+it, it has active support in the kernel, and a lot of applications are already
+packaged in major distributions for it.
+
+And yet there is no hardware for it.
+
+Certainly Sifive has done some excellent work in getting a RISC-V board into the
+public's hands, but a lot of people are priced out of it - being $1,000 USD at
+launch has a tendency to do that. BeagleBoard was going to make it more
+affordable with their own board, but that project evaporated over time. As a
+result, large parts of development work have happened in Qemu, which make this a
+really intriguing architecture to tackle. I never got the chance to get in on
+the ground level with AMD64, which dramatically revolutionized computing. I
+largely ignored ARM (and largely still do; I didn't get a Pi until just a few
+months ago). But RISC-V fulfills a lot of my dreams - it's a sane ISA that
+avails itself of a realm usually associated with software - a free and open
+specification that anybody can use without royalty. Incredible.
+
+Luckily, some (very affordable!) RISC-V boards have come out recently, and more
+are on the way later this year. I took a risk on aliexpress (another first for
+me) and picked up a very cheap board - Sipeed's Lichee dev board based on
+Allwinner's D1 chip <a href=#1>[1]</a>. It's a more affordable version of the Nezha <a href=#2>[2]</a>, which
+I may pick up as well. If you can't tell, I'm very excited about this ISA!
+
+With that, we come to the meat of this blog post. I work at Canonical as an IoT
+Field Engineer. Embedded hardware should be my bread and butter. I have a lot of
+experience dealing with the kernel and PID1 on x86 machines, but almost none
+when it comes to embedded hardware - the only bootloader I really ever became
+"familiar with" is GRUB, and I have refused to use that for at least four years
+(EFI has been the future since 2014, and we all need to get on board with
+EFISTUB). So this project marks a very swift broadening of a knowledge area I am
+impoverished in: u-boot, and OpenSBI.
+
+Code & notes for this project can be found at the below GitHub repository:
+$/<a href=https://github.com/dilyn-corner/ubuntu-core-riscv64>dilyn-corner/ubuntu-core-riscv64</a>
+
+
+<span id=0.0><a href=#0.0>[0.0]</a></span> INDEX
+________________________________________________________________________________
+
+- The Setup - Why?                                                         <a href=#1.0>[1.0]</a>
+- OpenSBI                                                                  <a href=#2.0>[2.0]</a>
+- u-boot                                                                   <a href=#3.0>[3.0]</a>
+- Board Bringup                                                            <a href=#4.0>[4.0]</a>
+
+
+
+<span id=1.0><a href=#1.0>[1.0]</a></span> The Setup - Why?
+________________________________________________________________________________
+
+I frequently embark on projects which excite me. I find learning about them far
+more interesting when I am fundamentally motivated by an interest in a topic,
+and I end up becoming all-too ravenous for every little detail about the task.
+ARM was never exciting for me, and so I never bothered. But my job relies on
+knowing embedded hardware well, so I need to become more intimately familiar
+with specific facts relating to these small boards. RISC-V enables me to do this
+in a way that won't bore me, and for that I am grateful.
+
+All that being said I firmly believe in RISC-V, both as an architecture model
+and as a hardware philosophy. Personally, I think RISC-V is the future of
+embedded hardware, and potentially even usurping x86 as the dominant
+architecture of the desktop (ARM folx have been saying this for years, and it's
+certainly probably true in poorer countries; but almost nobody I've ever met in
+America seriously uses an ARM chip for things outside of managing what color
+their kitchen lights are).
+
+As a result, I would love to see RISC-V appear more in my work. Canonical does
+not officially support RISC-V in most ways; we have a server image available and
+many snaps are built for the architecture, but we don't have a working Ubuntu
+Core image publicly available for it, let alone one which we support.
+
+So as a side project to experiment with bringing up a new board for Ubuntu Core,
+I decided to explore RISC-V. It was actually far easier than expected, and I'll
+tell you why!
+
+First and foremost, an Ubuntu Core image is primarily composed of four snaps:
+    1) base   (Core20 is the currently available base snap)
+    2) snapd  (the snap which provides the underlying snap infrastructure)
+    3) kernel (provides the kernel and needed hardware firmware, plus initrd)
+    4) gadget (defines the partition structure and how to boot the device)
+
+In addition to this, you also need a json-formatted model which defines the bits
+that go into your image and ultimately identify it as an Ubuntu Core device -
+see an example of such a file here <a href=#3>[3]</a>. This json file is validated and signed
+by a GPG-style key registered to an Ubuntu SSO account, uniquely tying that
+particular image to you - this is how, for instance, your SSH keys are put on
+your device for easy headless access.
+
+Creating a model is quite straightforward, and in our case requires minimal
+modification:
+
+Luckily for us, the core20 snap and the snapd snap are both available on the
+snapstore <a href=#4>[4]</a> for RISC-V. Cross-building the base snap is potentially quite
+tricky, though something I am interested in pursuing (ideally, I want to run a
+very small version of Ubuntu Core, so this is a very tantalizing topic).
+
+There is not however a readily available kernel and gadget snap for most
+architectures. This means that we have to provide them ourselves. Not terribly
+daunting; I've built plenty of kernels and I'm very good at debugging issues,
+and how hard could a gadget really be?
+
+Narrator: more tricky than you think.
+
+
+<span id=2.0><a href=#2.0>[2.0]</a></span> Gadget
+________________________________________________________________________________
+
+The most important feature of a (Ubuntu Core 20) gadget snap is how the boot
+process is defined to flow. The defacto nonGRUB method relies on u-boot taking
+on the role as bootloader. Luckily, configuring u-boot is very straightforward,
+and should be quite familar if you've messed with the kernel before; a simple
+make foo_defconfig; make menuconfig; make will yield a small u-boot binary you
+can flash to a device.
+
+u-boot itself exists to do essentially one thing: load the kernel. It does this
+by doing a few key things:
+
+* A device tree for the board is loaded into memory (so that all the board 
+  hardware is properly discovered and defined)
+
+* If an initramfs is required for booting the kernel, it is also loaded into
+  memory.
+
+* The kernel is loaded into RAM
+
+* The boot process is kicked off; the device tree is (potentially flattened),
+  the kernel starts doing its thing (after relocating and freeing), and it
+  passes off to the initrd to do whatever its purpose is.
+
+In our case, the initrd bootstraps the Ubuntu Core system (it also rollsback our
+system in cases of boot failures and ensures that our ROOTFS is properly
+unsquashed... It does a lot, okay?).
+
+We also need to include an environment file which determines how Core will boot;
+this file is modified occassionally (automatically, not so much by us) so that
+our system boots the right way at the right times (install mode, run mode, or
+try mode), and also specifies our backup system image (in case something goes
+terribly wrong and we have to nuke the whole install). 
+
+Note that we don't have to rely on this file for booting; we could create an
+image that always bootstraps itself, for instance; but what good would that be?
+Who knows. There's probably a use-case.
+
+The real tricky part is: where do you put all these objects in RAM?
+
+This requires some knowledge about your objects - how big each of the kernel,
+initrd, and device tree are, along with the free and addressable space on your
+board.
+
+In my case, I am testing using Qemu until my board arrives. Qemu is interesting
+here. It can certainly emulate several boards, but I didn't want to mess around
+with them -- I don't have any familiarity with their spec, and I'd rather not
+toy around with a specific board: I want a more generic experience. So I settled
+with the virt board Qemu has.
+
+On this board, the addressable memory (assuming you specified -memory 2G) is
+0x80000000 to 0xffffffff. Right away, you cannot read anything before the 2G
+mark. Go ahead and try; md 0x50000 will result in a board reset. Additionally,
+u-boot itself exists in a space shortly after the first available address,
+meaning that putting anything in RAM before 0x80020000 can be quite risky!
+
+Luckily, Qemu loads its own device tree for us (at the lovely address
+0xff73bb00), and so we really only have to be cognizant of where we load other
+things. Almost everything up to 0xff600000 is free to be copied into, and so we
+can give our kernel and initrd a broad enough amount of space to be happy.
+
+Ultimately, you can pick and choose your favorites. Use bdi and md to checkout
+useful facts about your board and what lives where before you start trying.
+
+As far as the gadget.yaml itself, I did very little altering to it. The content
+of our seed partition contains two files, our config file detailing what mode to
+boot in, along with a payload object (the bootloader). Otherwise, it's a very
+bog standard gadget.yaml (see the Pi gadget for inspiration <a href=#5>[5]</a>).
+
+What is this payload object, my imaginary interlocutor? I'm glad you asked!
+
+
+<span id=3.0><a href=#3.0>[3.0]</a></span> OpenSBI
+________________________________________________________________________________
+
+OpenSBI is the Open Source Supervisor Binary Interface for the RISC-V
+architecture. The project is BSD-2 licensed and Western Digital owns the
+copyright. It's a neat little project <a href=#6>[6]</a>! OpenSBI interfaces between an M-mode
+firmware and a bootloader/hypervisor/OS (in S-mode). It's an open source
+reference implementation of RISC-V's SBI spec, and works quite well for us. 
+
+OpenSBI can be built in a few different ways, but I'll focus on one way that we
+are interested in. OpenSBI can be built as an ELF binary which executes an
+embedded binary payload on boot. This payload can either be the kernel itself
+or, in our case, u-boot.
+
+Building OpenSBI is quite easy, just a single line command:
+
+ARCH=riscv \
+    CROSS_COMPILE=riscv64-linux-gnu- \
+    make \
+    PLATFORM=generic \
+    FW_PAYLOAD_PATH=/path/to/u-boot.bin
+
+The generic platform here indicates that it will be run on in Qemu; there are of
+course other platform options <a href=#7>[7]</a>.
+
+You'll notice that this invocation requires the u-boot binary, so I suppose we
+should talk about building that next!
+
+
+<span id=4.0><a href=#4.0>[4.0]</a></span> u-boot
+________________________________________________________________________________
+
+u-boot is the go-to bootloader for embedded hardware <a href=#8>[8]</a>. It has support for an
+almost unholy amount of devices (don't try to open the configs/ directory in
+your browser). The build process for it is very similar to how the kernel is
+built, but luckily it doesn't have nearly as many symbols to configure (just
+1200 SLOC). So carry over your knowledge from the kernel:
+
+ARCH=riscv make foo_defconfig
+
+ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- make menuconfig
+
+We only really require a small amount of tweaking to get our Qemu virt board
+running - because our gadget.yaml uses FAT, we enable CONFIG_ENV_IS_IN_FAT, and
+specify some options which become available once that is enabled:
+
+CONFIG_ENV_FAT_INTERFACE="virtio"    # Qemu's virt board does not support -sd
+CONFIG_ENV_FAT_DEVICE_AND_PART="0:1" # disk zero, first partition (ubuntu-seed)
+CONFIG_ENV_FAT_FILE="boot.scr"       # The file detailing *how* to boot
+
+Once we have those config options set, 
+
+ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- make
+
+Build OpenSBI with the built u-boot.bin, and you are almost good to go!
+
+
+<span id=5.0><a href=#5.0>[5.0]</a></span> Kernel
+________________________________________________________________________________
+
+The kernel is pretty easy to build. Ubuntu Core uses a kernel that is roughly
+similar to the regular Ubuntu kernel. Importantly, we need a kernel which
+supports Apparmor. At time of writing, almost all of those patches have been
+upstreamed. For now, we either need those patches or Ubuntu's kernel. I stole
+the base config file I used to build the kernel from the server image.
+
+However you go about acquiring this kernel doesn't so much matter. One could
+lift it directly from the RISC-V server image or build it from scratch. But one
+thing we certainly require for our kernel snap is an initrd. Again at time of
+writing, there is no Ubuntu Core initrd snap available for RISC-V. In fact,
+the tool used to create it (ubuntu-core-initramfs) is not available on RISC-V.
+
+This means that we have to build it ourselves.
+This also means that we have to build its dependencies ourselves, if they are
+not available on RISC-V.
+
+Only one such dependency is not available on RISC-V in the standard Ubuntu
+repositories: systemd-bootchart. This project seems to have diverged from
+systemd upstream and doesn't include any of the patches which were added to
+systemd proper to provide support to RISC-V. Luckily, this isn't so difficult to
+accomplish!
+
+I won't go into immense detail here in exactly how to build Ubuntu packages from
+source (there are a lot of resources available), but you can find some
+instructions in the repository I've made for this project (reminder link): 
+$/<a href=https://github.com/dilyn-corner/ubuntu-core-riscv64>dilyn-corner/ubuntu-core-riscv64</a>
+
+Once you have your uc-initrd snap, the rest of the work is pretty
+straightforward. My PR to add support to another Canonicler's project to add
+RISC-V 64-bit kernel cross-building kernel support has been merged, and you can
+find those plugins at $/<a href=https://github.com/kubiko/snapcraft-kernel-plugin>kubiko/snapcraft-kernel-plugin</a> to use in your kernel
+snap builds.
+
+One important thing to note: because we are booting using a virtualized drive,
+we have to enable CONFIG_VIRTIO_FS in our kernel. Because we are also using the
+FAT filesystem, we have to enable some codepages. These are generally built as
+modules in the upstream kernel config, BUT our Core initrd does *not* include
+the modprobe utility (at least not the way I built it), which means that we
+won't be able to find our filesystem or mount it without those two options
+builtin to our kernel. Just a word of warning.
+
+Finally, with those aforementioned plugins and our snapcraft.yaml fully defined,
+building the kernel is roughly as easy as:
+
+snapcraft \
+    --destructive-mode \
+    --target-arch=riscv64 \
+    --enable-experimental-target-arch
+
+(Note that the gadget can be built in a similar way once OpenSBI and u-boot are
+built).
+
+
+<span id=6.0><a href=#6.0>[6.0]</a></span> Board Bringup
+________________________________________________________________________________
+
+Once you have your built kernel and gadget snaps, you simply need to sign your
+model assertion and build your image. That is also a pretty easy process, and I
+won't document it here (again, see my repo for instructions or the official
+documentation <a href=#9>[9]</a>). The final image can then be booted by qemu with a very
+simple command:
+
+qemu-system-riscv64 \
+    -M virt -m 2G -smp 1 \
+    -drive file=ubuntu-core.img,format=raw,if=virtio
+
+If you've done everything correctly, you should be briefly greeted by the
+OpenSBI screen before u-boot quickly kicks off its process and the kernel starts
+doing its magical thing.
+
+After a while, the initrd will start, and after about ten minutes snapd will
+have finished bootstrapping the device and you'll be greeted by the usual
+console-conf interface to provision the device with your Ubuntu SSO account's
+SSH keys!
+
+Some helpful notes that are good to know:
+
+Press any key within two seconds of the machine booting (default time) to
+interrupt u-boot so it doesn't automatically start your environment. This is
+important to do to scope out the available memory addresses on whatever board
+you're trying to bring up.
+
+If you run into issues at the initrd step, you can add 'dangerous' to your
+kernel commandline to enable the emergency shell systemd drops you into when
+init fails -- these are masked by default on Core (for obvious reasons).
+
+If you run into kernel panics that aren't related to being unable to find your
+root device (make sure you built filesystem support *into* your kernel), you are
+probably more than likely encountering a bug related to your hardware, some sort
+of malformed device tree, or (in my case) OOM failures. Easiest way to resolve
+OOM is to just reevaluate where things are loaded - I like to put the initrd
+veeeeeeeerrryy far away from the kernel. On Qemu's virt board, the kernel is
+moved to 0x80200000 before it is started. Keep that in mind.
+
+Ultimately, this was a supremely fun project. I learned a lot of things I didn't
+previously understand or know much about, and I feel far more competent when
+dealing with more broad hardware setups than just AMD64. I'm excited to get my
+hands on my RISC-V board and do all sorts of fiddling around with it.
+
+And maybe I'll even pick up an ARM board.
+
+___
+
+<span id=0><a href=#0>[0]</a></span> <a href=https://riscv.org>https://riscv.org</a>
+<span id=1><a href=#1>[1]</a></span> <a href=https://www.aliexpress.com/item/1005003741287162.html?spm=a2g0o.9042311.0.0.16e84c4dzaUn0B>https://www.aliexpress.com/item/1005003741287162.html?spm=a2g0o.9042311.0.0.16e84c4dzaUn0B</a>
+<span id=2><a href=#2>[2]</a></span> <a href=https://www.aliexpress.com/item/1005002856721588.html?spm=a2g0o.store_pc_groupList.8148356.11.3afc6c1ezQ6plp>https://www.aliexpress.com/item/1005002856721588.html?spm=a2g0o.store_pc_groupList.8148356.11.3afc6c1ezQ6plp</a>
+<span id=3><a href=#3>[3]</a></span> <a href=https://github.com/snapcore/models>https://github.com/snapcore/models</a>
+<span id=4><a href=#4>[4]</a></span> <a href=https://snapcraft.io>https://snapcraft.io</a>
+<span id=5><a href=#5>[5]</a></span> <a href=https://github.com/snapcore/pi-gadget/blob/20-arm64/gadget.yaml>https://github.com/snapcore/pi-gadget/blob/20-arm64/gadget.yaml</a>
+<span id=6><a href=#6>[6]</a></span> <a href=https://github.com/riscv-software-src/opensbi>https://github.com/riscv-software-src/opensbi</a>
+<span id=7><a href=#7>[7]</a></span> <a href=https://github.com/riscv-software-src/opensbi/tree/master/platform>https://github.com/riscv-software-src/opensbi/tree/master/platform</a>
+<span id=8><a href=#8>[8]</a></span> <a href=https://github.com/u-boot/u-boot>https://github.com/u-boot/u-boot</a>
+<span id=9><a href=#9>[9]</a></span> <a href=https://snapcraft.io/docs>https://snapcraft.io/docs</a>
+
+
+________________________________________________________________________________
+
+Dilyn Corner (C) 2020-2022
+</pre></div></div>
