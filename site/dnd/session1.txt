@@ -16,7 +16,7 @@ this room, surrounded by desks with small, ever-burning lamps. After a small bit
 of investigating, they discovered a latern! Tab was less careful than intended
 with this lamp, and after the clasp popped open, a... bird(?) appeared!
 
-<img src="imgs/s1/lamp.jpg" alt="A lantern></tmp>
+<img src="imgs/s1/lamp.jpg" alt="A lantern></img>
 
 After some quick negotiating and explaining, The newfound companion (an
 Aarakocra named Ris) joins our haphazard troupe on their quest to find Ripper.
