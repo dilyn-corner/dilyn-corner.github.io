@@ -44,10 +44,11 @@ $/dilyn-corner/ubuntu-core-riscv64
 ________________________________________________________________________________
 
 - The Setup - Why?                                                         [1.0]
-- OpenSBI                                                                  [2.0]
-- u-boot                                                                   [3.0]
-- Board Bringup                                                            [4.0]
-
+- Gadget                                                                   [2.0]
+- OpenSBI                                                                  [3.0]
+- u-boot                                                                   [4.0]
+- Kernel                                                                   [5.0]
+- Board Bringup                                                            [6.0]
 
 
 [1.0] The Setup - Why?
