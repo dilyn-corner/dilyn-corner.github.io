@@ -93,7 +93,7 @@ particular image to you - this is how, for instance, your SSH keys are put on
 your device for easy headless access.
 
 Creating a model is quite straightforward, and in our case requires minimal
-modification:
+modification!
 
 Luckily for us, the core20 snap and the snapd snap are both available on the
 snapstore [4] for RISC-V. Cross-building the base snap is potentially quite
@@ -124,7 +124,7 @@ by doing a few key things:
 * A device tree for the board is loaded into memory (so that all the board 
   hardware is properly discovered and defined)
 
-* If an initramfs is required for booting the kernel, it is also loaded into
+* If an initramfs is required for booting the ROOTFS, it is also loaded into
   memory.
 
 * The kernel is loaded into RAM
@@ -133,8 +133,8 @@ by doing a few key things:
   the kernel starts doing its thing (after relocating and freeing), and it
   passes off to the initrd to do whatever its purpose is.
 
-In our case, the initrd bootstraps the Ubuntu Core system (it also rollsback our
-system in cases of boot failures and ensures that our ROOTFS is properly
+In our case, the initrd bootstraps the Ubuntu Core system (it also rolls back
+our system in cases of boot failures and ensures that our ROOTFS is properly
 unsquashed... It does a lot, okay?).
 
 We also need to include an environment file which determines how Core will boot;
@@ -203,7 +203,7 @@ ARCH=riscv \
     PLATFORM=generic \
     FW_PAYLOAD_PATH=/path/to/u-boot.bin
 
-The generic platform here indicates that it will be run on in Qemu; there are of
+The generic platform here indicates that it will be run in Qemu; there are of
 course other platform options [7].
 
 You'll notice that this invocation requires the u-boot binary, so I suppose we
