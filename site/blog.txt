@@ -1,6 +1,7 @@
 BLOG
 ________________________________________________________________________________
 
+@/blog/Ubuntu      - ZFS-on-root and a small Ubuntu
 @/blog/RISC-V      - Porting Ubuntu Core to RISC-V
 @/blog/Server-Git  - My Server Project - Part 3
 @/blog/Server-Mail - My Server Project - Part 2
