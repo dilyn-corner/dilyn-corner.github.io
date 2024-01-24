@@ -73,7 +73,9 @@ ________________________________________________________________________________
 - Ubuntu                                                                   [2.0]
 - The kernel                                                               [3.0]
 - The initrd                                                               [4.0]
+- Update                                                                   [4.1]
 - The results                                                              [5.0]
+- Update                                                                   [5.1]
 
 
 [1.0] Creating a pool
@@ -699,6 +701,60 @@ in the future, but unfortunately tinyramfs doesn't technically support
 specifying the root partition in the traditional way when using ZFS.
 
 
+[4.1]
+________________________________________________________________________________
+
+As a note, it's quite possible that your initrd may not function as well as
+you'd hope. For instance, you may find that your keyboard doesn't work, or that
+your GPU could start a bit quicker. Never fear, here's a quick tip for you to
+hear!
+
+tinyramfs leverages hooks to determine how the built initrd should function.
+In particular, these hooks are *user extendable*, meaning that while there are
+only a handful of hooks in the official releases, you can write your own! I put
+mine in /etc/tinyramfs/hook.d but tinyramfs will also check a specified local
+directory or /lib/tinyramfs/hook.d.
+
+Do:
+mkdir -p /etc/tinyramfs/hook.d/files
+cat > /etc/tinyramfs/hook.d/files/files << EOF
+{ IFS=,; set -- $kmods; unset IFS; }
+
+# Make it better in the future;
+# you could have a list in /etc/tinyramfs/config for this
+#for kmod $kmod_list; do
+#    copy_kmod "$kmod"
+#done
+
+# For now, just hardcode the file names
+copy_kmod i915
+copy_file /lib/firmware/i915/dg2_guc_70.bin  /lib/firmware/i915/dg2_guc_70.bin
+copy_file /lib/firmware/i915/dg2_huc_gsc.bin /lib/firmware/i915/dg2_guc_gsc.bin
+EOF
+
+cat > /etc/tinyramfs/hook.d/files/files.init << EOF
+# vim: set ft=sh:
+# shellcheck shell=sh
+#
+# https://shellcheck.net/wiki/SC2154
+# shellcheck disable=2154
+
+# Make it better in the future;
+# you could have a list in /etc/tinyramfs/config for this
+#for kmod in $kmod_list; do
+#    modprobe $kmod
+#done
+
+# For now, just hardcode the modules
+modprobe i915
+EOF
+
+
+You should find that your initrd is a fair bit bigger, and you can specify any
+specific modules or firmware files to be added to your initrd if you run into
+issues.
+
+
 [5.0] The results
 ________________________________________________________________________________
 
@@ -725,8 +781,33 @@ Other than that, the result... speaks for itself
 loading="lazy" src="https://user-images.githubusercontent.com/19582409/245215942-35984cee-da21-4c54-8c58-b496d9f04570.png" alt="The final desktop"></a>
 
 
-
 o/
+
+
+[5.1] Update
+________________________________________________________________________________
+
+It's quite possible that the hwacc branch of the chromium snap may close; I've
+recently found that latest/stable fully enables hwacc for my A750, so I've
+simply been tracking that for the last few weeks.
+
+Additionally, you'll probably find yourself needing a fair few packages. I'm
+now sitting at 830 installed, although I could drop quite a few if need be.
+Specifically, a lot of XWayland and QEMU related things, but I need them on and
+off for work so I keep them around.
+
+I did run into a fun problem with LXD recently where spinning up any containers
+would take forever, and they'd all be broken in some horrific way. Turns out
+it's because I had enabled UID mapping to share a folder on my host with the
+container and I didn't actually have uidmap installed, which means that LXD was
+silently failing because of a command not found error! In general, there will
+be quite a bit of troubleshooting you'll have to do when taking this approach;
+a lot of blog posts and other articles you find will no longer "just work" in
+many cases, and you'll have to do a bit of extra effort to figure out what the
+assumptions were. I've found a lot of bugs in ostensibly portable code and
+packaging simply because I took this approach. YMMV, happy hacking!
+
+
 ___
 
 [1] https://www.rainmeter.net/
