@@ -23,8 +23,8 @@ A minimal ZFS-on-root Ubuntu
 ________________________________________________________________________________
 
 I have always loved having total control over my computer. Initially, this
-desire brought me to Rainmeter <a href=#1>[1]</a>. Being able to perfectly control the look of
-the UI and UX of Windows was a breath of fresh air, the final piece of the
+desire brought me to Rainmeter <a href=#1>[1]</a>. Being able to perfectly control the look
+of the UI and UX of Windows was a breath of fresh air, the final piece of the
 puzzle for "owning a computer". By this point, I had already built several PCs,
 and this computer was the peak of performance. "I've done it", I thought; "this
 is the only machine I'll need".
@@ -41,23 +41,23 @@ handling a computer.
 
 Why couldn't the same be true of something as monolithic as Ubuntu?
 
-I certainly have several ovens in the fire, from $/<a href=https://github.com/dilyn-corner/snak>dilyn-corner/snak</a> to a handful
-of projects surrounding CI/CD management and $/<a href=https://github.com/dilyn-corner/ubuntu-core-riscv64>dilyn-corner/ubuntu-core-riscv64</a>
-not to mention various customer engagements. But all this effort leads to the
-inevitable: a lack of disk space. I've been using the same 1TB NVMe drive for
-five years now - an Intel 660P. But 1TB doesn't have the same mileage it used
-to. We need a change.
+I certainly have several ovens in the fire, from $/<a href=https://github.com/dilyn-corner/snak>dilyn-corner/snak</a> to
+a handful of projects surrounding CI/CD management and $/<a href=https://github.com/dilyn-corner/>dilyn-corner/</a>
+ubuntu-core-riscv64 not to mention various customer engagements. But all this
+effort leads to the inevitable: a lack of disk space. I've been using the same
+1TB NVMe drive for five years now - an Intel 660P. But 1TB doesn't have the same
+mileage it used to. We need a change.
 
-I've been aiming at building a NAS for a long, long while. Almost two decades at
-this point. And with what KISS demanded of a computer and my long-term plans
-surrounding building and serving packages and content, a powerful NAS is now the
-aim. The 7950x is a spicy chip, and my 3900x is "long in the tooth" -- an
+I've been aiming at building a NAS for a long, long while. Almost two decades
+at this point. And with what KISS demanded of a computer and my long-term plans
+surrounding building and serving packages and content, a powerful NAS is now
+the aim. The 7950x is a spicy chip, and my 3900x is "long in the tooth" -- an
 upgrade plan is clear, and I'm excited at the prospect of having some robust
 hardware which will last quite a long while. But that's a separate adventure for
 later this year. For now, just know that I've got an eye towards the future, and
-that requires some two new drives from the former folx behind Intel's SSDs <a href=#2>[2]</a>,
-one of Intel's spicy new GPUs to provide some saucy AV1 support <a href=#3>[3]</a>, and a
-doubling of my 32GB of RAM <a href=#4>[4]</a> to make way for a whole lotta ARC.
+that requires two new drives from the former folx behind Intel's SSDs <a href=#2>[2]</a>, one
+of Intel's spicy new GPUs to provide some saucy AV1 support <a href=#3>[3]</a>, and a doubling
+of my 32GB of RAM <a href=#4>[4]</a> to make way for a whole lotta ARC.
 
 For those curious, this is what I'm working with:
 
@@ -71,14 +71,14 @@ Adaptive Replacment Cache (ARC), which will use up to half your available RAM,
 plus give me a wide enough berth when building even the most demanding packages
 (cough, chromium), and keeping an eye towards the NAS horizon for this box.
 
-The two P44s offer a super performant stripe array for all of our data. I have a
-backup 2TB drive for now, but eventually we'll have a more robust backup and
+The two P44s offer a super performant stripe array for all of our data. I have
+a backup 2TB drive for now, but eventually we'll have a more robust backup and
 mirror setup.
 
 The A750 provides some much needed graphics improvements - I've been using a
 WX2100 since 2021 thanks to the GPU shortage, and I was going to nab an Intel
-card soon anyways for hardware accelerated encode/decode anyways. This does, of
-course, require that we use a relatively bleeding edge kernel. 6.2+ is the
+card soon anyways for hardware accelerated encode/decode anyways. This does,
+of course, require that we use a relatively bleeding edge kernel. 6.2+ is the
 baseline, though you could theoretically use a 6.1.x kernel depending on where
 you got it from.
 
@@ -94,7 +94,9 @@ ________________________________________________________________________________
 - Ubuntu                                                                   <a href=#2.0>[2.0]</a>
 - The kernel                                                               <a href=#3.0>[3.0]</a>
 - The initrd                                                               <a href=#4.0>[4.0]</a>
+- Update                                                                   <a href=#4.1>[4.1]</a>
 - The results                                                              <a href=#5.0>[5.0]</a>
+- Update                                                                   <a href=#5.1>[5.1]</a>
 
 
 <span id=1.0><a href=#1.0>[1.0]</a></span> Creating a pool
@@ -103,8 +105,8 @@ ________________________________________________________________________________
 The Ubuntu installer once offered the ability to have ZFS-on-root in a
 relatively painless and straightforward way. Of course being Ubuntu and
 attempting to appeal to the lowest common denominator, it does a lot of things
-the experienced and controlling enthusiast may not appreciate. The idea of a
-boot partition is familiar to most UNIX users, but having it on a ZFS pool
+the experienced and controlling enthusiast may not appreciate. The idea of
+a boot partition is familiar to most UNIX users, but having it on a ZFS pool
 presents a collection of challenges. Most bootloaders still don't support
 booting from a ZFS pool. I haven't used GRUB in years and I'm not looking to
 start now, and while ZFSBootMenu introduces an interesting new challenger to the
@@ -121,9 +123,9 @@ long-dead MBR. No thank you. I've lived with two partitions and an FHS-compliant
 system for years now, I don't need you to tell me what to do Mr. Installer.
 
 I did all of this work from what was then my daily-driver installation of Ubuntu
-22.04. You can run any of these steps from a current installation as long as you
-have the NVMe slots available for the new drives and the old one, or you can
-boot from a sufficiently dangerous boot USB - recent releases of Ubuntu,
+22.04. You can run any of these steps from a current installation as long as
+you have the NVMe slots available for the new drives and the old one, or you
+can boot from a sufficiently dangerous boot USB - recent releases of Ubuntu,
 Manjaro, etc. should be sufficient. As long as you have an environment where you
 have access to the various zfsutils commands, you'll be fine.
 
@@ -144,26 +146,26 @@ some special vdevs, but we're not talking about those here. An adequate mirror
 vdev is how you defend your pool. Data is write-levelled across vdevs in any
 particular pool.
 
-A dataset is just where data gets stored on your vdevs. They're very similar to
-traditional filesystems. You can think of them almost as being partitions of
+A dataset is just where data gets stored on your vdevs. They're very similar
+to traditional filesystems. You can think of them almost as being partitions of
 your vdev, although you won't (by default) size-limit any particular dataset.
 
-One last note: make sure that the options you choose are supported by the
-version of ZFS you plan on using. In my particular case, I'm using a
+One last note: make sure that the options you choose are supported by
+the version of ZFS you plan on using. In my particular case, I'm using a
 bleeding-edge kernel. Because I plan on also having datasets managed by a
 different distribution, I want to make sure both use the same version of ZFS to
-manage the pool. Because that other distribution is a rolling-release, I will be
-using the latest version of ZFS. If you don't care about this, whatever ZFS is
-available in your target distribution is sufficient. You can check various
-releases and supported kernel versions for each release at ~/openzfs/zfs
+manage the pool. Because that other distribution is a rolling-release, I will
+be using the latest version of ZFS. If you don't care about this, whatever ZFS
+is available in your target distribution is sufficient. You can check various
+releases and supported kernel versions for each release at $/<a href=https://github.com/openzfs/zfs>openzfs/zfs</a>
 Creating a pool with an older version of ZFS should be totally fine, but if you
 need newer options you'll need to use a newer release.
 
 
 NOTE: I plan on using both my new disks for my pool and having my boot partition
 on my older drive. If you don't have a third drive, you'll either need to create
-a boot partition on one drive and use the rest of the disk for the pool, or use
-something like GRUB or ZFSBootMenu to support booting from ZFS. I would
+a boot partition on one drive and use the rest of the disk for the pool, or
+use something like GRUB or ZFSBootMenu to support booting from ZFS. I would
 recommend that if you put a boot partition on one disk, you put a matching on on
 the other disk. Then you'll have pools of matching size. That might just be an
 aesthetic consideration though...
@@ -257,10 +259,11 @@ From here, you can create a flurry of datasets. Datasets should be logically
 separated from each other. The hierarchy in the pool is roughly irrelevant; what
 really matters is their mountpoint.
 
-There are two kinds of mountpoints: legacy or not. If you choose legacy, you
-will manage mounting your datasets exactly the same as you manage your
-traditional EXT{2,3,4}, XFS, etc. partitions. If you choose \<NOT\> legacy, your
-dataset *may* be automounted with respect to the root dataset's mount location.
+There are two kinds of mountpoints: legacy or not. If you choose legacy,
+you will manage mounting your datasets exactly the same as you manage your
+traditional EXT{2,3,4}, XFS, etc. partitions. If you choose \\<NOT\\> legacy,
+your dataset *may* be automounted with respect to the root dataset's mount
+location.
 
 That all is to say, choose legacy for now. Later, you can mess around with the
 mountpoints of any particular dataset and see what happens.
@@ -283,8 +286,8 @@ rpool/home      56.7G  1.34T      192K  legacy
 
 Datasets will inherit -o properties from their parent; whatever properties we
 set on rpool will be given to rpool/home unless we specifically change them. We
-can generally change them later if we feel so inclined; this means that we
-could do something like
+can generally change them later if we feel so inclined; this means that we could
+do something like
 
 zfs set compression=lz4 rpool/home
 
@@ -303,25 +306,25 @@ zfs create rpool/home/root
 
 To create a root dataset. Then you could do:
 
-zfs set mountpoint=none rpool/home
+zfs set mountpoint=none   rpool/home
 zfs set mountpoint=legacy rpool/home/dilyn
 zfs set mountpoint=legacy rpool/home/root
 
-This means that rpool/home *won't* be mounted (as in, NOT by ZFS), and
-home/dilyn and home/root will be mounted manually (as in, NOT by ZFS. Either
-manually via the mount command or by init through /etc/fstab).
+This means that rpool/home *won't* be mounted (as in, NOT by ZFS), and home/
+dilyn and home/root will be mounted manually (as in, NOT by ZFS. Either manually
+via the mount command or by init through /etc/fstab).
 
 The reason for having a home dataset which won't be mounted at all is because
 you can't have rpool/home/foo without rpool/home. It's just a convenient way of
 giving some sort of hierarchy to your datasets. You can do literally whatever
-you want with your datasets; between mountpoint and canmount, you have quite the
-flexibility in when/where/how any particular dataset gets mounted. Just be
+you want with your datasets; between mountpoint and canmount, you have quite
+the flexibility in when/where/how any particular dataset gets mounted. Just be
 careful; if you make /usr a dataset, you'll need to make sure it gets mounted
-before your initrd pivot_root's into /. Otherwise, you won't have any
-/usr/bin/init to handoff to.
+before your initrd pivot_root's into /. Otherwise, you won't have any /usr/bin/
+init to handoff to.
 
-Let's create a collection of datasets each of with either mountpoint=legacy or
-mountpoint=none:
+Let's create a collection of datasets each of with either mountpoint=legacy
+or mountpoint=none:
 
 zfs list
 NAME                      USED  AVAIL     REFER  MOUNTPOINT
@@ -362,8 +365,8 @@ installing your final system!
 
 NOTE: If you want to do something like dual booting, I'd create a new top-level
 dataset rpool/{OS} analogous to rpool/ubuntu. You can share rpool/home/{SET}
-between the two, or create entirely new datasets. Again, it DOES NOT matter what
-your dataset topology looks like - just that they get mounted in the right
+between the two, or create entirely new datasets. Again, it DOES NOT matter
+what your dataset topology looks like - just that they get mounted in the right
 places. The topology only matters if you let ZFS manage your pool mountpoints.
 If you choose mountpoint=legacy, they can be whatever and wherever YOU want. I
 would recommend using mountpoint=legacy for now, and change it up once you've
@@ -389,9 +392,9 @@ done
 ________________________________________________________________________________
 
 In principle, installation is pretty straightforward. If your distribution
-releases rootfs tarballs like KISS, you can just unpack it to /mnt. In our case,
-we're using Ubuntu. Because we don't want a lot of the cruft^W extra stuff that
-comes along with it, we're going to use debootstrap to create a very tiny
+releases rootfs tarballs like KISS, you can just unpack it to /mnt. In our
+case, we're using Ubuntu. Because we don't want a lot of the cruft^W extra stuff
+that comes along with it, we're going to use debootstrap to create a very tiny
 minimal system and build it out from there. Do:
 
 debootstrap $suite /mnt
@@ -406,16 +409,14 @@ echo $hostname > /mnt/etc/hostname
 sed -i "s/hostname/$hostname/g" /mnt/etc/hosts
 
 cat > /mnt/etc/apt/sources.list << EOF
-deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar main restricted
-deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar-updates main restricted
-deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar universe
-deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar-updates universe
-deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar multiverse
-deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar-updates multiverse
-deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar-backports main restricted universe multiverse
-deb <a href=http://security.ubuntu.com/ubuntu>http://security.ubuntu.com/ubuntu</a> lunar-security main restricted
-deb <a href=http://security.ubuntu.com/ubuntu>http://security.ubuntu.com/ubuntu</a> lunar-security universe
-deb <a href=http://security.ubuntu.com/ubuntu>http://security.ubuntu.com/ubuntu</a> lunar-security multiverse
+deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar           main     restricted
+deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar           universe multiverse
+deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar-updates   main     restricted
+deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar-updates   universe multiverse
+deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar-backports main     restricted
+deb <a href=http://us.archive.ubuntu.com/ubuntu/>http://us.archive.ubuntu.com/ubuntu/</a> lunar-backports universe multiverse
+deb <a href=http://security.ubuntu.com/ubuntu>http://security.ubuntu.com/ubuntu</a> lunar-security     main     restricted
+deb <a href=http://security.ubuntu.com/ubuntu>http://security.ubuntu.com/ubuntu</a> lunar-security     universe multiverse
 EOF
 
 I usually use the $/<a href=https://github.com/kisslinux/kiss/blob/master/contrib/kiss-chroot>kisslinux/kiss/blob/master/contrib/kiss-chroot</a> script for
@@ -510,7 +511,7 @@ mount /dev/nvme1n1p1 /boot
 
 Mount your boot partition to wherever your EFI partition goes. Technically
 speaking, it doesn't matter where you mount it to. All that matters is that, in
-the case of EFI booting, it's Fat 32 formatted.
+the case of EFI booting, it's FAT32 formatted.
 
 
 Again, you can use whatever kernel you want, as long as the version of the
@@ -531,6 +532,11 @@ ZFS=zfs-2.1.11
 wget \
     <a href=https://github.com/openzfs/zfs/releases/download/${ZFS}/${ZFS}.tar.gz>https://github.com/openzfs/zfs/releases/download/${ZFS}/${ZFS}.tar.gz</a>
 tar xf ${ZFS}.tar.gz
+
+Ensure all of the relevant build dependencies for the kernel are installed. At
+a minimum, this is bison, flex, libelf, openssl, and pkgconf. Depending on the
+kernel this also may include bash, perl, and python.
+apt install build-essential libelf-dev libssl-dev
 
 We need to make sure all the files exist for ZFS to probe when we build it:
 cd linux/
@@ -561,9 +567,9 @@ DESTDIR=path/to/location to install to some peculiar place. Just make sure that
 the zfs and zpool binaries end up in your path somehow.
 
 Once we've got ZFS taken care of, we can fiddle with our kernel. On recent
-enough (Lunar) releases of the Ubuntu kernel, the creation of the config has
-been changed! Now instead of cat'ing a bunch of config files to a single
-.config, you instead generate .config from the annotations file:
+enough (Lunar) releases of the Ubuntu kernel, the creation of the config
+has been changed! Now instead of cat'ing a bunch of config files to a
+single .config, you instead generate .config from the annotations file:
 
 python \
     debian/scripts/misc/annotations \
@@ -599,7 +605,7 @@ that location.
 
 Finally, you'll probably need some firmware blobs. Fetch them:
 
-URL=https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/
+URL=https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
 wget ${URL}/snapshot/linux-firmware-20230515.tar.gz
 mkdir -p /usr/lib/firmware
 tar xf linux-firmware-20230515.tar.gz
@@ -620,9 +626,9 @@ Stay in this chroot for the next step!
 <span id=4.0><a href=#4.0>[4.0]</a></span> The initrd
 ________________________________________________________________________________
 
-Choice of initrd can be very personal. Some people like to hand-craft their own
-/sbin/init from a hundred-line C file. Others like to not imagine what happens
-and offload all of the work to dracut. For us, we're using simple and
+Choice of initrd can be very personal. Some people like to hand-craft their
+own /sbin/init from a hundred-line C file. Others like to not imagine what
+happens and offload all of the work to dracut. For us, we're using simple and
 straightforward $/<a href=https://github.com/illiliti/tinyramfs>illiliti/tinyramfs</a>
 
 tinyramfs is a neat tool that does a lot of tedious work for us. It does
@@ -637,8 +643,8 @@ If you ever want to remove it, the uninstall target will cleanly handle that for
 you. You also have the option of using tinyramfs locally, but I'd rather keep it
 around globally for now.
 
-We need precisely two things in order to setup tinyramfs correctly: the name of
-our root dataset and the PARTUUID or UUID of one of the devices our pool is
+We need precisely two things in order to setup tinyramfs correctly: the name
+of our root dataset and the PARTUUID or UUID of one of the devices our pool is
 located on.
 
 For the former, you should already know; it's whatever dataset you mounted to
@@ -712,17 +718,71 @@ which contains your EFI boot partition. Be careful, as this can be different at
 any time.
 Traditionally, we would pass a 'root=foo' option in the unicode section, but
 tinyramfs is already given that via our config we made earlier. This may change
-in the future as, but unfortunately tinyramfs doesn't technically support
+in the future, but unfortunately tinyramfs doesn't technically support
 specifying the root partition in the traditional way when using ZFS.
+
+
+<span id=4.1><a href=#4.1>[4.1]</a></span>
+________________________________________________________________________________
+
+As a note, it's quite possible that your initrd may not function as well as
+you'd hope. For instance, you may find that your keyboard doesn't work, or that
+your GPU could start a bit quicker. Never fear, here's a quick tip for you to
+hear!
+
+tinyramfs leverages hooks to determine how the built initrd should function.
+In particular, these hooks are *user extendable*, meaning that while there are
+only a handful of hooks in the official releases, you can write your own! I put
+mine in /etc/tinyramfs/hook.d but tinyramfs will also check a specified local
+directory or /lib/tinyramfs/hook.d.
+
+Do:
+mkdir -p /etc/tinyramfs/hook.d/files
+cat > /etc/tinyramfs/hook.d/files/files << EOF
+{ IFS=,; set -- $kmods; unset IFS; }
+
+# Make it better in the future;
+# you could have a list in /etc/tinyramfs/config for this
+#for kmod $kmod_list; do
+#    copy_kmod "$kmod"
+#done
+
+# For now, just hardcode the file names
+copy_kmod i915
+copy_file /lib/firmware/i915/dg2_guc_70.bin  /lib/firmware/i915/dg2_guc_70.bin
+copy_file /lib/firmware/i915/dg2_huc_gsc.bin /lib/firmware/i915/dg2_guc_gsc.bin
+EOF
+
+cat > /etc/tinyramfs/hook.d/files/files.init << EOF
+# vim: set ft=sh:
+# shellcheck shell=sh
+#
+# <a href=https://shellcheck.net/wiki/SC2154>https://shellcheck.net/wiki/SC2154</a>
+# shellcheck disable=2154
+
+# Make it better in the future;
+# you could have a list in /etc/tinyramfs/config for this
+#for kmod in $kmod_list; do
+#    modprobe $kmod
+#done
+
+# For now, just hardcode the modules
+modprobe i915
+EOF
+
+
+You should find that your initrd is a fair bit bigger, and you can specify any
+specific modules or firmware files to be added to your initrd if you run into
+issues.
 
 
 <span id=5.0><a href=#5.0>[5.0]</a></span> The results
 ________________________________________________________________________________
 
-Go ahead and exit it your chroot and reboot your system. If everything went
-well, you should be greeted with a relatively quick initrd process which prompts
-you for your passphrase to unlock your ZFS pool, and then you'll be spat out to
-a tty where you can exec wayfire to your heart's content.
+Go ahead and exit your chroot and reboot your system. If everything went well,
+you should be greeted with a relatively quick initrd process which prompts you
+for your passphrase to unlock your ZFS pool, and then you'll be spat out to a
+tty where you can exec wayfire to your heart's content.
 
 As a bonus, you can do:
 
@@ -734,7 +794,7 @@ lxd init # answer yes when it asks if you want to add a LXD dataset to your pool
 And now you can game and have hardware accelerated video, all for free!
 
 
-Other than that, the results... speaks for itself
+Other than that, the result... speaks for itself
 
 
 
@@ -742,8 +802,33 @@ Other than that, the results... speaks for itself
 loading="lazy" src="https://user-images.githubusercontent.com/19582409/245215942-35984cee-da21-4c54-8c58-b496d9f04570.png" alt="The final desktop"></a>
 
 
-
 o/
+
+
+<span id=5.1><a href=#5.1>[5.1]</a></span> Update
+________________________________________________________________________________
+
+It's quite possible that the hwacc branch of the chromium snap may close; I've
+recently found that latest/stable fully enables hwacc for my A750, so I've
+simply been tracking that for the last few weeks.
+
+Additionally, you'll probably find yourself needing a fair few packages. I'm
+now sitting at 830 installed, although I could drop quite a few if need be.
+Specifically, a lot of XWayland and QEMU related things, but I need them on and
+off for work so I keep them around.
+
+I did run into a fun problem with LXD recently where spinning up any containers
+would take forever, and they'd all be broken in some horrific way. Turns out
+it's because I had enabled UID mapping to share a folder on my host with the
+container and I didn't actually have uidmap installed, which means that LXD was
+silently failing because of a command not found error! In general, there will
+be quite a bit of troubleshooting you'll have to do when taking this approach;
+a lot of blog posts and other articles you find will no longer "just work" in
+many cases, and you'll have to do a bit of extra effort to figure out what the
+assumptions were. I've found a lot of bugs in ostensibly portable code and
+packaging simply because I took this approach. YMMV, happy hacking!
+
+
 ___
 
 <span id=1><a href=#1>[1]</a></span> <a href=https://www.rainmeter.net/>https://www.rainmeter.net/</a>
