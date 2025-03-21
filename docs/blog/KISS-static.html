@@ -574,8 +574,8 @@ work.
     cd gcc/config
     for file in linux.h i386/linux.h i386/linux64.h
     do
-      sed -i 's@/<a href=/blog/lib>lib</a>\(64\)\?\(32\)\?/ld@/<a href=/blog/tools&@g'>tools&@g'</a> $file
-      sed -i 's@/<a href=/blog/usr@/tools@g'>usr@/tools@g'</a> $file
+      sed -i 's@/<a href=/blog/lib.html>lib</a>\(64\)\?\(32\)\?/ld@/<a href=/blog/tools&@g'.html>tools&@g'</a> $file
+      sed -i 's@/<a href=/blog/usr@/tools@g'.html>usr@/tools@g'</a> $file
       echo '
     #undef STANDARD_STARTFILE_PREFIX_1
     #undef STANDARD_STARTFILE_PREFIX_2
@@ -935,8 +935,8 @@ aren't chrooted. Otherwise, you might break something.
     ln -sv /tools/bin/ld                /tools/${KISS_TARGET}/bin/ld
     
     export SPECFILE=`dirname $(gcc -print-libgcc-file-name)`/specs
-    gcc -dumpspecs | sed -e 's@/<a href=/blog/tools@@g'>tools@@g'</a>                   \
-        -e '/\*startfile_prefix_spec:/{n;s@.*@/<a href=/blog/usr/lib/>usr/lib/</a> @}' \
+    gcc -dumpspecs | sed -e 's@/<a href=/blog/tools@@g'.html>tools@@g'</a>                   \
+        -e '/\*startfile_prefix_spec:/{n;s@.*@/<a href=/blog/usr/lib/.html>usr/lib/</a> @}' \
         -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' >  tempspecfile
     
     Inspect the file to ensure that every occurance of 
