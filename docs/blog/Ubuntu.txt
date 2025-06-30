@@ -66,7 +66,7 @@ taking a relatively KISS approach to the enterprise. Not for the faint of heart
 but rewarding for those willing to explore. Enjoy.
 
 
-[0.0] INDEX
+Index
 ________________________________________________________________________________
 
 - Creating a pool                                                          [1.0]

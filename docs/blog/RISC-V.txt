@@ -40,18 +40,18 @@ Code & notes for this project can be found at the below GitHub repository:
 $/dilyn-corner/ubuntu-core-riscv64
 
 
-[0.0] INDEX
+Index
 ________________________________________________________________________________
 
-- The Setup - Why?                                                         [1.0]
+- The setup - why?                                                         [1.0]
 - Gadget                                                                   [2.0]
 - OpenSBI                                                                  [3.0]
 - u-boot                                                                   [4.0]
 - Kernel                                                                   [5.0]
-- Board Bringup                                                            [6.0]
+- Board bringup                                                            [6.0]
 
 
-[1.0] The Setup - Why?
+[1.0] The setup - why?
 ________________________________________________________________________________
 
 I frequently embark on projects which excite me. I find learning about them far
@@ -294,7 +294,7 @@ snapcraft \
 built).
 
 
-[6.0] Board Bringup
+[6.0] Board bringup
 ________________________________________________________________________________
 
 Once you have your built kernel and gadget snaps, you simply need to sign your

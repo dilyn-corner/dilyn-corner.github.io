@@ -33,16 +33,16 @@ ________________________________________________________________________________
 
 - Preamble                                                                [0.0]
 
-- Starting Point                                                          [1.0]
+- Starting point                                                          [1.0]
 
-- Adapt - Part 1                                                          [2.0]
+- Adapt - part I                                                          [2.0]
     - linux-headers                                                       [2.1]
     - binutils                                                            [2.2]
-    - gcc - pass 1                                                        [2.3]
+    - gcc - pass I                                                        [2.3]
     - musl                                                                [2.4]
-    - gcc - pass 2                                                        [2.5]
+    - gcc - pass II                                                       [2.5]
 
-- Evolve - Part 2                                                         [3.0]
+- Evolve - part II                                                        [3.0]
     - musl                                                                [3.1]
     - binutils                                                            [3.2]
     - gcc                                                                 [3.3]
@@ -58,7 +58,7 @@ ________________________________________________________________________________
     - make                                                                [3.13]
     - xz                                                                  [3.14]
 
-- Overcome - Part 3                                                       [4.0]
+- Overcome - part III                                                     [4.0]
     - linux-headers                                                       [4.1]
     - musl                                                                [4.2]
     - Adjustments                                                         [4.3]
@@ -130,7 +130,7 @@ work detailing my steps, issues, failures, and success. Hopefully, by the end,
 we will have achieved our goal!
 
 
-[1.0] Starting Point
+[1.0] Starting point
 ________________________________________________________________________________
 
 As far as I have been able to divine, this entire enterprise requires more work
@@ -182,7 +182,7 @@ assembly - cmake and python? Too much too soon.  It's not impossible, mind:
 $/dilyn-corner/KISS-me/blob/wyverkiss-static/core/llvm/build
 
 
-[2.0] Adapt - Part 1
+[2.0] Adapt - part I
 ________________________________________________________________________________
 
 I spent a large amount of time building and troubleshooting during this project
@@ -287,7 +287,7 @@ Thus begineth the building.
     rm -rvf binutils-*
     
     
-    [2.3] gcc - pass 1
+    [2.3] gcc - pass I
     ____________________________________________________________________________
     
     What's important to note about gcc is that if host==target==build, gcc will
@@ -364,7 +364,7 @@ Thus begineth the building.
     rm -rvf musl-*
     
     
-    [2.5] gcc - pass 2
+    [2.5] gcc - pass II
     ____________________________________________________________________________
     
     We build gcc again here to add in some extra stuff, make some tweaks, and to
@@ -423,7 +423,7 @@ Thus begineth the building.
     requirements shall fall away.
     
     
-[3.0] Evolve - Part 2 
+[3.0] Evolve - part II 
 ________________________________________________________________________________
 
 Our primary goal in this section is to take our minimally-built toolchain and
@@ -835,7 +835,7 @@ work.
     rm -rf /tools/share/doc
     
 
-[4.0] Overcome - Part 3
+[4.0] Overcome - part III
 ________________________________________________________________________________
 
 Now that we have an assemblage of static tools and libraries, we can go ahead
