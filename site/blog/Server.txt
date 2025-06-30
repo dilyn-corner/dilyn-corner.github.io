@@ -44,16 +44,16 @@ In this post we're going to explore putting KISS on a Linode. Arguably, the
 easiest thing to install KISS to, and the easiest thing to have on a VPS. Enjoy.
 
 
-[0.0] INDEX
+Index
 ________________________________________________________________________________
 
-- Choose a Domain                                                          [1.0]
-- Choose a Hoster                                                          [2.0]
-- GitHub Pages                                                             [3.0]
+- Choose a domain                                                          [1.0]
+- Choose a hoster                                                          [2.0]
+- GitHub pages                                                             [3.0]
 
 
 
-[1.0] Choose a Domain
+[1.0] Choose a domain
 ________________________________________________________________________________
 
 The most important thing to get right here is that it should be unique. Lesser
@@ -78,7 +78,7 @@ does.
 Mostly, I'm just mad .corner isn't a TLD. 
 
 
-[2.0] Choose a Hoster
+[2.0] Choose a hoster
 ________________________________________________________________________________
 
 Hosting for your server can be a fickle business. In general, serving things
@@ -168,7 +168,7 @@ Ain't Linux amazing? KISS is officially the fastest distribution to install on a
 VPS - it takes less time than it does to provision the Linode!
 
 
-[3.0] GitHub Pages
+[3.0] GitHub pages
 ________________________________________________________________________________
 
 KISS' website is hosted using GitHub Pages $/kiss-community/website

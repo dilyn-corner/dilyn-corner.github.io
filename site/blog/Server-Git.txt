@@ -30,7 +30,7 @@ ________________________________________________________________________________
 
 - Setup the user and repositories                                          [1.0]
 - Stagit                                                                   [2.0]
-- The Git Daemon                                                           [3.0]
+- The git daemon                                                           [3.0]
 - References                                                               [4.0]
 
 
@@ -168,7 +168,7 @@ work on my stylesheet, which I ungraciously swiped from [8]. Thank you for your
 work and effort, Roman.
 
 
-[3.0] The Git Daemon
+[3.0] The git daemon
 ________________________________________________________________________________
 
 If you try to git clone your repository however, you're going to have a bad
