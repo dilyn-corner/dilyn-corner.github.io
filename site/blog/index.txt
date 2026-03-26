@@ -9,3 +9,4 @@ ________________________________________________________________________________
 @/Server      - My Server Project - Part 1
 @/Trajectory  - The Direction of KISS
 @/KISS-static - A New Project!
+@/032518      - A letter to myself
