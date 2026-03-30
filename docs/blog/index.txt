@@ -9,6 +9,7 @@ ________________________________________________________________________________
 @/Server      - My Server Project - Part 1
 @/Trajectory  - The Direction of KISS
 @/KISS-static - A New Project!
+@/033018      - I promise I don't hate myself
 @/032718      - Panic and distortion
 @/032618      - Telling people more
 @/032518      - A letter to myself
