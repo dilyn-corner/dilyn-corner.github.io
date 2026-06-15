@@ -9,6 +9,15 @@ ________________________________________________________________________________
 @/Server      - My Server Project - Part 1
 @/Trajectory  - The Direction of KISS
 @/KISS-static - A New Project!
+@/052318      - Waiting
+@/051218      - Tired
+@/050918      - Wrong
+@/050618      - Time for thoughts
+@/050218      - Space for thoughts
+@/042918      - Convinced
+@/042718      - Unconvinced
+@/042318      - Wellbutrin
+@/042218      - Not much to say
 @/041918      - Silence
 @/041818      - A harsh realization
 @/041718      - An exhausted soul
