@@ -9,6 +9,7 @@ ________________________________________________________________________________
 @/Server      - My Server Project - Part 1
 @/Trajectory  - The Direction of KISS
 @/KISS-static - A New Project!
+@/062218      - Make it up
 @/052318      - Waiting
 @/051218      - Tired
 @/050918      - Wrong
