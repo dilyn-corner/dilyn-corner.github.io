@@ -9,6 +9,9 @@ ________________________________________________________________________________
 @/Server      - My Server Project - Part 1
 @/Trajectory  - The Direction of KISS
 @/KISS-static - A New Project!
+@/120519      - What are we going to do
+@/101818      - Answers
+@/100218      - Questions
 @/081018      - Making plans
 @/080918      - Making changes
 @/072618      - It doesn't make sense
